@@ -11,6 +11,7 @@ export default {
       colors: {
         "color-page": "#00535B",
         "light-blue": "#8CDDE2",
+        "color-dashboard": "#EFF4FE",
       },
     },
   },

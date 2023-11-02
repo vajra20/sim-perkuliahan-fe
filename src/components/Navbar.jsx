@@ -17,7 +17,7 @@ const Navbar = () => {
               <span className="text-color-page text-xl font-medium -mb-1.5">
                 ITB SWARDHARMA
               </span>
-              <span className="text-[#00535B] text-xs font-normal italic">
+              <span className="text-color-page text-xs font-normal italic">
                 E-Learning
               </span>
             </div>
@@ -26,7 +26,7 @@ const Navbar = () => {
 
         <div className="flex items-center md:gap-10 android:gap-4 text-color-page">
           <NavLink href="/tentang-kami">Tentang Kami</NavLink>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink href="/login">Login</NavLink>
         </div>
       </div>
     </div>

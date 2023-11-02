@@ -3,8 +3,8 @@ import React from "react";
 const Login = () => {
   return (
     <div>
-      <div className="flex sm:flex-col md:flex-row w-full max-w-full h-screen">
-        <div className="bg-[#1B294D] px-20 py-6 w-full md:max-w-xl flex flex-col sm:max-w-full sm:h-full ">
+      <div className="flex android:flex-col md:flex-row w-full max-w-full h-screen">
+        <div className="bg-[#1B294D] px-20 py-6 w-full md:max-w-xl flex flex-col android:max-w-full android:h-full ">
           <div className="flex flex-row gap-x-3 items-center">
             <img
               className=" w-14 h-14 object-cover"
@@ -94,7 +94,12 @@ const Login = () => {
               </div>
             </div>
 
-            <button className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg">
+            <button
+              className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg"
+              onClick={() => {
+                window.location.href = "mahasiswa/penugasan1";
+              }}
+            >
               <span className="text-white font-semibold text-center uppercase">
                 Login
               </span>
@@ -102,7 +107,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="sm:hidden md:block w-full h-full">
+        <div className="android:hidden md:block w-full h-full">
           <img
             className="w-full h-full object-fill"
             src="public/bg-kampus.png"

@@ -13,12 +13,19 @@
     "@iconify/icons-formkit": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "swiper": "^11.0.3"
   },
   "devDependencies": {
+    "@iconify/icons-akar-icons": "^1.2.19",
     "@iconify/icons-basil": "^1.2.0",
+    "@iconify/icons-eos-icons": "^1.2.6",
     "@iconify/icons-fluent": "^1.2.38",
+    "@iconify/icons-gis": "^1.2.6",
+    "@iconify/icons-ph": "^1.2.5",
     "@iconify/icons-solar": "^1.2.3",
+    "@iconify/icons-tabler": "^1.2.95",
+    "@iconify/icons-vscode-icons": "^1.2.29",
     "@iconify/react": "^4.1.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
