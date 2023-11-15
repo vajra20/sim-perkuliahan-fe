@@ -7,6 +7,7 @@ import documentOutline from "@iconify/icons-basil/document-outline";
 import taskListSquare16Regular from "@iconify/icons-fluent/task-list-square-16-regular";
 import rulerPenLinear from "@iconify/icons-solar/ruler-pen-linear";
 import Footer from "../components/Footer";
+import VideoPlayer from "../components/VideoPlayer";
 
 const Home = () => {
   return (
@@ -42,26 +43,27 @@ const Home = () => {
               Semua dalam Satu Platform
             </h1>
             <span className="text-center text-black font-light w-full max-w-screen-md">
-              "Sistem informasi pendidikan terintegrasi dalam satu platform yang
-              dapat diakses secara bersama-sama kapan saja dan di mana saja."
+              &quot;Sistem informasi pendidikan terintegrasi dalam satu platform
+              yang dapat diakses secara bersama-sama kapan saja dan di mana
+              saja.&quot;
             </span>
           </div>
           <div className="flex justify-center w-full">
-            <div className="bg-[#D5ECED] flex justify-center w-max h-fit rounded-lg px-3 md:py-1 android:py-3">
-              <div className="flex android:flex-wrap lg:flex-nowrap gap-3 md:grid md:grid-cols-2 lg:flex">
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 py-3 android:w-full lg:w-fit">
+            <div className="bg-[#D5ECED] flex justify-center w-max md:w-full h-fit rounded-lg px-3 md:py-1 android:py-3 ">
+              <div className="android:flex-wrap android:flex gap-3 lg:flex-wrap lg:flex w-full md:grid md:grid-cols-2">
+                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons icon={peopleIcon} backgroundColor="#8CDDE2" />
                   <span className="text-color-page text-2xl font-medium">
                     Absensi
                   </span>
                 </div>
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 py-3 android:w-full lg:w-fit">
+                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons icon={documentOutline} backgroundColor="#8CDDE2" />
                   <span className="text-color-page text-2xl font-medium">
                     Jadwal
                   </span>
                 </div>
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 py-3 android:w-full lg:w-fit">
+                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons
                     icon={taskListSquare16Regular}
                     backgroundColor="#8CDDE2"
@@ -70,7 +72,7 @@ const Home = () => {
                     Penilaian
                   </span>
                 </div>
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 py-3 android:w-full lg:w-fit">
+                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons icon={rulerPenLinear} backgroundColor="#8CDDE2" />
                   <span className="text-color-page text-2xl font-medium">
                     Penugasan
@@ -83,13 +85,13 @@ const Home = () => {
 
         <div className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 mb-44">
           <div className="flex lg:justify-end android:justify-center android:mb-8 lg:mb-0">
-            <div className="relative max-w-fit overflow-hidden ">
+            <div className="relative max-w-fit  ">
               <img
                 className=" relative z-10 left-2/4 -translate-x-2/4"
                 src="public/landing-page-1.png"
                 alt=""
               ></img>
-              <div className="absolute bottom-0 -translate-x-2/4 left-1/2 w-full">
+              <div className="absolute pt-16 bottom-0 overflow-hidden -translate-x-2/4 left-1/2 w-full">
                 <div className="bg-color-page w-full h-full rounded-b-xl">
                   <img
                     className=" w-full h-full max-h-60 opacity-0"
@@ -97,7 +99,7 @@ const Home = () => {
                     alt=""
                   ></img>
                 </div>
-                <div className="absolute -top-10">
+                <div className="absolute top-10">
                   <div className="flex flex-col">
                     <div className="relative w-full max-w-fit">
                       <svg
@@ -236,25 +238,7 @@ const Home = () => {
 
         <div className="grid lg:grid-cols-2 md:gap-10 lg:gap-20 android:gap-8 mb-80 android:grid-cols-1">
           <div className="relative">
-            <img
-              className="relative z-10 h-full w-full"
-              src="public/video.png"
-              alt=""
-            ></img>
-            <div className="absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 z-20">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="85"
-                height="86"
-                viewBox="0 0 85 86"
-                fill="none"
-              >
-                <path
-                  d="M31.2884 1.62238C9.28519 7.48989 -4.36807 30.8471 1.27377 52.8503C8.15683 79.367 36.8174 92.7946 61.5287 80.9467C69.7658 76.9974 78.9056 66.955 82.1778 58.3794C91.2048 34.3451 77.7772 7.94124 53.2916 1.50954C45.1673 -0.52153 39.4127 -0.52153 31.2884 1.62238ZM47.7626 31.5242C55.4355 37.166 61.7544 42.1308 61.7544 42.695C61.7544 43.5977 34.335 64.134 33.0938 64.134C32.7553 64.134 32.4168 54.4301 32.4168 42.695C32.4168 30.8471 32.7553 21.256 33.0938 21.256C33.4323 21.256 40.0897 25.8823 47.7626 31.5242Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
+            <VideoPlayer />
             <img
               src="public/gimmick-1.png"
               className="android:hidden md:block absolute top-0 -translate-y-2/4 -translate-x-2/4 "

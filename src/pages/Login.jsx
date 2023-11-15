@@ -97,7 +97,7 @@ const Login = () => {
             <button
               className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg"
               onClick={() => {
-                window.location.href = "mahasiswa/penugasan1";
+                window.location.href = "/mahasiswa/jadwal";
               }}
             >
               <span className="text-white font-semibold text-center uppercase">
