@@ -19,6 +19,12 @@ export default {
         "gray-sub": "#828282",
         "dark-gray": "#565656",
         red: "#FF0000",
+        "blue-dashboard": "#8BBAFF30",
+        "dashboard-line": "#337CCF",
+        "event-color": "#D9D9D9",
+      },
+      gridTemplateColumns: {
+        dashboard: "60% auto",
       },
     },
   },

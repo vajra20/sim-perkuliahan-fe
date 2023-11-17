@@ -11,7 +11,7 @@ import dashboardLine from "@iconify/icons-ri/dashboard-line";
 var routes = [
   {
     path: "/beranda",
-    name: "Beranda",
+    name: "Dashboard",
     icon: dashboardLine,
     component: <Index />,
     layout: "/mahasiswa",

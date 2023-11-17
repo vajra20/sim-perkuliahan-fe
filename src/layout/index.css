@@ -46,3 +46,23 @@ align-items: center; */
  height: 15px !important;
  border: 1px solid#00535B;
 }
+
+thead.ant-table-thead>tr>th.ant-table-cell {
+ background: #DCE9FE !important;
+}
+
+thead.ant-table-thead>tr>th.ant-table-cell::before {
+ background: transparent !important;
+}
+
+div.ant-spin-container .ant-table {
+ border: 1px solid #C5C5C5
+}
+
+.ant-table-cell {
+ padding: 11px !important;
+}
+
+ul.ant-pagination.ant-table-pagination.ant-table-pagination-right.css-dev-only-do-not-override-1adbn6x {
+ justify-content: space-between;
+}

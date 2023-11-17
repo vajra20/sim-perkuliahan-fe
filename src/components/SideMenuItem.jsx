@@ -16,7 +16,6 @@ const SideMenuItem = ({ icon, label, path, onClick, activeStyle }) => {
         to={path}
         className={`flex flex-row gap-8 text-color-page items-center w-full ${IsUrlActiveText}`}
         onClick={onClick}
-        activeStyle={activeStyle}
       >
         {icon && <Icon className="w-8 h-8" icon={icon}></Icon>}
         <span className="text-lg font-medium">{label}</span>

@@ -20,7 +20,6 @@ const Sidebar = () => {
             // onClick={closeCollapse}
             icon={prop.icon}
             label={prop.name}
-            activeStyle={{ color: "red" }}
           ></SideMenuItem>
         </>
       );

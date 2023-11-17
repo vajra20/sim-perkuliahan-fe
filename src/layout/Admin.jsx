@@ -28,12 +28,15 @@ const Admin = (props) => {
   return (
     <div>
       <Sidebar {...props} routes={routes} />
-      <div ref={mainContent}>
+      <div
+        className="bg-color-dashboard w-full h-screen overflow-auto pl-[300px]"
+        ref={mainContent}
+      >
         <Routes>
           {getRoutes(routes)}
           <Route
             path="*"
-            element={<Navigate to="/mahasiswa/jadwal" replace />}
+            element={<Navigate to="/mahasiswa/beranda" replace />}
           />
         </Routes>
       </div>
