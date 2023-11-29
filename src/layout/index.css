@@ -63,6 +63,41 @@ div.ant-spin-container .ant-table {
  padding: 11px !important;
 }
 
-ul.ant-pagination.ant-table-pagination.ant-table-pagination-right.css-dev-only-do-not-override-1adbn6x {
- justify-content: space-between;
+.ant-pagination-total-text {
+ position: absolute;
+ left: 0;
+}
+
+:where(.css-dev-only-do-not-override-1adbn6x).ant-table-wrapper .ant-table-tbody .ant-table-row>.ant-table-cell-row-hover {
+ background: #F2F2F2;
+}
+
+.ant-modal-content {
+ padding: 0 !important;
+}
+
+.ant-modal-header {
+ background-color: #00535B !important;
+ padding: 12px 35px;
+
+}
+
+.ant-modal-close-x {
+ color: white;
+}
+
+.ant-modal-title {
+ color: white !important;
+ font-size: 20px !important;
+ font-weight: 400 !important;
+}
+
+.ant-modal-body {
+ padding: 0 35px;
+}
+
+.ant-modal-footer {
+ padding: 0 35px 20px 35px !important;
+ display: flex;
+ justify-content: flex-end;
 }

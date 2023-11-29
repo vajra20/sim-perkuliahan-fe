@@ -1,10 +1,11 @@
 import React from "react";
-import Sidebar from "../../components/Sidebar";
-import NavbarDashboard from "../../components/NavbarDashboard";
+import Sidebar from "../../../components/Sidebar";
+import NavbarDashboard from "../../../components/NavbarDashboard";
 import { Icon } from "@iconify/react";
 import searchIcon from "@iconify/icons-mdi/search";
+import { Link } from "react-router-dom";
 
-const penugasan1 = () => {
+const penugasan = () => {
   return (
     <div className="w-full h-full ">
       <NavbarDashboard />
@@ -27,7 +28,10 @@ const penugasan1 = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10">
-          <div className="flex p-8 items-center bg-[#3E9DC71A] rounded-3xl border border-dark-gray shadow-2xl gap-10">
+          <Link
+            to={"/mahasiswa/penugasan/list-tugas"}
+            className="flex p-8 items-center bg-[#3E9DC71A] rounded-3xl border border-dark-gray shadow-2xl gap-10"
+          >
             <img
               src="/public/task.png"
               alt=""
@@ -50,7 +54,7 @@ const penugasan1 = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
           <div className="flex p-8 items-center bg-[#F6D8FB] rounded-3xl border border-dark-gray gap-10">
             <img
               src="/public/task.png"
@@ -105,4 +109,4 @@ const penugasan1 = () => {
   );
 };
 
-export default penugasan1;
+export default penugasan;

@@ -7,11 +7,11 @@ import "./custom.css";
 // import App from "./App";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import ListTugas from "./pages/Mahasiswa/ListTugas";
-import DetailTugas from "./pages/Mahasiswa/DetailTugas";
 
 // Import Layout
-import Admin from "./layout/admin";
+import Admin from "./layout/LayAdmin";
+import Mahasiswa from "./layout/LayMahasiswa";
+import Dosen from "./layout/LayDosen";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,10 +19,11 @@ root.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/list-tugas" element={<ListTugas />} />
-      <Route path="/detail-tugas" element={<DetailTugas />} />
 
-      <Route path="/mahasiswa/*" element={<Admin />}></Route>
+      {/* Layout Route */}
+      <Route path="/mahasiswa/*" element={<Mahasiswa />}></Route>
+      <Route path="/admin/*" element={<Admin />}></Route>
+      <Route path="/dosen/*" element={<Dosen />}></Route>
     </Routes>
   </BrowserRouter>
 );

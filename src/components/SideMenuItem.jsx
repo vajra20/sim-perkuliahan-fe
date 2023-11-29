@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { NavLink } from "react-router-dom";
 
-const SideMenuItem = ({ icon, label, path, onClick, activeStyle }) => {
+const SideMenuItem = ({ icon, label, path, onClick }) => {
   const IsUrlActive = window.location.href.includes(path)
     ? "!bg-color-page"
     : "";

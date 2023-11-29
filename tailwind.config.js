@@ -8,6 +8,9 @@ export default {
       lg: "1024px",
     },
     extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+      },
       flex: {
         custom: "1 1 300px",
         custom_2: "1 1 280px",
@@ -22,6 +25,9 @@ export default {
         "blue-dashboard": "#8BBAFF30",
         "dashboard-line": "#337CCF",
         "event-color": "#D9D9D9",
+        "absent-color": "#FEDADA",
+        "absent-green-color": "#DBFEDA",
+        "blue-button": "#4690E4",
       },
       gridTemplateColumns: {
         dashboard: "60% auto",

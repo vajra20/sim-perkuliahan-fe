@@ -84,15 +84,15 @@ const Home = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 mb-44">
-          <div className="flex lg:justify-end android:justify-center android:mb-8 lg:mb-0">
-            <div className="relative max-w-fit  ">
+          <div className="flex lg:justify-end android:justify-center android:mb-8 lg:mb-0 items-center">
+            <div className="relative max-w-fit h-fit">
               <img
                 className=" relative z-10 left-2/4 -translate-x-2/4"
                 src="public/landing-page-1.png"
                 alt=""
               ></img>
               <div className="absolute pt-16 bottom-0 overflow-hidden -translate-x-2/4 left-1/2 w-full">
-                <div className="bg-color-page w-full h-full rounded-b-xl">
+                <div className="bg-color-page w-full h-full rounded-b-xl max-w-[597px]">
                   <img
                     className=" w-full h-full max-h-60 opacity-0"
                     src="public/landing-page-1.png"

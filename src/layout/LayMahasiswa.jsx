@@ -3,7 +3,8 @@ import { useLocation, Route, Routes, Navigate } from "react-router-dom";
 import routes from "../routes";
 import Sidebar from "../components/Sidebar";
 
-const Admin = (props) => {
+const Mahasiswa = (props) => {
+  const roles = "mahasiswa";
   const mainContent = React.useRef(null);
   const location = useLocation();
 
@@ -13,16 +14,12 @@ const Admin = (props) => {
       (mainContent.current.scrollTop = 0);
   }, [location]);
 
-  const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
-      if (prop.layout === "/mahasiswa") {
-        return (
-          <Route path={prop.path} element={prop.component} key={key} exact />
-        );
-      } else {
-        return null;
-      }
-    });
+  const getRoutes = (routes, layout) => {
+    return routes
+      .filter((prop) => prop.layout === layout)
+      .map((prop, key) => (
+        <Route path={prop.path} element={prop.component} key={key} exact />
+      ));
   };
 
   return (
@@ -32,16 +29,18 @@ const Admin = (props) => {
         className="bg-color-dashboard w-full h-screen overflow-auto pl-[300px]"
         ref={mainContent}
       >
+        <Routes>{getRoutes(routes, `/${roles}`)}</Routes>
         <Routes>
-          {getRoutes(routes)}
-          <Route
-            path="*"
-            element={<Navigate to="/mahasiswa/beranda" replace />}
-          />
+          {roles === "mahasiswa" && (
+            <Route
+              path="*"
+              // element={<Navigate to="/mahasiswa/beranda" replace />}
+            />
+          )}
         </Routes>
       </div>
     </div>
   );
 };
 
-export default Admin;
+export default Mahasiswa;

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [form, setForm] = useState({
+    username: '',
+    password: '',
+  })
   return (
     <div>
       <div className="flex android:flex-col md:flex-row w-full max-w-full h-screen">
@@ -97,7 +101,7 @@ const Login = () => {
             <button
               className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg"
               onClick={() => {
-                window.location.href = "/mahasiswa/jadwal";
+                window.location.href = "/admin/beranda-admin";
               }}
             >
               <span className="text-white font-semibold text-center uppercase">
@@ -120,3 +124,5 @@ const Login = () => {
 };
 
 export default Login;
+
+// bitch nigga

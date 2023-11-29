@@ -179,7 +179,7 @@ const Tables = () => {
   const paginationConfig = {
     pageSize: 10,
     showTotal: (total, range) =>
-      `Showing ${range[0]} - ${range[1]} of ${total} items`,
+      `Showing ${range[0]} - ${range[1]} of ${total} list`,
   };
 
   return (
