@@ -1,10 +1,48 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [form, setForm] = useState({
-    username: '',
-    password: '',
-  })
+    username: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  console.log(form.username);
+  console.log(form.password);
+
+  const handleLogin = async () => {
+    try {
+      await axios({
+        url: "http://localhost:8080/login",
+        method: "post",
+        data: {
+          username: form.username,
+          password: form.password,
+        },
+        headers: {
+          "Cache-Control": "no-cache",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }).then((res) => {
+        let role = res.data.role;
+        const rolePaths = {
+          Mahasiswa: "/mahasiswa/beranda",
+          Admin: "/admin/beranda-admin",
+          Dosen: "/dosen/beranda-dosen",
+        };
+        navigate(rolePaths[role]);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <div className="flex android:flex-col md:flex-row w-full max-w-full h-screen">
@@ -40,6 +78,7 @@ const Login = () => {
                     type="text"
                     name="username"
                     placeholder="Silahkan isi Username"
+                    onChange={handleChange}
                   ></input>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +103,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="Password"
+                    onChange={handleChange}
                   ></input>
                   <div>
                     <svg
@@ -100,9 +140,7 @@ const Login = () => {
 
             <button
               className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg"
-              onClick={() => {
-                window.location.href = "/admin/beranda-admin";
-              }}
+              onClick={handleLogin}
             >
               <span className="text-white font-semibold text-center uppercase">
                 Login
@@ -124,5 +162,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// bitch nigga

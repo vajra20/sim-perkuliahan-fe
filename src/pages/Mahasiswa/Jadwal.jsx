@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import NavbarDashboard from "../../components/NavbarDashboard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -21,7 +21,7 @@ const Jadwal = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 3000,
+            delay: 1000,
             disableOnInteraction: false,
           }}
           pagination={{

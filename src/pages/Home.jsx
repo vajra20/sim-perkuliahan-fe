@@ -8,14 +8,23 @@ import taskListSquare16Regular from "@iconify/icons-fluent/task-list-square-16-r
 import rulerPenLinear from "@iconify/icons-solar/ruler-pen-linear";
 import Footer from "../components/Footer";
 import VideoPlayer from "../components/VideoPlayer";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div>
       <Navbar />
       <div className="bg-white md:px-24 android:px-6">
         <div className="flex lg:flex-row items-center justify-center md:flex-col-reverse">
-          <div className="flex flex-col gap-4 justify-center android:items-center lg:items-start md:w-full lg:w-4/6 android:w-full">
+          <div
+            data-aos="fade-in"
+            className="flex flex-col gap-4 justify-center android:items-center lg:items-start md:w-full lg:w-4/6 android:w-full"
+          >
             <h1 className="text-color-page font-semibold lg:text-left android:text-center w-full">
               E-learning
             </h1>
@@ -24,7 +33,10 @@ const Home = () => {
               teknologi dan bisnis ditingkat nasional yang menghasilkan lulusan
               berdaya saing tinggi dan berjiwa teknopreneurship.
             </span>
-            <button className="px-8 py-1 rounded-3xl bg-color-page w-fit flex ">
+            <button
+              className="px-8 py-1 rounded-3xl bg-color-page w-fit flex"
+              onClick={handleToLogin}
+            >
               <span className="text-white font-medium text-lg">
                 Get Started
               </span>
@@ -38,7 +50,10 @@ const Home = () => {
         </div>
 
         <div className="flex flex-col my-28">
-          <div className="flex justify-center flex-col items-center mb-7">
+          <div
+            className="flex justify-center flex-col items-center mb-7"
+            data-aos="fade-down"
+          >
             <h1 className="text-black font-semibold text-center android:mb-4 md:mb-0">
               Semua dalam Satu Platform
             </h1>
@@ -48,7 +63,7 @@ const Home = () => {
               saja.&quot;
             </span>
           </div>
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full" data-aos="fade-down">
             <div className="bg-[#D5ECED] flex justify-center w-max md:w-full h-fit rounded-lg px-3 md:py-1 android:py-3 ">
               <div className="android:flex-wrap android:flex gap-3 lg:flex-wrap lg:flex w-full md:grid md:grid-cols-2">
                 <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
@@ -83,7 +98,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 mb-44">
+        <div
+          data-aos="fade-down"
+          className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 mb-44"
+        >
           <div className="flex lg:justify-end android:justify-center android:mb-8 lg:mb-0 items-center">
             <div className="relative max-w-fit h-fit">
               <img
@@ -177,10 +195,17 @@ const Home = () => {
         </div>
 
         <div className="bg-white flex flex-col justify-center w-full md:mb-52 android:mb-40">
-          <h1 className="text-black font-semibold text-center md:mb-16 android:mb-8">
+          <h1
+            className="text-black font-semibold text-center md:mb-16 android:mb-8"
+            data-aos="fade-down"
+          >
             Siapa saja yang bisa akses?
           </h1>
-          <div className="bg-[#99D1D569] px-8 py-8 rounded-2xl">
+          <div
+            className="bg-[#99D1D569] px-8 py-8 rounded-2xl"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+          >
             <div className="flex lg:flex-nowrap android:flex-wrap gap-8">
               <div className="bg-white p-8 flex flex-col justify-center rounded-xl">
                 <img
@@ -236,7 +261,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 md:gap-10 lg:gap-20 android:gap-8 mb-80 android:grid-cols-1">
+        <div
+          className="grid lg:grid-cols-2 md:gap-10 lg:gap-20 android:gap-8 mb-80 android:grid-cols-1"
+          data-aos="fade-down"
+        >
           <div className="relative">
             <VideoPlayer />
             <img

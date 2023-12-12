@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, Route, Routes, Navigate } from "react-router-dom";
 import routes from "../routes";
 import Sidebar from "../components/Sidebar";
+import { useSidebar } from "../context/ContextProvider";
 
 const Admin = (props) => {
+  const sidebarOpen = useSidebar();
+
+  // console.log("dilayout", sidebarOpen.sidebarOpen);
+
   const roles = "admin";
   const mainContent = React.useRef(null);
   const location = useLocation();
@@ -30,7 +35,9 @@ const Admin = (props) => {
     <div>
       <Sidebar {...props} routes={routes} />
       <div
-        className="bg-color-dashboard w-full h-screen overflow-auto pl-[300px]"
+        className={`bg-color-dashboard w-full h-screen overflow-auto pl-[300px] transition-all ${
+          sidebarOpen.sidebarOpen ? "" : "!pl-[200px]"
+        }`}
         ref={mainContent}
       >
         <Routes>{getRoutes(routes)}</Routes>

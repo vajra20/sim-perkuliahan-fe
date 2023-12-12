@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import NavbarDashboard from "../../../components/NavbarDashboard";
 import { Icon } from "@iconify/react";
 import searchIcon from "@iconify/icons-mdi/search";
