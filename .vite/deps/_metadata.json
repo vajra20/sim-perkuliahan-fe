@@ -1,0 +1,296 @@
+{
+  "hash": "7d10572f",
+  "browserHash": "9e316fd6",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "682aa533",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "4662e756",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "b3831dc5",
+      "needsInterop": false
+    },
+    "aos": {
+      "src": "../../node_modules/aos/dist/aos.esm.js",
+      "file": "aos.js",
+      "fileHash": "f06b7574",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "48555564",
+      "needsInterop": false
+    },
+    "@iconify/icons-formkit/people": {
+      "src": "../../node_modules/@iconify/icons-formkit/people.js",
+      "file": "@iconify_icons-formkit_people.js",
+      "fileHash": "38e23c0a",
+      "needsInterop": true
+    },
+    "@iconify/icons-basil/document-outline": {
+      "src": "../../node_modules/@iconify/icons-basil/document-outline.js",
+      "file": "@iconify_icons-basil_document-outline.js",
+      "fileHash": "43cfa29a",
+      "needsInterop": true
+    },
+    "@iconify/icons-fluent/task-list-square-16-regular": {
+      "src": "../../node_modules/@iconify/icons-fluent/task-list-square-16-regular.js",
+      "file": "@iconify_icons-fluent_task-list-square-16-regular.js",
+      "fileHash": "49b60e3b",
+      "needsInterop": true
+    },
+    "@iconify/icons-solar/ruler-pen-linear": {
+      "src": "../../node_modules/@iconify/icons-solar/ruler-pen-linear.js",
+      "file": "@iconify_icons-solar_ruler-pen-linear.js",
+      "fileHash": "85f99143",
+      "needsInterop": true
+    },
+    "@iconify/icons-akar-icons/schedule": {
+      "src": "../../node_modules/@iconify/icons-akar-icons/schedule.js",
+      "file": "@iconify_icons-akar-icons_schedule.js",
+      "fileHash": "b7b318e6",
+      "needsInterop": true
+    },
+    "@iconify/icons-tabler/home": {
+      "src": "../../node_modules/@iconify/icons-tabler/home.js",
+      "file": "@iconify_icons-tabler_home.js",
+      "fileHash": "7b4cd161",
+      "needsInterop": true
+    },
+    "@iconify/icons-ri/dashboard-line": {
+      "src": "../../node_modules/@iconify/icons-ri/dashboard-line.js",
+      "file": "@iconify_icons-ri_dashboard-line.js",
+      "fileHash": "153ff59b",
+      "needsInterop": true
+    },
+    "@iconify/icons-la/chalkboard-teacher": {
+      "src": "../../node_modules/@iconify/icons-la/chalkboard-teacher.js",
+      "file": "@iconify_icons-la_chalkboard-teacher.js",
+      "fileHash": "5e3dd351",
+      "needsInterop": true
+    },
+    "@iconify/icons-mdi/college-outline": {
+      "src": "../../node_modules/@iconify/icons-mdi/college-outline.js",
+      "file": "@iconify_icons-mdi_college-outline.js",
+      "fileHash": "325d775a",
+      "needsInterop": true
+    },
+    "@iconify/icons-solar/calendar-linear": {
+      "src": "../../node_modules/@iconify/icons-solar/calendar-linear.js",
+      "file": "@iconify_icons-solar_calendar-linear.js",
+      "fileHash": "cacf7868",
+      "needsInterop": true
+    },
+    "@iconify/icons-fluent/news-16-regular": {
+      "src": "../../node_modules/@iconify/icons-fluent/news-16-regular.js",
+      "file": "@iconify_icons-fluent_news-16-regular.js",
+      "fileHash": "b396d740",
+      "needsInterop": true
+    },
+    "@iconify/react": {
+      "src": "../../node_modules/@iconify/react/dist/iconify.mjs",
+      "file": "@iconify_react.js",
+      "fileHash": "7fcadca8",
+      "needsInterop": false
+    },
+    "@iconify/icons-fa/graduation-cap": {
+      "src": "../../node_modules/@iconify/icons-fa/graduation-cap.js",
+      "file": "@iconify_icons-fa_graduation-cap.js",
+      "fileHash": "bce49f90",
+      "needsInterop": true
+    },
+    "@iconify/icons-grommet-icons/attachment": {
+      "src": "../../node_modules/@iconify/icons-grommet-icons/attachment.js",
+      "file": "@iconify_icons-grommet-icons_attachment.js",
+      "fileHash": "2fe82bc9",
+      "needsInterop": true
+    },
+    "@iconify/icons-solar/folder-open-outline": {
+      "src": "../../node_modules/@iconify/icons-solar/folder-open-outline.js",
+      "file": "@iconify_icons-solar_folder-open-outline.js",
+      "fileHash": "808102da",
+      "needsInterop": true
+    },
+    "@iconify/icons-ri/drive-line": {
+      "src": "../../node_modules/@iconify/icons-ri/drive-line.js",
+      "file": "@iconify_icons-ri_drive-line.js",
+      "fileHash": "06cc6b4b",
+      "needsInterop": true
+    },
+    "@iconify/icons-system-uicons/paper-plane": {
+      "src": "../../node_modules/@iconify/icons-system-uicons/paper-plane.js",
+      "file": "@iconify_icons-system-uicons_paper-plane.js",
+      "fileHash": "4e5666ab",
+      "needsInterop": true
+    },
+    "antd": {
+      "src": "../../node_modules/antd/es/index.js",
+      "file": "antd.js",
+      "fileHash": "f708260d",
+      "needsInterop": false
+    },
+    "@iconify/icons-iconamoon/arrow-right-2": {
+      "src": "../../node_modules/@iconify/icons-iconamoon/arrow-right-2.js",
+      "file": "@iconify_icons-iconamoon_arrow-right-2.js",
+      "fileHash": "51feafdc",
+      "needsInterop": true
+    },
+    "swiper/react": {
+      "src": "../../node_modules/swiper/swiper-react.mjs",
+      "file": "swiper_react.js",
+      "fileHash": "34e65f1a",
+      "needsInterop": false
+    },
+    "swiper/modules": {
+      "src": "../../node_modules/swiper/modules/index.mjs",
+      "file": "swiper_modules.js",
+      "fileHash": "d74195e1",
+      "needsInterop": false
+    },
+    "@iconify/icons-vscode-icons/file-type-excel": {
+      "src": "../../node_modules/@iconify/icons-vscode-icons/file-type-excel.js",
+      "file": "@iconify_icons-vscode-icons_file-type-excel.js",
+      "fileHash": "7cf026cf",
+      "needsInterop": true
+    },
+    "@iconify/icons-gis/network-o": {
+      "src": "../../node_modules/@iconify/icons-gis/network-o.js",
+      "file": "@iconify_icons-gis_network-o.js",
+      "fileHash": "5b1f37b7",
+      "needsInterop": true
+    },
+    "@iconify/icons-eos-icons/iot": {
+      "src": "../../node_modules/@iconify/icons-eos-icons/iot.js",
+      "file": "@iconify_icons-eos-icons_iot.js",
+      "fileHash": "380dc490",
+      "needsInterop": true
+    },
+    "@iconify/icons-ph/math-operations": {
+      "src": "../../node_modules/@iconify/icons-ph/math-operations.js",
+      "file": "@iconify_icons-ph_math-operations.js",
+      "fileHash": "ac0ad40e",
+      "needsInterop": true
+    },
+    "dayjs": {
+      "src": "../../node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "d30d56a4",
+      "needsInterop": true
+    },
+    "dayjs/plugin/customParseFormat": {
+      "src": "../../node_modules/dayjs/plugin/customParseFormat.js",
+      "file": "dayjs_plugin_customParseFormat.js",
+      "fileHash": "6096eff1",
+      "needsInterop": true
+    },
+    "@iconify/icons-mdi/plus": {
+      "src": "../../node_modules/@iconify/icons-mdi/plus.js",
+      "file": "@iconify_icons-mdi_plus.js",
+      "fileHash": "0f818d6f",
+      "needsInterop": true
+    },
+    "@iconify/icons-ph/dots-three-vertical-bold": {
+      "src": "../../node_modules/@iconify/icons-ph/dots-three-vertical-bold.js",
+      "file": "@iconify_icons-ph_dots-three-vertical-bold.js",
+      "fileHash": "58662849",
+      "needsInterop": true
+    },
+    "@iconify/icons-ci/users": {
+      "src": "../../node_modules/@iconify/icons-ci/users.js",
+      "file": "@iconify_icons-ci_users.js",
+      "fileHash": "0aeabbb4",
+      "needsInterop": true
+    },
+    "@iconify/icons-mdi/search": {
+      "src": "../../node_modules/@iconify/icons-mdi/search.js",
+      "file": "@iconify_icons-mdi_search.js",
+      "fileHash": "16b6dfc4",
+      "needsInterop": true
+    },
+    "@iconify/icons-pajamas/todo-add": {
+      "src": "../../node_modules/@iconify/icons-pajamas/todo-add.js",
+      "file": "@iconify_icons-pajamas_todo-add.js",
+      "fileHash": "f3f2a5b4",
+      "needsInterop": true
+    },
+    "@iconify/icons-tabler/edit": {
+      "src": "../../node_modules/@iconify/icons-tabler/edit.js",
+      "file": "@iconify_icons-tabler_edit.js",
+      "fileHash": "64f90aec",
+      "needsInterop": true
+    },
+    "@iconify/icons-ion/trash": {
+      "src": "../../node_modules/@iconify/icons-ion/trash.js",
+      "file": "@iconify_icons-ion_trash.js",
+      "fileHash": "2cab7cf1",
+      "needsInterop": true
+    },
+    "react-signature-canvas": {
+      "src": "../../node_modules/react-signature-canvas/build/index.js",
+      "file": "react-signature-canvas.js",
+      "fileHash": "4a73781b",
+      "needsInterop": true
+    },
+    "@iconify/icons-mdi/clock-outline": {
+      "src": "../../node_modules/@iconify/icons-mdi/clock-outline.js",
+      "file": "@iconify_icons-mdi_clock-outline.js",
+      "fileHash": "d7ff9496",
+      "needsInterop": true
+    },
+    "@iconify/icons-solar/calendar-bold": {
+      "src": "../../node_modules/@iconify/icons-solar/calendar-bold.js",
+      "file": "@iconify_icons-solar_calendar-bold.js",
+      "fileHash": "ef174d6b",
+      "needsInterop": true
+    },
+    "@iconify/icons-iconamoon/profile-fill": {
+      "src": "../../node_modules/@iconify/icons-iconamoon/profile-fill.js",
+      "file": "@iconify_icons-iconamoon_profile-fill.js",
+      "fileHash": "948dca49",
+      "needsInterop": true
+    },
+    "@iconify/icons-la/save-solid": {
+      "src": "../../node_modules/@iconify/icons-la/save-solid.js",
+      "file": "@iconify_icons-la_save-solid.js",
+      "fileHash": "b1a476d7",
+      "needsInterop": true
+    },
+    "@iconify/icons-mdi/logout": {
+      "src": "../../node_modules/@iconify/icons-mdi/logout.js",
+      "file": "@iconify_icons-mdi_logout.js",
+      "fileHash": "c62bd4b4",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-OTY6O57J": {
+      "file": "chunk-OTY6O57J.js"
+    },
+    "chunk-NKBWXMIR": {
+      "file": "chunk-NKBWXMIR.js"
+    },
+    "chunk-PJWHG5L7": {
+      "file": "chunk-PJWHG5L7.js"
+    },
+    "chunk-HNRGSTF7": {
+      "file": "chunk-HNRGSTF7.js"
+    },
+    "chunk-2PA4WPI3": {
+      "file": "chunk-2PA4WPI3.js"
+    },
+    "chunk-ROME4SDB": {
+      "file": "chunk-ROME4SDB.js"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@iconify/icons-ph/dots-three-vertical-bold.js"],
+  "sourcesContent": ["const data = {\n\t\"width\": 256,\n\t\"height\": 256,\n\t\"body\": \"<path fill=\\\"currentColor\\\" d=\\\"M112 60a16 16 0 1 1 16 16a16 16 0 0 1-16-16Zm16 52a16 16 0 1 0 16 16a16 16 0 0 0-16-16Zm0 68a16 16 0 1 0 16 16a16 16 0 0 0-16-16Z\\\"/>\"\n};\nexports.__esModule = true;\nexports.default = data;\n"],
+  "mappings": ";;;;;AAAA;AAAA;AAAA,QAAM,OAAO;AAAA,MACZ,SAAS;AAAA,MACT,UAAU;AAAA,MACV,QAAQ;AAAA,IACT;AACA,YAAQ,aAAa;AACrB,YAAQ,UAAU;AAAA;AAAA;",
+  "names": []
+}

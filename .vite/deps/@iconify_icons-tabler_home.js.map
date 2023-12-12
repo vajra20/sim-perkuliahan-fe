@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@iconify/icons-tabler/home.js"],
+  "sourcesContent": ["const data = {\n\t\"width\": 24,\n\t\"height\": 24,\n\t\"body\": \"<g fill=\\\"none\\\" stroke=\\\"currentColor\\\" stroke-linecap=\\\"round\\\" stroke-linejoin=\\\"round\\\" stroke-width=\\\"2\\\"><path d=\\\"M5 12H3l9-9l9 9h-2M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7\\\"/><path d=\\\"M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6\\\"/></g>\"\n};\nexports.__esModule = true;\nexports.default = data;\n"],
+  "mappings": ";;;;;AAAA;AAAA;AAAA,QAAM,OAAO;AAAA,MACZ,SAAS;AAAA,MACT,UAAU;AAAA,MACV,QAAQ;AAAA,IACT;AACA,YAAQ,aAAa;AACrB,YAAQ,UAAU;AAAA;AAAA;",
+  "names": []
+}

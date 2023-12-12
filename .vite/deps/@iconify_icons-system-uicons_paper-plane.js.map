@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@iconify/icons-system-uicons/paper-plane.js"],
+  "sourcesContent": ["const data = {\n\t\"width\": 21,\n\t\"height\": 21,\n\t\"body\": \"<path fill=\\\"none\\\" stroke=\\\"currentColor\\\" stroke-linecap=\\\"round\\\" stroke-linejoin=\\\"round\\\" d=\\\"m1.5 9l16-6.535L14.7 17zm16-6.5l-11 10m0 0v5l3-3\\\"/>\"\n};\nexports.__esModule = true;\nexports.default = data;\n"],
+  "mappings": ";;;;;AAAA;AAAA;AAAA,QAAM,OAAO;AAAA,MACZ,SAAS;AAAA,MACT,UAAU;AAAA,MACV,QAAQ;AAAA,IACT;AACA,YAAQ,aAAa;AACrB,YAAQ,UAAU;AAAA;AAAA;",
+  "names": []
+}

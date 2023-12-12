@@ -1,46 +1,82 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const apiUrl = JSON.stringify(import.meta.env.VITE_REACT_API_URL);
+
+  // State Form
   const [form, setForm] = useState({
     username: "",
     password: "",
   });
-  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const [isLoading, setIsLoading] = useState(false);
+  const [handleTogglePassword, setHandleTogglePassword] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setHandleTogglePassword(handleTogglePassword ? false : true);
   };
-  console.log(form.username);
-  console.log(form.password);
 
-  const handleLogin = async () => {
-    try {
-      await axios({
-        url: "http://localhost:8080/login",
-        method: "post",
-        data: {
-          username: form.username,
-          password: form.password,
-        },
-        headers: {
-          "Cache-Control": "no-cache",
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Access-Control-Allow-Origin": "*",
-        },
-      }).then((res) => {
-        let role = res.data.role;
-        const rolePaths = {
-          Mahasiswa: "/mahasiswa/beranda",
-          Admin: "/admin/beranda-admin",
-          Dosen: "/dosen/beranda-dosen",
-        };
-        navigate(rolePaths[role]);
-      });
-    } catch (error) {
-      console.error(error);
-    }
+  // Form Handler
+  const formHandler = (name, value) => {
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  // Handle Submit
+  const handleLogin = () => {
+    // setIsLoading(true);
+    // axios
+    // 	.post(
+    // 		`${apiUrl}/auth/login`,
+    // 		{
+    // 			username,
+    // 			password,
+    // 		},
+    // 		{
+    // 			headers: {
+    // 				Accept: "application/json",
+    // 				"Access-Control-Allow-Origin": "*",
+    // 				"ngrok-skip-browser-warning": "true",
+    // 			},
+    // 		}
+    // 	)
+    // 	.then((res) => {
+    // 		if (res.data.statusCode == 200) {
+    // 			localStorage.setItem("user_id", res.data.user_id);
+    // 			localStorage.setItem("username", res.data.username);
+    // 			localStorage.setItem("role", res.data.role);
+    // 			localStorage.setItem("accessToken", res.data.token);
+    // 			Swal.fire({
+    // 				title: "Login Success",
+    // 				icon: "success",
+    // 				timer: 1500,
+    // 				showConfirmButton: false,
+    // 			});
+    // 			setIsLoading(false);
+    // 		} else {
+    // 			navigate("/login");
+    // 			Swal.fire({
+    // 				title: "Login Failed",
+    // 				icon: "error",
+    // 			});
+    // 			setIsLoading(true);
+    // 		}
+    // 	})
+    // 	.catch((err) => {
+    // 		setIsLoading(false);
+    // 		Swal.fire({
+    // 			title: "Login Failed",
+    // 			text: err.response.data.message,
+    // 			icon: "error",
+    // 		});
+    // 		console.error(err);
+    // 	});
   };
 
   return (
@@ -78,7 +114,7 @@ const Login = () => {
                     type="text"
                     name="username"
                     placeholder="Silahkan isi Username"
-                    onChange={handleChange}
+                    onChange={(e) => formHandler("username", e.target.value)}
                   ></input>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -98,13 +134,24 @@ const Login = () => {
               <div className="flex flex-col gap-2">
                 <label className="text-white">Password</label>
                 <div className="relative flex flex-row-reverse items-center justify-end bg-white w-full h-fit rounded-lg px-4 py-3 gap-x-2">
+                  <span
+                    className="relative float-right"
+                    onClick={togglePasswordVisiblity}
+                  >
+                    <FontAwesomeIcon
+                      icon={handleTogglePassword ? faEye : faEyeSlash}
+                      className="text-black"
+                      size="sm"
+                    />
+                  </span>
                   <input
                     className="w-full focus:outline-0"
-                    type="password"
                     name="password"
                     placeholder="Password"
-                    onChange={handleChange}
+                    type={handleTogglePassword ? "text" : "password"}
+                    onChange={(e) => formHandler("password", e.target.value)}
                   ></input>
+
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -139,11 +186,16 @@ const Login = () => {
             </div>
 
             <button
+              type="submit"
               className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg"
-              onClick={handleLogin}
+              onClick={() => handleLogin()}
+              disabled={isLoading}
+              // onClick={() => {
+              // 	window.location.href = "/admin/beranda-admin";
+              // }}
             >
               <span className="text-white font-semibold text-center uppercase">
-                Login
+                {isLoading ? "Logging In..." : "Login"}
               </span>
             </button>
           </div>

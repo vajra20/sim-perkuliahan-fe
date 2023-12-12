@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@iconify/icons-iconamoon/profile-fill.js"],
+  "sourcesContent": ["const data = {\n\t\"width\": 24,\n\t\"height\": 24,\n\t\"body\": \"<path fill=\\\"currentColor\\\" fill-rule=\\\"evenodd\\\" d=\\\"M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0Zm0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5H8Z\\\" clip-rule=\\\"evenodd\\\"/>\"\n};\nexports.__esModule = true;\nexports.default = data;\n"],
+  "mappings": ";;;;;AAAA;AAAA;AAAA,QAAM,OAAO;AAAA,MACZ,SAAS;AAAA,MACT,UAAU;AAAA,MACV,QAAQ;AAAA,IACT;AACA,YAAQ,aAAa;AACrB,YAAQ,UAAU;AAAA;AAAA;",
+  "names": []
+}

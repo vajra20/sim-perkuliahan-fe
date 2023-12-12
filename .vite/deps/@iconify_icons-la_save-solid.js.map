@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@iconify/icons-la/save-solid.js"],
+  "sourcesContent": ["const data = {\n\t\"width\": 32,\n\t\"height\": 32,\n\t\"body\": \"<path fill=\\\"currentColor\\\" d=\\\"M5 5v22h22V9.594l-.281-.313l-4-4L22.406 5zm2 2h3v6h12V7.437l3 3V25h-2v-9H9v9H7zm5 0h4v2h2V7h2v4h-8zm-1 11h10v7H11z\\\"/>\"\n};\nexports.__esModule = true;\nexports.default = data;\n"],
+  "mappings": ";;;;;AAAA;AAAA;AAAA,QAAM,OAAO;AAAA,MACZ,SAAS;AAAA,MACT,UAAU;AAAA,MACV,QAAQ;AAAA,IACT;AACA,YAAQ,aAAa;AACrB,YAAQ,UAAU;AAAA;AAAA;",
+  "names": []
+}
