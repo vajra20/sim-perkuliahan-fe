@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,67 +31,71 @@ const Login = () => {
 
   // Handle Submit
   const handleLogin = () => {
-    // setIsLoading(true);
-    // axios
-    // 	.post(
-    // 		`${apiUrl}/auth/login`,
-    // 		{
-    // 			username,
-    // 			password,
-    // 		},
-    // 		{
-    // 			headers: {
-    // 				Accept: "application/json",
-    // 				"Access-Control-Allow-Origin": "*",
-    // 				"ngrok-skip-browser-warning": "true",
-    // 			},
-    // 		}
-    // 	)
-    // 	.then((res) => {
-    // 		if (res.data.statusCode == 200) {
-    // 			localStorage.setItem("user_id", res.data.user_id);
-    // 			localStorage.setItem("username", res.data.username);
-    // 			localStorage.setItem("role", res.data.role);
-    // 			localStorage.setItem("accessToken", res.data.token);
-    // 			Swal.fire({
-    // 				title: "Login Success",
-    // 				icon: "success",
-    // 				timer: 1500,
-    // 				showConfirmButton: false,
-    // 			});
-    // 			setIsLoading(false);
-    // 		} else {
-    // 			navigate("/login");
-    // 			Swal.fire({
-    // 				title: "Login Failed",
-    // 				icon: "error",
-    // 			});
-    // 			setIsLoading(true);
-    // 		}
-    // 	})
-    // 	.catch((err) => {
-    // 		setIsLoading(false);
-    // 		Swal.fire({
-    // 			title: "Login Failed",
-    // 			text: err.response.data.message,
-    // 			icon: "error",
-    // 		});
-    // 		console.error(err);
-    // 	});
+    setIsLoading(true);
+    const { username, password } = form;
+    axios
+      .post(
+        `${apiUrl}/auth/login`,
+        {
+          username,
+          password,
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      )
+      .then((res) => {
+        if (res.data.statusCode == 200) {
+          localStorage.setItem("user_id", res.data.user_id);
+          localStorage.setItem("username", res.data.username);
+          localStorage.setItem("role", res.data.role);
+          localStorage.setItem("accessToken", res.data.token);
+          Swal.fire({
+            title: "Login Success",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false,
+          });
+          setIsLoading(false);
+        } else {
+          navigate("/login");
+          Swal.fire({
+            title: "Login Failed",
+            icon: "error",
+          });
+          setIsLoading(true);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        Swal.fire({
+          title: "Login Failed",
+          text: err.response.data.message,
+          icon: "error",
+        });
+        console.error(err);
+      });
   };
 
   return (
     <div>
       <div className="flex android:flex-col md:flex-row w-full max-w-full h-screen">
-        <div className="bg-[#1B294D] px-20 py-6 w-full md:max-w-xl flex flex-col android:max-w-full android:h-full ">
+        <div className="bg-[#1B294D] sm:px-20 android:px-10 py-6 w-full md:max-w-xl flex flex-col android:max-w-full android:h-full ">
           <div className="flex flex-row gap-x-3 items-center">
             <img
               className=" w-14 h-14 object-cover"
               src="public/logo.png"
             ></img>
-            <div className="text-white flex flex-col font-bold">
-              <span>INSTITUT TEKNOLOGI DAN BISNIS</span>
+            <div className="text-white sm:flex flex-col font-bold android:hidden">
+              <span>INSTITUT TEKNOLOGI DAN BISNIS </span>
               <span>SWADHARMA</span>
+            </div>
+            <div className="text-white sm:hidden font-bold android:block">
+              <span>INSTITUT TEKNOLOGI DAN BISNIS SWADHARMA</span>
             </div>
           </div>
 
@@ -187,7 +192,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg"
+              className="bg-gradient-to-t from-[#0EA5C680] to-[#0EA5C680]/100 w-full py-2 rounded-lg hover:bg-blue-600 transition-all"
               onClick={() => handleLogin()}
               disabled={isLoading}
               // onClick={() => {

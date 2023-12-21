@@ -17,13 +17,16 @@ align-items: center; */
 .swiper-slide img {
  display: block;
  width: 100%;
- height: 100%;
+ height: 500px;
  max-height: 313px;
  border-radius: 30px;
  object-fit: cover;
  object-position: center;
 }
 
+.mySwiper {
+ border-radius: 12px !important;
+}
 .swiper.swiper-initialized.swiper-horizontal.mySwiper.swiper-backface-hidden {
  position: relative !important;
  margin-bottom: 60px;
@@ -64,7 +67,8 @@ div.ant-spin-container .ant-table {
 }
 
 .ant-pagination-total-text {
- position: absolute;
+  display: block;
+  position: absolute;
  left: 0;
 }
 
@@ -103,4 +107,42 @@ div.ant-spin-container .ant-table {
 }
 #upload-file {
  color: red;
+}
+.ant-pagination.ant-table-pagination.ant-table-pagination-right {
+ justify-content: flex-end !important;
+}
+
+.ant-table {
+ overflow-x: auto;
+}
+
+.ant-table::-webkit-scrollbar {
+ width: 1px;
+ height: 5px;
+}
+
+.ant-table::-webkit-scrollbar-track {
+ box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.15 );
+ border-radius: 25px;
+}
+
+.ant-table::-webkit-scrollbar-thumb {
+ background-color: darkgrey;
+}
+
+@media only screen and (max-width: 640px) {
+ .swiper-slide img {
+  max-height: 250px;
+  border-radius: 12px;
+ }
+
+ .ant-pagination-total-text {
+  display: none !important;
+  position: absolute;
+  left: 0;
+ }
+
+ .ant-pagination.ant-table-pagination.ant-table-pagination-right {
+  justify-content: center !important;
+ }
 }

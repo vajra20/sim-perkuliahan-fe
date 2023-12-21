@@ -8,15 +8,12 @@ import "swiper/css/navigation";
 import "../../layout/index.css";
 import Icons from "../../components/Icons";
 import fileTypeExcel from "@iconify/icons-vscode-icons/file-type-excel";
-import networkO from "@iconify/icons-gis/network-o";
-import iotIcon from "@iconify/icons-eos-icons/iot";
-import mathOperations from "@iconify/icons-ph/math-operations";
 
 const Jadwal = () => {
   return (
     <div className="w-full h-full ">
       <NavbarDashboard />
-      <div className="px-7 py-6">
+      <div className="md:px-7 android:px-3 sm:py-6 android:py-3">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -29,98 +26,104 @@ const Jadwal = () => {
           }}
           // navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper android:!mb-8 sm:!mb-10"
         >
           <SwiperSlide>
-            <img src="/public/slide2.png" alt="" />
+            <div className="h-full w-full">
+              <img src="/public/slide2.png" alt="" className="rounded-xl" />
+            </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/public/video.png" alt="" />
+            <img src="/public/video.png" alt="" className="rounded-xl" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/public/itb.png" alt=""></img>
+            <img src="/public/itb.png" alt="" className="rounded-xl"></img>
           </SwiperSlide>
         </Swiper>
 
-        <div className="flex flex-col gap-6">
-          <span className=" text-2xl text-black font-semibold w-full">
+        <div className="flex flex-col sm:gap-6 android:gap-4">
+          <span className=" android:text-2xl sm:text-3xl text-black font-semibold w-full">
             Mata Pelajaran Hari Ini
           </span>
 
-          <div className="flex flex-col gap-2">
-            <div className="bg-white p-3">
-              <div className="flex flex-row gap-4 items-center">
-                <Icons icon={fileTypeExcel} backgroundColor="#1F3161" />
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex flex-col justify-start">
-                    <span className=" text-xl font-medium text-black">
-                      Excel Course
-                    </span>
-                    <span className="text-black opacity-50 text-sm font-normal">
-                      Benediktus Vajra sagara S.Pd
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
+              <div className="bg-white p-3 rounded-lg">
+                <div className="flex flex-row gap-4 items-center">
+                  <Icons icon={fileTypeExcel} backgroundColor="#1F3161" />
+                  <div className="flex android:flex-col sm:flex-row justify-between sm:items-center android:items-left w-full">
+                    <div className="flex flex-col justify-start">
+                      <span className=" sm:text-xl android:text-base font-medium text-black -mb-1">
+                        Excel Course
+                      </span>
+                      <span className="text-black opacity-50 sm:text-sm android:text-xs font-normal">
+                        Benediktus Vajra sagara S.Pd
+                      </span>
+                    </div>
+                    <span className="sm:text-xl android:text-[10px] whitespace-nowrap font-medium text-black ">
+                      08.00 - 09.30
                     </span>
                   </div>
-                  <span className="text-xl font-medium text-black">
-                    08.00 - 09.30
-                  </span>
                 </div>
               </div>
             </div>
-            <div className="bg-white p-3">
-              <div className="flex flex-row gap-4 items-center">
-                <Icons
-                  icon={networkO}
-                  backgroundColor="#351E1A"
-                  textColor="#fff"
-                />
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex flex-col justify-start">
-                    <span className=" text-xl font-medium text-black">
-                      Algoritma
-                    </span>
-                    <span className="text-black opacity-50 text-sm font-normal">
-                      Samuel Andika S.Kom
+            <div className="flex flex-col gap-2">
+              <div className="bg-white p-3 rounded-lg">
+                <div className="flex flex-row gap-4 items-center">
+                  <Icons icon={fileTypeExcel} backgroundColor="#1F3161" />
+                  <div className="flex android:flex-col sm:flex-row justify-between sm:items-center android:items-left w-full">
+                    <div className="flex flex-col justify-start">
+                      <span className=" sm:text-xl android:text-base font-medium text-black -mb-1">
+                        Excel Course
+                      </span>
+                      <span className="text-black opacity-50 sm:text-sm android:text-xs font-normal">
+                        Benediktus Vajra sagara S.Pd
+                      </span>
+                    </div>
+                    <span className="sm:text-xl android:text-[10px] whitespace-nowrap font-medium text-black ">
+                      08.00 - 09.30
                     </span>
                   </div>
-                  <span className="text-xl font-medium text-black">
-                    09.30 - 11.50
-                  </span>
                 </div>
               </div>
             </div>
-            <div className="bg-white p-3">
-              <div className="flex flex-row gap-4 items-center">
-                <Icons icon={iotIcon} backgroundColor="#A0EDF7" />
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex flex-col justify-start">
-                    <span className=" text-xl font-medium text-black">
-                      Internet Of Things
-                    </span>
-                    <span className="text-black opacity-50 text-sm font-normal">
-                      Alif Naufal Hermawan S.Kom
+            <div className="flex flex-col gap-2">
+              <div className="bg-white p-3 rounded-lg">
+                <div className="flex flex-row gap-4 items-center">
+                  <Icons icon={fileTypeExcel} backgroundColor="#1F3161" />
+                  <div className="flex android:flex-col sm:flex-row justify-between sm:items-center android:items-left w-full">
+                    <div className="flex flex-col justify-start">
+                      <span className=" sm:text-xl android:text-base font-medium text-black -mb-1">
+                        Excel Course
+                      </span>
+                      <span className="text-black opacity-50 sm:text-sm android:text-xs font-normal">
+                        Benediktus Vajra sagara S.Pd
+                      </span>
+                    </div>
+                    <span className="sm:text-xl android:text-[10px] whitespace-nowrap font-medium text-black ">
+                      08.00 - 09.30
                     </span>
                   </div>
-                  <span className="text-xl font-medium text-black">
-                    13.00 - 14.30
-                  </span>
                 </div>
               </div>
             </div>
-            <div className="bg-white p-3">
-              <div className="flex flex-row gap-4 items-center">
-                <Icons icon={mathOperations} backgroundColor="#61CE70" />
-                <div className="flex justify-between items-center w-full">
-                  <div className="flex flex-col justify-start">
-                    <span className=" text-xl font-medium text-black">
-                      Matematika
-                    </span>
-                    <span className="text-black opacity-50 text-sm font-normal">
-                      Gaza Alfarizi S.Pd
+            <div className="flex flex-col gap-2">
+              <div className="bg-white p-3 rounded-lg">
+                <div className="flex flex-row gap-4 items-center">
+                  <Icons icon={fileTypeExcel} backgroundColor="#1F3161" />
+                  <div className="flex android:flex-col sm:flex-row justify-between sm:items-center android:items-left w-full">
+                    <div className="flex flex-col justify-start">
+                      <span className=" sm:text-xl android:text-base font-medium text-black -mb-1">
+                        Excel Course
+                      </span>
+                      <span className="text-black opacity-50 sm:text-sm android:text-xs font-normal">
+                        Benediktus Vajra sagara S.Pd
+                      </span>
+                    </div>
+                    <span className="sm:text-xl android:text-[10px] whitespace-nowrap font-medium text-black ">
+                      08.00 - 09.30
                     </span>
                   </div>
-                  <span className="text-xl font-medium text-black">
-                    14.30 - 16.50
-                  </span>
                 </div>
               </div>
             </div>

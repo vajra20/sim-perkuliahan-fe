@@ -20,21 +20,21 @@ const Home = () => {
     <div>
       <Navbar />
       <div className="bg-white md:px-24 android:px-6">
-        <div className="flex lg:flex-row items-center justify-center md:flex-col-reverse">
+        <div className="flex xl:flex-row items-center justify-center android:flex-col-reverse android:gap-5 xl:gap-0">
           <div
             data-aos="fade-in"
-            className="flex flex-col gap-4 justify-center android:items-center lg:items-start md:w-full lg:w-4/6 android:w-full"
+            className="flex flex-col gap-4 justify-center android:items-center xl:items-start md:w-full lg:w-4/6 android:w-full"
           >
-            <h1 className="text-color-page font-semibold lg:text-left android:text-center w-full">
+            <h1 className="text-color-page font-semibold xl:text-left android:text-center w-full">
               E-learning
             </h1>
-            <span className="text-color-page md:text-2xl android:text-lg font-light android:text-center lg:text-left">
+            <span className="text-color-page md:text-2xl android:text-lg font-light android:text-center xl:text-left">
               Menjadi penyelenggara pendidikan tinggi yang unggul di bidang
               teknologi dan bisnis ditingkat nasional yang menghasilkan lulusan
               berdaya saing tinggi dan berjiwa teknopreneurship.
             </span>
             <button
-              className="px-8 py-1 rounded-3xl bg-color-page w-fit flex"
+              className="px-8 py-1 rounded-3xl bg-color-page hover:bg-blue-600 transition-all w-fit flex"
               onClick={handleToLogin}
             >
               <span className="text-white font-medium text-lg">
@@ -43,13 +43,13 @@ const Home = () => {
             </button>
           </div>
           <img
-            className="w-full h-full object-cover android:hidden md:block"
+            className="w-full max-w-3xl h-full object-cover"
             src="public/landing-page.png"
             alt=""
           ></img>
         </div>
 
-        <div className="flex flex-col my-28">
+        <div className="flex flex-col sm:my-28 android:mb-32 android:mt-28">
           <div
             className="flex justify-center flex-col items-center mb-7"
             data-aos="fade-down"
@@ -66,32 +66,24 @@ const Home = () => {
           <div className="flex justify-center w-full" data-aos="fade-down">
             <div className="bg-[#D5ECED] flex justify-center w-max md:w-full h-fit rounded-lg px-3 md:py-1 android:py-3 ">
               <div className="android:flex-wrap android:flex gap-3 lg:flex-wrap lg:flex w-full md:grid md:grid-cols-2">
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2 transition-all ">
                   <Icons icon={peopleIcon} backgroundColor="#8CDDE2" />
-                  <span className="text-color-page text-2xl font-medium">
-                    Absensi
-                  </span>
+                  <span className="text-2xl font-medium">Absensi</span>
                 </div>
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons icon={documentOutline} backgroundColor="#8CDDE2" />
-                  <span className="text-color-page text-2xl font-medium">
-                    Jadwal
-                  </span>
+                  <span className=" text-2xl font-medium">Jadwal</span>
                 </div>
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons
                     icon={taskListSquare16Regular}
                     backgroundColor="#8CDDE2"
                   />
-                  <span className="text-color-page text-2xl font-medium">
-                    Penilaian
-                  </span>
+                  <span className=" text-2xl font-medium">Penilaian</span>
                 </div>
-                <div className="bg-white flex justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
                   <Icons icon={rulerPenLinear} backgroundColor="#8CDDE2" />
-                  <span className="text-color-page text-2xl font-medium">
-                    Penugasan
-                  </span>
+                  <span className=" text-2xl font-medium">Penugasan</span>
                 </div>
               </div>
             </div>
@@ -100,7 +92,7 @@ const Home = () => {
 
         <div
           data-aos="fade-down"
-          className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 mb-44"
+          className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 xl:mb-44 android:mb-32"
         >
           <div className="flex lg:justify-end android:justify-center android:mb-8 lg:mb-0 items-center">
             <div className="relative max-w-fit h-fit">
@@ -194,7 +186,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="bg-white flex flex-col justify-center w-full md:mb-52 android:mb-40">
+        <div className="bg-white flex flex-col justify-center w-full md:mb-52 sm:mb-40 android:mb-32">
           <h1
             className="text-black font-semibold text-center md:mb-16 android:mb-8"
             data-aos="fade-down"
@@ -202,7 +194,7 @@ const Home = () => {
             Siapa saja yang bisa akses?
           </h1>
           <div
-            className="bg-[#99D1D569] px-8 py-8 rounded-2xl"
+            className="bg-[#99D1D569] sm:p-8 android:p-4 sm:rounded-2xl android:rounded-xl"
             data-aos="zoom-in"
             data-aos-duration="1500"
           >
@@ -217,7 +209,7 @@ const Home = () => {
                   <h2 className="text-black font-semibold text-center">
                     Dosen
                   </h2>
-                  <span className="text-black font-medium text-center">
+                  <span className="text-black font-medium text-center android:text-sm sm:text-base">
                     Sistem e-learning memungkinkan dosen memberikan tugas dengan
                     efisien, memantau kemajuan siswa, dan berinteraksi dengan
                     mereka secara langsung.
@@ -234,7 +226,7 @@ const Home = () => {
                   <h2 className="text-black font-semibold text-center">
                     Mahasiswa
                   </h2>
-                  <span className="text-black font-medium text-center">
+                  <span className="text-black font-medium text-center android:text-sm sm:text-base">
                     Siswa mendapat manfaat dari fleksibilitas belajar, akses
                     absensi yang mudah, dan pengembangan keterampilan teknologi
                     melalui platform e-learning.
@@ -251,7 +243,7 @@ const Home = () => {
                   <h2 className="text-black font-semibold text-center">
                     Admin
                   </h2>
-                  <span className="text-black font-medium text-center">
+                  <span className="text-black font-medium text-center android:text-sm sm:text-base">
                     Admin perlu mengakses e-learning untuk mengelola sistem,
                     memantau aktivitas, dan memastikan keamanan data.
                   </span>
@@ -262,7 +254,7 @@ const Home = () => {
         </div>
 
         <div
-          className="grid lg:grid-cols-2 md:gap-10 lg:gap-20 android:gap-8 mb-80 android:grid-cols-1"
+          className="grid lg:grid-cols-2 md:gap-10 lg:gap-20 android:gap-8 lg:mb-80 android:mb-40 android:grid-cols-1 items-center"
           data-aos="fade-down"
         >
           <div className="relative">
@@ -280,11 +272,11 @@ const Home = () => {
             <div className="android:hidden md:block bg-color-page w-80 h-72 absolute top-0 -translate-x-2/4 translate-y-2/4"></div>
           </div>
 
-          <div className="flex justify-center flex-col md:items-start relative z-10">
-            <h1 className="text-black font-medium">
+          <div className="flex justify-center flex-col lg:items-start android:items-center relative z-10 android:gap-2 lg:gap-0">
+            <h1 className="text-black font-semibold android:text-center lg:text-start">
               Fleksibel & Terjangkau Untuk Siswa
             </h1>
-            <span>
+            <span className="android:text-sm sm:text-base android:text-center lg:text-start">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
               expedita harum consequuntur commodi iure laboriosam praesentium
               facilis quam sequi necessitatibus nisi accusantium, minima omnis

@@ -26,7 +26,7 @@ const Mahasiswa = (props) => {
   });
 
   useEffect(() => {
-    if (sidebarOpen === true && screenSize <= 640) {
+    if (sidebarOpen === true && screenSize <= 768) {
       setLayer(
         "absolute left-0 top-0 bottom-0 right-0 bg-black opacity-50 z-50"
       );
@@ -52,8 +52,8 @@ const Mahasiswa = (props) => {
       <div
         className={`bg-color-dashboard w-full h-screen overflow-auto transition-all ${
           sidebarOpen
-            ? "android:pl-[100px] sm:pl-[300px]"
-            : "android:!pl-[100px] sm:!pl-[200px]"
+            ? "android:pl-[0px] md:pl-[300px]"
+            : "android:!pl-[0px] md:!pl-[200px]"
         }`}
         ref={mainContent}
       >

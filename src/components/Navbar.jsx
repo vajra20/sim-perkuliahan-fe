@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 
 const Navbar = () => {
   return (
-    <div className=" w-full bg-white inline-flex md:px-20 android:px-8 py-12 border-b border-white">
+    <div className=" w-full bg-white inline-flex md:px-20 android:px-8 android:py-6 md:py-12 border-b border-white">
       <div className="flex flex-row justify-between items-center w-full ">
         <Link to="/">
           <div className="flex flex-row gap-5 items-center">

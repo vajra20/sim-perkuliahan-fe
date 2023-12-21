@@ -21,7 +21,7 @@ const SideMenuItem = ({ icon, label, path, onClick, sidebar }) => {
       >
         {icon && <Icon className="w-8 h-8" icon={icon}></Icon>}
         <span
-          className={`text-lg font-medium ${
+          className={`text-lg text-center font-medium ${
             sidebar ? "" : "android:hidden sm:block"
           }`}
         >
