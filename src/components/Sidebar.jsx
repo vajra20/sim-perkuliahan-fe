@@ -13,18 +13,20 @@ const Sidebar = () => {
   } = useSidebar();
   console.log("sidebar", sidebarOpen);
 
-  const userRole = "mahasiswa";
+  // Gantinya Manual untuk isi sidebar
+  const userRole = "dosen";
+
   const [widthMenu, setWidthMenu] = useState("");
 
   const handleCloseSideBar = () => {
-    if (sidebarOpen !== undefined && screenSize <= 640) {
+    if (sidebarOpen !== undefined && screenSize <= 768) {
       setSidebarOpen(false);
     }
   };
 
   useEffect(() => {
     if (sidebarOpen === false) {
-      setWidthMenu("sm:!w-[200px] android:!w-[100px]");
+      setWidthMenu("md:!w-[200px] android:!w-[0px]");
     } else {
       setWidthMenu("");
     }
@@ -68,9 +70,11 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`px-5 py-4 overflow-hidden absolute w-[300px] h-screen bg-white border-r-2 border-gray-300 transition-all ${widthMenu} z-infinity`}
+      className={`md:px-5 py-4 overflow-hidden absolute w-[300px] h-screen bg-white border-r-2 border-gray-300 transition-all ${widthMenu} z-infinity ${
+        sidebarOpen ? "android:px-2.5" : "android:px-0"
+      }`}
     >
-      <button onClick={toggleEvent} className="w-full ">
+      <div className="w-full ">
         <div
           className={`flex flex-row gap-5 items-center mb-20 ${
             sidebarOpen ? "flex-row" : "!flex-col !gap-2.5 !mb-14"
@@ -100,7 +104,7 @@ const Sidebar = () => {
             </span>
           </div>
         </div>
-      </button>
+      </div>
 
       <div className="flex flex-col gap-4">{createLinks()}</div>
     </div>

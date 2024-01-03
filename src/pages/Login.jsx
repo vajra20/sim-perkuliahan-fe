@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { apiUrl } from "../function/apiUrl";
+import { apiUrl } from "../function/globalFunction";
 
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -33,60 +34,53 @@ const Login = () => {
 	// Handle Submit
 	const handleLogin = () => {
 		setIsLoading(true);
-
-		const postUser = {
-			username: form.username,
-			password: form.password,
-		};
-
-		try {
-			axios
-				.post(`${apiUrl}/login`, postUser, {
+		const { username, password } = form;
+		axios
+			.post(
+				`${apiUrl}/auth/login`,
+				{
+					username,
+					password,
+				},
+				{
 					headers: {
 						Accept: "application/json",
 						"Access-Control-Allow-Origin": "*",
 						"ngrok-skip-browser-warning": "true",
 					},
-				})
-				.then((res) => {
-					if (res.data.statuscode === 200) {
-						localStorage.setItem("user_id", res.data.userId);
-						localStorage.setItem("username", res.data.username);
-						localStorage.setItem("role", res.data.role);
-						localStorage.setItem("accessToken", res.data.token);
-
-						Swal.fire({
-							title: "Login Success",
-							icon: "success",
-							timer: 1500,
-							showConfirmButton: false,
-						});
-
-						setIsLoading(false);
-
-						navigate("/beranda");
-					} else {
-						Swal.fire({
-							title: "Login Failed",
-							icon: "error",
-						});
-
-						setIsLoading(false);
-
-						navigate("/login");
-					}
+				}
+			)
+			.then((res) => {
+				if (res.data.statusCode == 200) {
+					localStorage.setItem("user_id", res.data.user_id);
+					localStorage.setItem("username", res.data.username);
+					localStorage.setItem("role", res.data.role);
+					localStorage.setItem("accessToken", res.data.token);
+					Swal.fire({
+						title: "Login Success",
+						icon: "success",
+						timer: 1500,
+						showConfirmButton: false,
+					});
+					setIsLoading(false);
+				} else {
+					navigate("/login");
+					Swal.fire({
+						title: "Login Failed",
+						icon: "error",
+					});
+					setIsLoading(true);
+				}
+			})
+			.catch((err) => {
+				setIsLoading(false);
+				Swal.fire({
+					title: "Login Failed",
+					text: err.response.data.message,
+					icon: "error",
 				});
-		} catch (error) {
-			setIsLoading(false);
-
-			Swal.fire({
-				title: "Login Failed",
-				text: err.response.error,
-				icon: "error",
+				console.error(err);
 			});
-
-			console.error(error);
-		}
 	};
 
 	return (

@@ -10,15 +10,21 @@ const Index = () => {
   return (
     <div className="w-full h-full">
       <NavbarDashboard />
-      <div className="px-7 py-6">
+      <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-wrap gap-6">
           <div className="flex flex-col flex-custom max-w-sm">
-            <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex flex-row w-full justify-between">
-              <div className="text-white flex flex-col justify-start">
-                <span className="font-normal text-2xl">Matematika</span>
+            <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
+              <div className="text-white flex flex-col justify-start z-10">
+                <span className="font-normal text-2xl w-20">Matematika</span>
                 <span className="font-light text-sm">2023-2024</span>
               </div>
-              <img src="/public/book.png" alt="" className="object-cover" />
+              <div className="flex android:justify-center sm:justify-end">
+                <img
+                  src="/public/book.png"
+                  alt=""
+                  className="sm:object-cover android:object-contain w-full h-full android:w-60 android:h-60 sm:w-full sm:h-full"
+                />
+              </div>
             </div>
             <div className="bg-white flex justify-end rounded-b-3xl p-4">
               <div className="flex items-center gap-1 text-color-page ">
@@ -29,12 +35,18 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col flex-custom max-w-sm">
-            <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex flex-row w-full justify-between">
-              <div className="text-white flex flex-col justify-start">
-                <span className="font-normal text-2xl">Sejarah</span>
+            <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
+              <div className="text-white flex flex-col justify-start z-10">
+                <span className="font-normal text-2xl w-20">Sejarah</span>
                 <span className="font-light text-sm">2023-2024</span>
               </div>
-              <img src="/public/book.png" alt="" className="object-cover" />
+              <div className="flex android:justify-center sm:justify-end">
+                <img
+                  src="/public/book.png"
+                  alt=""
+                  className="sm:object-cover android:object-contain w-full h-full android:w-60 android:h-60 sm:w-full sm:h-full"
+                />
+              </div>
             </div>
             <div className="bg-white flex justify-end rounded-b-3xl p-4">
               <div className="flex items-center gap-1 text-color-page ">
@@ -45,12 +57,21 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col flex-custom max-w-sm">
-            <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex flex-row w-full justify-between">
-              <div className="text-white flex flex-col justify-start">
-                <span className="font-normal text-2xl">Bahasa Indonesia</span>
+            <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
+              <div className="text-white flex flex-col justify-start z-10">
+                <span className="font-normal text-2xl w-20">
+                  Bahasa Indonesia
+                </span>
                 <span className="font-light text-sm">2023-2024</span>
               </div>
-              <img src="/public/book.png" alt="" className="object-cover" />
+
+              <div className="flex android:justify-center sm:justify-end">
+                <img
+                  src="/public/book.png"
+                  alt=""
+                  className="sm:object-cover android:object-contain w-full h-full android:w-60 android:h-60 sm:w-full sm:h-full"
+                />
+              </div>
             </div>
             <div className="bg-white flex justify-end rounded-b-3xl p-4">
               <div className="flex items-center gap-1 text-color-page ">
@@ -59,7 +80,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

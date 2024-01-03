@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import NavbarDashboard from "../../components/NavbarDashboard";
 import { Button, Modal } from "antd";
 import SignatureCanvas from "react-signature-canvas";
+import { useSidebar } from "../../context/ContextProvider";
 
 // Icons
 import plusIcon from "@iconify/icons-mdi/plus";
@@ -12,6 +13,7 @@ import { Icon } from "@iconify/react";
 import arrowRight2 from "@iconify/icons-iconamoon/arrow-right-2";
 
 const BeritaAcara = () => {
+  const { sidebarOpen } = useSidebar();
   const sigCanvas = useRef();
   const clear = () => sigCanvas.current.clear();
 
@@ -30,15 +32,20 @@ const BeritaAcara = () => {
   return (
     <div className="w-full h-full">
       <NavbarDashboard />
-      <div className="px-7 py-6">
+      <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button
-            className="bg-color-page rounded-full px-5 py-3 text-white w-fit"
+            className="bg-color-page rounded-full px-5 sm:py-3 android:py-1.5 text-white w-fit"
             onClick={() => setIsModalOpen(true)}
           >
-            <div className="flex flex-row gap-10 items-center">
-              <span className="text-lg font-medium">Buat</span>
-              <Icon icon={plusIcon} className="w-6 h-6"></Icon>
+            <div className="flex flex-row md:gap-10 android:gap-3 items-center">
+              <span className="android:text-base md:text-lg font-medium">
+                Buat
+              </span>
+              <Icon
+                icon={plusIcon}
+                className="md:w-6 md:h-6 android:w-5 android:h-5"
+              ></Icon>
             </div>
           </button>
           <Modal
@@ -89,27 +96,31 @@ const BeritaAcara = () => {
               />
             </div>
           </Modal>
-          <div className="bg-white rounded-3xl shadow border border-black/40 shadow-black/25 ">
-            <div className="flex items-center">
-              <div className="flex flex-col gap-1 w-full p-8">
+          <div className="bg-white md:rounded-3xl android:rounded-xl shadow border border-black/40 shadow-black/25 ">
+            <div
+              className={`flex items-center android:flex-col ${
+                sidebarOpen ? "md:flex-col lgs:flex-row" : "md:flex-row"
+              }`}
+            >
+              <div className="flex flex-col md:gap-1 android:gap-2 w-full md:p-8 android:p-3">
                 <span className="text-black font-semibold text-lg font-inter">
                   #Kuliah Ke - 1
                 </span>
                 <div className="border-b-2 w-full border-event-color">
-                  <div className="flex flex-row items-center gap-4 mb-10 ">
-                    <div className="flex flex-row gap-1 text-gray-sub">
+                  <div className="flex android:flex-col md:flex-row md:items-center android:items-start md:gap-4 android:gap-2 md:mb-10 android:mb-2">
+                    <div className="flex flex-row gap-1 text-gray-sub items-center">
                       <Icon icon={clockOutline}></Icon>
                       <span className="  text-xs font-inter font-normal">
                         08.45 -15.15
                       </span>
                     </div>
-                    <div className="flex flex-row gap-1 text-gray-sub">
+                    <div className="flex flex-row gap-1 text-gray-sub items-center">
                       <Icon icon={calendarBold}></Icon>
                       <span className="  text-xs font-inter font-normal">
                         8 Oktober 2023
                       </span>
                     </div>
-                    <div className="flex flex-row gap-1 text-gray-sub">
+                    <div className="flex flex-row gap-1 text-gray-sub items-center">
                       <Icon icon={profileFill}></Icon>
                       <span className="  text-xs font-inter font-normal">
                         36
@@ -118,8 +129,8 @@ const BeritaAcara = () => {
                   </div>
                 </div>
 
-                <div className="mt-3 w-full">
-                  <span className=" font-inter text-black font-medium text-lg">
+                <div className="md:mt-3 android:mt-0 w-full android:text-justify md:text-start">
+                  <span className=" font-inter text-black font-medium md:text-lg android:text-sm w-full">
                     Pengenalan sistem informasi dan Konsep dasar sistem
                     informasi
                   </span>
@@ -166,7 +177,7 @@ const BeritaAcara = () => {
                       ref={sigCanvas}
                       penColor="black"
                       canvasProps={{
-                        width: 500,
+                        width: 450,
                         height: 200,
                         className: "sigCanvas",
                       }}

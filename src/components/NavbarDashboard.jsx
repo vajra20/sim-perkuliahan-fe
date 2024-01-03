@@ -1,28 +1,30 @@
 import LiveDate from "../components/LiveDate";
 import React from "react";
 import { Dropdown } from "antd";
+import { useNavigate } from "react-router-dom";
+import { useSidebar } from "../context/ContextProvider";
+
 import { Icon } from "@iconify/react";
 import logoutIcon from "@iconify/icons-mdi/logout";
-import { useNavigate } from "react-router-dom";
 import profileFill from "@iconify/icons-iconamoon/profile-fill";
+import hamburgerLg from "@iconify/icons-ci/hamburger-lg";
 
 const NavbarDashboard = () => {
+  const { toggleEvent } = useSidebar();
+
   const navigate = useNavigate();
+
   const handleLogoutClick = () => {
     navigate("/");
   };
+
   const items = [
     {
       key: "1",
       label: (
-        <div className="flex gap-1 items-center text-gray-sub">
+        <div className="flex gap-1 items-center text-gray-sub android:block sm:hidden">
           <Icon icon={profileFill} className="w-5 h-5"></Icon>
-          <span
-            className="android:block sm:hidden"
-            style={{ pointerEvents: "none" }}
-          >
-            Ryan Gosling
-          </span>
+          <span style={{ pointerEvents: "none" }}>Ryan Gosling</span>
         </div>
       ),
     },
@@ -46,7 +48,11 @@ const NavbarDashboard = () => {
   ];
 
   return (
-    <div className="flex flex-row w-full justify-between items-center px-7 py-3 border-gray-300 border-b-2">
+    <div className="flex flex-row w-full justify-between items-center md:px-7 android:px-3 sm:py-3 android:py-1.5 border-gray-300 border-b-2 android:gap-6">
+      <button onClick={toggleEvent}>
+        <Icon icon={hamburgerLg} />
+      </button>
+
       <LiveDate />
       <button onClick={(e) => e.preventDefault()}>
         <Dropdown
@@ -58,10 +64,10 @@ const NavbarDashboard = () => {
             <img
               src="/public/profile.png"
               alt=""
-              className="rounded-full android:w-10 android:h-10 sm:w-8 sm:h-8 object-cover"
+              className="rounded-full android:w-8 android:h-8 object-cover"
             ></img>
-            <a className="android:hidden sm:block">
-              <span className="sm:text-base md:text-lg">Ryan Gosling</span>
+            <a className="android:hidden md:block">
+              <span className="md:text-base lg:text-lg">Ryan Gosling</span>
             </a>
           </div>
         </Dropdown>

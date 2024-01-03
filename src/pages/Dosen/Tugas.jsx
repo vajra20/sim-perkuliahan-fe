@@ -44,15 +44,20 @@ const Tugas = () => {
   return (
     <div className="w-full h-full">
       <NavbarDashboard />
-      <div className="px-7 py-6">
+      <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button
-            className="bg-color-page rounded-full px-5 py-3 text-white w-fit"
+            className="bg-color-page rounded-full px-5 sm:py-3 android:py-1.5 text-white w-fit"
             onClick={() => setIsModalOpen(true)}
           >
-            <div className="flex flex-row gap-10 items-center">
-              <span className="text-lg font-medium">Buat</span>
-              <Icon icon={plusIcon} className="w-6 h-6"></Icon>
+            <div className="flex flex-row md:gap-10 android:gap-3 items-center">
+              <span className="android:text-base md:text-lg font-medium">
+                Buat
+              </span>
+              <Icon
+                icon={plusIcon}
+                className="md:w-6 md:h-6 android:w-5 android:h-5"
+              ></Icon>
             </div>
           </button>
           <Modal
@@ -190,64 +195,74 @@ const Tugas = () => {
           <div className="flex flex-col gap-5">
             <div className="bg-white rounded-xl">
               <div className="w-full border-b border-dark-gray">
-                <div className=" w-full px-6 py-3 flex justify-between items-center">
-                  <span className="text-black text-base font-normal ">
+                <div className=" w-full android:px-3 sm:px-6 py-3 flex android:gap-0 sm:gap-5 flex-row flex-wrap justify-between items-center">
+                  <span className="text-black text-base font-normal">
                     Tugas Pertemuan - 1
                   </span>
                   <div className="flex flex-row gap-6 items-center">
-                    <span className="text-black opacity-50 text-sm font-light">
+                    <span className="text-black opacity-50 sm:text-sm android:text-xs font-light">
                       Diposting 11.24
                     </span>
-                    <Icon icon={dotsThreeVerticalBold}></Icon>
+                    <Icon
+                      className="android:hidden sm:block"
+                      icon={dotsThreeVerticalBold}
+                    ></Icon>
                   </div>
                 </div>
               </div>
-              <div className="px-6 py-5 flex flex-row gap-8 items-center">
-                <Icons
-                  icon={rulerPenLinear}
-                  backgroundColor="#565656"
-                  textColor="white"
-                  width="w-6"
-                  height="h-6"
-                ></Icons>
+              <div className="sm:px-6 android:px-3 sm:py-5 android:py-3 flex flex-row sm:gap-8 android:gap-3 items-center">
+                <div className="">
+                  <Icons
+                    icon={rulerPenLinear}
+                    backgroundColor="#565656"
+                    textColor="white"
+                    width="sm:w-6 android:w-4"
+                    height="sm:h-6 android:h-4"
+                  ></Icons>
+                </div>
                 <div className="flex flex-col">
-                  <span className="text-black text-xl font-medium">
+                  <span className="text-black md:text-xl android:text-lg font-medium">
                     Latihan Kalkulus 1
                   </span>
-                  <span className="text-black opacity-50 text-sm font-light">
+                  <span className="text-black opacity-50 sm:text-sm android:text-xs font-light">
                     Tenggat : 14 Oktober 23.59{" "}
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl ">
+            <div className="bg-white rounded-xl">
               <div className="w-full border-b border-dark-gray">
-                <div className=" w-full px-6 py-3 flex justify-between items-center">
-                  <span className="text-black text-base font-normal ">
+                <div className=" w-full android:px-3 sm:px-6 py-3 flex android:gap-0 sm:gap-5 flex-row flex-wrap justify-between items-center">
+                  <span className="text-black text-base font-normal">
                     Tugas Pertemuan - 2
                   </span>
                   <div className="flex flex-row gap-6 items-center">
-                    <span className="text-black opacity-50 text-sm font-light">
+                    <span className="text-black opacity-50 sm:text-sm android:text-xs font-light">
                       Diposting 11.24
                     </span>
-                    <Icon icon={dotsThreeVerticalBold}></Icon>
+                    <Icon
+                      className="android:hidden sm:block"
+                      icon={dotsThreeVerticalBold}
+                    ></Icon>
                   </div>
                 </div>
               </div>
-              <div className="px-6 py-5 flex flex-row gap-8 items-center">
-                <Icons
-                  icon={rulerPenLinear}
-                  backgroundColor="#565656"
-                  textColor="white"
-                  width="w-6"
-                  height="h-6"
-                ></Icons>
+              <div className="sm:px-6 android:px-3 sm:py-5 android:py-3 flex flex-row sm:gap-8 android:gap-3 items-center">
+                <div className="">
+                  <Icons
+                    icon={rulerPenLinear}
+                    backgroundColor="#565656"
+                    textColor="white"
+                    width="sm:w-6 android:w-4"
+                    height="sm:h-6 android:h-4"
+                  ></Icons>
+                </div>
                 <div className="flex flex-col">
-                  <span className="text-black text-xl font-medium">
+                  <span className="text-black md:text-xl android:text-lg font-medium">
                     Latihan Kalkulus 2
                   </span>
-                  <span className="text-black opacity-50 text-sm font-light">
+                  <span className="text-black opacity-50 sm:text-sm android:text-xs font-light">
                     Tenggat : 14 Oktober 23.59{" "}
                   </span>
                 </div>

@@ -8,16 +8,16 @@ const ListTugas = () => {
   return (
     <div className="w-full h-full ">
       <NavbarDashboard />
-      <div className="px-7 py-6">
-        <div className="flex flex-col justify-start gap-4">
-          <span className=" text-5xl text-black font-medium w-full">
+      <div className="md:px-7 sm:py-6 android:p-3">
+        <div className="flex flex-col justify-start sm:gap-4 android:gap-2">
+          <span className="  sm:text-5xl android:text-4xl text-black font-medium w-full">
             Penugasan
           </span>
-          <span className=" text-xl text-color-page font-medium">
+          <span className=" sm:text-xl android:text-lg text-color-page font-medium">
             Dasar Sistem Informasi
           </span>
         </div>
-        <div className="flex my-16 w-full items-center">
+        <div className="flex sm:my-16 android:my-8 w-full items-center">
           <input
             className=" rounded-l-3xl pl-6 py-5 border border-[#828282] w-full border-r-0"
             placeholder="Cari Topik..."
@@ -28,21 +28,23 @@ const ListTugas = () => {
         </div>
         <div>
           <Link to={"/mahasiswa/penugasan"}>
-            <div className="bg-[#3E9DC71A] rounded-3xl border border-dark-gray shadow-2xl mb-16">
-              <div className="flex flex-row items-center w-full justify-between py-4 px-10">
-                <div className="flex gap-3 items-center ">
+            <div className="bg-[#3E9DC71A] rounded-3xl border border-dark-gray shadow-2xl sm:mb-16 android:mb-8">
+              <div className="flex py-4 android:px-5 sm:px-10 ">
+                <div className="flex gap-3 items-center w-full justify-start">
                   <img
                     src="/public/task.png"
                     alt=""
-                    className=" w-32 h-20 object-cover"
+                    className=" w-32 h-20 object-cover sm:block android:hidden"
                   />
-                  <span className="text-4xl text-black font-medium">
-                    Software
-                  </span>
+                  <div className="flex android:flex-col lg:flex-row md:items-center android:items-start justify-between w-full">
+                    <span className="sm:text-4xl android:text-3xl text-black font-medium">
+                      Software
+                    </span>
+                    <span className=" font-medium sm:text-base android:text-xs text-dark-gray">
+                      Dr. H. Adinda M . Prilia, M. Kom.
+                    </span>
+                  </div>
                 </div>
-                <span className=" font-medium text-base text-dark-gray">
-                  Dr. H. Adinda M . Prilia, M. Kom.
-                </span>
               </div>
             </div>
           </Link>
@@ -52,9 +54,9 @@ const ListTugas = () => {
               to={"/mahasiswa/penugasan/list-tugas/detail-tugas"}
               className="flex flex-col flex-custom max-w-[23rem]"
             >
-              <div className="bg-[#00535B57] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full">
+              <div className="bg-[#00535B57] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
                 <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal ">
+                  <span className=" text-2xl font-medium leading-normal w-40">
                     Membuat Web Static
                   </span>
                   <span className="font-medium">0/100</span>
@@ -72,9 +74,9 @@ const ListTugas = () => {
               </div>
             </Link>
             <div className="flex flex-col flex-custom max-w-[23rem]">
-              <div className="bg-[#46C28782] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full">
+              <div className="bg-[#46C28782] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
                 <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal ">
+                  <span className=" text-2xl font-medium leading-normal w-40">
                     Task 2
                   </span>
                   <span className="font-medium">0/100</span>
@@ -92,9 +94,9 @@ const ListTugas = () => {
               </div>
             </div>
             <div className="flex flex-col flex-custom max-w-[23rem]">
-              <div className="bg-[#4696C28A] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full">
+              <div className="bg-[#4696C28A] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
                 <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal ">
+                  <span className=" text-2xl font-medium leading-normal w-40">
                     Task 3
                   </span>
                   <span className="font-medium">0/100</span>
@@ -112,9 +114,9 @@ const ListTugas = () => {
               </div>
             </div>
             <div className="flex flex-col flex-custom max-w-[23rem]">
-              <div className="bg-[#8446C24F] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full">
+              <div className="bg-[#8446C24F] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
                 <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal ">
+                  <span className=" text-2xl font-medium leading-normal w-40">
                     Task 4
                   </span>
                   <span className="font-medium">0/100</span>

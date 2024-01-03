@@ -1,290 +1,305 @@
 {
-  "hash": "7d10572f",
-  "browserHash": "9e316fd6",
+  "hash": "10e8fb81",
+  "browserHash": "ef9b9cfc",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "682aa533",
+      "fileHash": "0e4f57b9",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "4662e756",
+      "fileHash": "61113849",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "b3831dc5",
+      "fileHash": "df76a17f",
       "needsInterop": false
     },
     "aos": {
       "src": "../../node_modules/aos/dist/aos.esm.js",
       "file": "aos.js",
-      "fileHash": "f06b7574",
+      "fileHash": "4f6c6c2c",
       "needsInterop": false
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "48555564",
+      "fileHash": "6273aee2",
       "needsInterop": false
     },
     "@iconify/icons-formkit/people": {
       "src": "../../node_modules/@iconify/icons-formkit/people.js",
       "file": "@iconify_icons-formkit_people.js",
-      "fileHash": "38e23c0a",
+      "fileHash": "ba4e16b5",
       "needsInterop": true
     },
     "@iconify/icons-basil/document-outline": {
       "src": "../../node_modules/@iconify/icons-basil/document-outline.js",
       "file": "@iconify_icons-basil_document-outline.js",
-      "fileHash": "43cfa29a",
+      "fileHash": "36a58f9c",
       "needsInterop": true
     },
     "@iconify/icons-fluent/task-list-square-16-regular": {
       "src": "../../node_modules/@iconify/icons-fluent/task-list-square-16-regular.js",
       "file": "@iconify_icons-fluent_task-list-square-16-regular.js",
-      "fileHash": "49b60e3b",
+      "fileHash": "58fd2486",
       "needsInterop": true
     },
     "@iconify/icons-solar/ruler-pen-linear": {
       "src": "../../node_modules/@iconify/icons-solar/ruler-pen-linear.js",
       "file": "@iconify_icons-solar_ruler-pen-linear.js",
-      "fileHash": "85f99143",
+      "fileHash": "0c01f87d",
       "needsInterop": true
     },
     "@iconify/icons-akar-icons/schedule": {
       "src": "../../node_modules/@iconify/icons-akar-icons/schedule.js",
       "file": "@iconify_icons-akar-icons_schedule.js",
-      "fileHash": "b7b318e6",
+      "fileHash": "c4b090b6",
       "needsInterop": true
     },
     "@iconify/icons-tabler/home": {
       "src": "../../node_modules/@iconify/icons-tabler/home.js",
       "file": "@iconify_icons-tabler_home.js",
-      "fileHash": "7b4cd161",
+      "fileHash": "ee6f3ff8",
       "needsInterop": true
     },
     "@iconify/icons-ri/dashboard-line": {
       "src": "../../node_modules/@iconify/icons-ri/dashboard-line.js",
       "file": "@iconify_icons-ri_dashboard-line.js",
-      "fileHash": "153ff59b",
+      "fileHash": "d78441d0",
       "needsInterop": true
     },
     "@iconify/icons-la/chalkboard-teacher": {
       "src": "../../node_modules/@iconify/icons-la/chalkboard-teacher.js",
       "file": "@iconify_icons-la_chalkboard-teacher.js",
-      "fileHash": "5e3dd351",
+      "fileHash": "58ae97b2",
       "needsInterop": true
     },
     "@iconify/icons-mdi/college-outline": {
       "src": "../../node_modules/@iconify/icons-mdi/college-outline.js",
       "file": "@iconify_icons-mdi_college-outline.js",
-      "fileHash": "325d775a",
+      "fileHash": "acd3bcbc",
       "needsInterop": true
     },
     "@iconify/icons-solar/calendar-linear": {
       "src": "../../node_modules/@iconify/icons-solar/calendar-linear.js",
       "file": "@iconify_icons-solar_calendar-linear.js",
-      "fileHash": "cacf7868",
+      "fileHash": "426cffac",
       "needsInterop": true
     },
     "@iconify/icons-fluent/news-16-regular": {
       "src": "../../node_modules/@iconify/icons-fluent/news-16-regular.js",
       "file": "@iconify_icons-fluent_news-16-regular.js",
-      "fileHash": "b396d740",
+      "fileHash": "d04cd5b5",
       "needsInterop": true
     },
     "@iconify/react": {
       "src": "../../node_modules/@iconify/react/dist/iconify.mjs",
       "file": "@iconify_react.js",
-      "fileHash": "7fcadca8",
+      "fileHash": "bc75cd04",
       "needsInterop": false
     },
     "@iconify/icons-fa/graduation-cap": {
       "src": "../../node_modules/@iconify/icons-fa/graduation-cap.js",
       "file": "@iconify_icons-fa_graduation-cap.js",
-      "fileHash": "bce49f90",
+      "fileHash": "f1d0e453",
       "needsInterop": true
     },
     "@iconify/icons-grommet-icons/attachment": {
       "src": "../../node_modules/@iconify/icons-grommet-icons/attachment.js",
       "file": "@iconify_icons-grommet-icons_attachment.js",
-      "fileHash": "2fe82bc9",
+      "fileHash": "9cbc5bb7",
       "needsInterop": true
     },
     "@iconify/icons-solar/folder-open-outline": {
       "src": "../../node_modules/@iconify/icons-solar/folder-open-outline.js",
       "file": "@iconify_icons-solar_folder-open-outline.js",
-      "fileHash": "808102da",
+      "fileHash": "97bfb27a",
       "needsInterop": true
     },
     "@iconify/icons-ri/drive-line": {
       "src": "../../node_modules/@iconify/icons-ri/drive-line.js",
       "file": "@iconify_icons-ri_drive-line.js",
-      "fileHash": "06cc6b4b",
+      "fileHash": "50843780",
       "needsInterop": true
     },
     "@iconify/icons-system-uicons/paper-plane": {
       "src": "../../node_modules/@iconify/icons-system-uicons/paper-plane.js",
       "file": "@iconify_icons-system-uicons_paper-plane.js",
-      "fileHash": "4e5666ab",
+      "fileHash": "adb166fe",
       "needsInterop": true
     },
     "antd": {
       "src": "../../node_modules/antd/es/index.js",
       "file": "antd.js",
-      "fileHash": "f708260d",
+      "fileHash": "cbc09c8f",
       "needsInterop": false
     },
     "@iconify/icons-iconamoon/arrow-right-2": {
       "src": "../../node_modules/@iconify/icons-iconamoon/arrow-right-2.js",
       "file": "@iconify_icons-iconamoon_arrow-right-2.js",
-      "fileHash": "51feafdc",
+      "fileHash": "c19b450e",
       "needsInterop": true
     },
     "swiper/react": {
       "src": "../../node_modules/swiper/swiper-react.mjs",
       "file": "swiper_react.js",
-      "fileHash": "34e65f1a",
+      "fileHash": "a34a28de",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "d74195e1",
+      "fileHash": "ee8735fb",
       "needsInterop": false
     },
     "@iconify/icons-vscode-icons/file-type-excel": {
       "src": "../../node_modules/@iconify/icons-vscode-icons/file-type-excel.js",
       "file": "@iconify_icons-vscode-icons_file-type-excel.js",
-      "fileHash": "7cf026cf",
+      "fileHash": "b83945c3",
       "needsInterop": true
     },
     "@iconify/icons-gis/network-o": {
       "src": "../../node_modules/@iconify/icons-gis/network-o.js",
       "file": "@iconify_icons-gis_network-o.js",
-      "fileHash": "5b1f37b7",
+      "fileHash": "394c524d",
       "needsInterop": true
     },
     "@iconify/icons-eos-icons/iot": {
       "src": "../../node_modules/@iconify/icons-eos-icons/iot.js",
       "file": "@iconify_icons-eos-icons_iot.js",
-      "fileHash": "380dc490",
+      "fileHash": "e6faa574",
       "needsInterop": true
     },
     "@iconify/icons-ph/math-operations": {
       "src": "../../node_modules/@iconify/icons-ph/math-operations.js",
       "file": "@iconify_icons-ph_math-operations.js",
-      "fileHash": "ac0ad40e",
+      "fileHash": "0a8fb5c9",
       "needsInterop": true
     },
     "dayjs": {
       "src": "../../node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
-      "fileHash": "d30d56a4",
+      "fileHash": "2131b002",
       "needsInterop": true
     },
     "dayjs/plugin/customParseFormat": {
       "src": "../../node_modules/dayjs/plugin/customParseFormat.js",
       "file": "dayjs_plugin_customParseFormat.js",
-      "fileHash": "6096eff1",
+      "fileHash": "1387ffa2",
       "needsInterop": true
     },
     "@iconify/icons-mdi/plus": {
       "src": "../../node_modules/@iconify/icons-mdi/plus.js",
       "file": "@iconify_icons-mdi_plus.js",
-      "fileHash": "0f818d6f",
+      "fileHash": "b726b0ee",
       "needsInterop": true
     },
     "@iconify/icons-ph/dots-three-vertical-bold": {
       "src": "../../node_modules/@iconify/icons-ph/dots-three-vertical-bold.js",
       "file": "@iconify_icons-ph_dots-three-vertical-bold.js",
-      "fileHash": "58662849",
+      "fileHash": "483da909",
       "needsInterop": true
     },
     "@iconify/icons-ci/users": {
       "src": "../../node_modules/@iconify/icons-ci/users.js",
       "file": "@iconify_icons-ci_users.js",
-      "fileHash": "0aeabbb4",
+      "fileHash": "5b0dc96e",
       "needsInterop": true
     },
     "@iconify/icons-mdi/search": {
       "src": "../../node_modules/@iconify/icons-mdi/search.js",
       "file": "@iconify_icons-mdi_search.js",
-      "fileHash": "16b6dfc4",
+      "fileHash": "b5e0e8f2",
       "needsInterop": true
     },
     "@iconify/icons-pajamas/todo-add": {
       "src": "../../node_modules/@iconify/icons-pajamas/todo-add.js",
       "file": "@iconify_icons-pajamas_todo-add.js",
-      "fileHash": "f3f2a5b4",
+      "fileHash": "ceffa3ce",
       "needsInterop": true
     },
     "@iconify/icons-tabler/edit": {
       "src": "../../node_modules/@iconify/icons-tabler/edit.js",
       "file": "@iconify_icons-tabler_edit.js",
-      "fileHash": "64f90aec",
+      "fileHash": "b48b4d93",
       "needsInterop": true
     },
     "@iconify/icons-ion/trash": {
       "src": "../../node_modules/@iconify/icons-ion/trash.js",
       "file": "@iconify_icons-ion_trash.js",
-      "fileHash": "2cab7cf1",
+      "fileHash": "ce4f411b",
       "needsInterop": true
     },
     "react-signature-canvas": {
       "src": "../../node_modules/react-signature-canvas/build/index.js",
       "file": "react-signature-canvas.js",
-      "fileHash": "4a73781b",
+      "fileHash": "62b0e5c2",
       "needsInterop": true
     },
     "@iconify/icons-mdi/clock-outline": {
       "src": "../../node_modules/@iconify/icons-mdi/clock-outline.js",
       "file": "@iconify_icons-mdi_clock-outline.js",
-      "fileHash": "d7ff9496",
+      "fileHash": "405e9152",
       "needsInterop": true
     },
     "@iconify/icons-solar/calendar-bold": {
       "src": "../../node_modules/@iconify/icons-solar/calendar-bold.js",
       "file": "@iconify_icons-solar_calendar-bold.js",
-      "fileHash": "ef174d6b",
+      "fileHash": "ee999984",
       "needsInterop": true
     },
     "@iconify/icons-iconamoon/profile-fill": {
       "src": "../../node_modules/@iconify/icons-iconamoon/profile-fill.js",
       "file": "@iconify_icons-iconamoon_profile-fill.js",
-      "fileHash": "948dca49",
+      "fileHash": "58c485ed",
       "needsInterop": true
     },
     "@iconify/icons-la/save-solid": {
       "src": "../../node_modules/@iconify/icons-la/save-solid.js",
       "file": "@iconify_icons-la_save-solid.js",
-      "fileHash": "b1a476d7",
+      "fileHash": "c1cf675a",
       "needsInterop": true
     },
     "@iconify/icons-mdi/logout": {
       "src": "../../node_modules/@iconify/icons-mdi/logout.js",
       "file": "@iconify_icons-mdi_logout.js",
-      "fileHash": "c62bd4b4",
+      "fileHash": "85905518",
       "needsInterop": true
+    },
+    "@fortawesome/react-fontawesome": {
+      "src": "../../node_modules/@fortawesome/react-fontawesome/index.es.js",
+      "file": "@fortawesome_react-fontawesome.js",
+      "fileHash": "4e352d2f",
+      "needsInterop": false
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "142ac7bc",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-OTY6O57J": {
-      "file": "chunk-OTY6O57J.js"
+    "chunk-PJWHG5L7": {
+      "file": "chunk-PJWHG5L7.js"
     },
     "chunk-NKBWXMIR": {
       "file": "chunk-NKBWXMIR.js"
     },
-    "chunk-PJWHG5L7": {
-      "file": "chunk-PJWHG5L7.js"
-    },
     "chunk-HNRGSTF7": {
       "file": "chunk-HNRGSTF7.js"
+    },
+    "chunk-YLFKALMF": {
+      "file": "chunk-YLFKALMF.js"
+    },
+    "chunk-OTY6O57J": {
+      "file": "chunk-OTY6O57J.js"
     },
     "chunk-2PA4WPI3": {
       "file": "chunk-2PA4WPI3.js"

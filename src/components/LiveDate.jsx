@@ -35,7 +35,7 @@ class LiveDate extends Component {
   render() {
     return (
       <div>
-        <span className="text-black opacity-50 md:text-lg sm:text-base font-light">
+        <span className="text-black opacity-50 lg:text-lg sm:text-base android:text-xs font-light">
           {this.formatLongDate(this.state.currentDate)}
         </span>
       </div>

@@ -3,15 +3,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      android: "360px",
+      android: "280px",
       sm: "640px",
       md: "768px",
       lg: "1024px",
+      lgs: "1100px",
       xl: "1280px",
     },
     extend: {
       zIndex: {
-        infinity: "99999999",
+        infinity: "999",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
