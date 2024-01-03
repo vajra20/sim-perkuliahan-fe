@@ -33,10 +33,12 @@ const Login = () => {
 	// Handle Submit
 	const handleLogin = () => {
 		setIsLoading(true);
+
 		const { username, password } = form;
+
 		axios
 			.post(
-				`${apiUrl}/auth/login`,
+				`${apiUrl()}/login`,
 				{
 					username,
 					password,
@@ -51,7 +53,7 @@ const Login = () => {
 			)
 			.then((res) => {
 				if (res.data.statusCode == 200) {
-					localStorage.setItem("user_id", res.data.user_id);
+					localStorage.setItem("user_id", res.data.userId);
 					localStorage.setItem("username", res.data.username);
 					localStorage.setItem("role", res.data.role);
 					localStorage.setItem("accessToken", res.data.token);
