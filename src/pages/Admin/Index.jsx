@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavbarDashboard from "../../components/NavbarDashboard";
 import Tables from "../../components/Tables";
 import Time from "../../components/Time";
@@ -7,9 +7,19 @@ import { useSidebar } from "../../context/ContextProvider";
 // Icons
 import graduationCap from "@iconify/icons-fa/graduation-cap";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+	const navigate = useNavigate();
   const { sidebarOpen } = useSidebar();
+  const token = localStorage.getItem("accessToken")
+
+  useEffect(() => {
+    console.log(token)
+    if (!token){
+      navigate("/login")
+    }
+  })
   return (
     <div className="w-full h-full">
       <NavbarDashboard />
