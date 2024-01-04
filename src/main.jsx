@@ -18,17 +18,17 @@ import Dosen from "./layout/LayDosen";
 AOS.init();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<BrowserRouter>
-		<ContextProvider>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/login" element={<Login />} />
+  <BrowserRouter>
+    <ContextProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
 
-				{/* Layout Route */}
-				<Route path="/mahasiswa/*" element={<Mahasiswa />}></Route>
-				<Route path="/admin/*" element={<Admin />}></Route>
-				<Route path="/dosen/*" element={<Dosen />}></Route>
-			</Routes>
-		</ContextProvider>
-	</BrowserRouter>
+        {/* Layout Route */}
+        <Route path="/mahasiswa/*" element={<Mahasiswa />}></Route>
+        <Route path="/admin/*" element={<Admin />}></Route>
+        <Route path="/dosen/*" element={<Dosen />}></Route>
+      </Routes>
+    </ContextProvider>
+  </BrowserRouter>
 );

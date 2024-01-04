@@ -36,44 +36,29 @@ const Mahasiswa = (props) => {
 	}, [setLayer, sidebarOpen, screenSize]);
 
 	const getRoutes = (routes, layout) => {
-		return routes
-			.filter((prop) => prop.layout === layout)
-			.map((prop, key) => (
-				<Route
-					path={prop.path}
-					element={prop.component}
-					key={key}
-					exact
-				/>
-			));
-	};
+    return routes
+      .filter((prop) => prop.layout === layout.toLowerCase())
+      .map((prop, key) => (
+        <Route path={prop.path} element={prop.component} key={key} exact />
+      ));
+  };
 
-	return (
-		<div>
-			<div className={`${layer}`}></div>
-			<Sidebar {...props} routes={routes} />
-			<div
-				className={`bg-color-dashboard w-full h-screen overflow-auto transition-all ${
-					sidebarOpen
-						? "android:pl-[0px] md:pl-[300px]"
-						: "android:!pl-[0px] md:!pl-[200px]"
-				}`}
-				ref={mainContent}
-			>
-				<Routes>{getRoutes(routes, `/${roles}`)}</Routes>
-				<Routes>
-					{roles === "Mahasiswa" && (
-						<Route
-							path="*"
-							// element={
-							// 	<Navigate to="/mahasiswa/beranda" replace />
-							// }
-						/>
-					)}
-				</Routes>
-			</div>
-		</div>
-	);
+  return (
+    <div>
+      <div className={`${layer}`}></div>
+      <Sidebar {...props} routes={routes} />
+      <div
+        className={`bg-color-dashboard w-full h-screen overflow-auto transition-all ${
+          sidebarOpen
+            ? "android:pl-[0px] md:pl-[300px]"
+            : "android:!pl-[0px] md:!pl-[200px]"
+        }`}
+        ref={mainContent}
+      >
+        <Routes>{getRoutes(routes, `/${roles}`)}</Routes>
+      </div>
+    </div>
+  );
 };
 
 export default Mahasiswa;

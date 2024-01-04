@@ -25,7 +25,6 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center md:gap-10 android:gap-4 text-color-page">
-          <NavLink href="/tentang-kami">Tentang Kami</NavLink>
           <NavLink href="/login">Login</NavLink>
         </div>
       </div>
