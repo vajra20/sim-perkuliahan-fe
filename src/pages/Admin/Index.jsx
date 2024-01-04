@@ -1,8 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
+// Components
 import NavbarDashboard from "../../components/NavbarDashboard";
 import Tables from "../../components/Tables";
 import Time from "../../components/Time";
 import { useSidebar } from "../../context/ContextProvider";
+
+// Data
+import adminData from "../../data/admin/listAdmin";
+import dosenData from "../../data/admin/listDosen";
+import mahasiswaData from "../../data/admin/listMahasiswa";
 
 // Icons
 import graduationCap from "@iconify/icons-fa/graduation-cap";
@@ -10,16 +17,35 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
-	const navigate = useNavigate();
   const { sidebarOpen } = useSidebar();
-  const token = localStorage.getItem("accessToken")
+  const navigate = useNavigate();
+
+  const [adminData, setAdminData] = useState([]);
+  const [dosenData, setDosenData] = useState([]);
+  const [mahasiswaData, setMahasiswaData] = useState([]);
+
+  const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
-    console.log(token)
-    if (!token){
-      navigate("/login")
+    const fetchAllData = async () => {
+      const AdminData = await adminData();
+      const DosenData = await dosenData();
+      const MahasiswaData = await mahasiswaData();
+
+      setAdminData(AdminData);
+      setDosenData(DosenData);
+      setMahasiswaData(MahasiswaData);
+    };
+
+    fetchAllData();
+  });
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
     }
-  })
+  });
+
   return (
     <div className="w-full h-full">
       <NavbarDashboard />
@@ -61,6 +87,7 @@ const Index = () => {
                     <Icon className="w-4 h-4 " icon={graduationCap} />
                   </div>
                 </div>
+
                 <div className="text-black md:font-medium android:font-normal flex items-center justify-between gap-2">
                   <span className="md:text-3xl android:text-xl">1.745 </span>
                   <span className="md:text-lg android:text-base">Orang</span>
@@ -72,12 +99,15 @@ const Index = () => {
                   <span className="w-full android:text-lg md:text-xl text-black android:font-semibold md:font-medium">
                     Mahasiswa
                   </span>
+
                   <div className="bg-[#D9D9D9] p-1 rounded-full h-min justify-center flex items-center android:hidden sm:block">
                     <Icon className="w-4 h-4" icon={graduationCap} />
                   </div>
                 </div>
+
                 <div className="text-black md:font-medium android:font-normal flex items-center justify-between gap-2">
                   <span className="md:text-3xl android:text-xl">20.745 </span>
+
                   <span className="md:text-lg android:text-base">Orang</span>
                 </div>
               </div>
