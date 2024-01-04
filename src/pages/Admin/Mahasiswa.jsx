@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+// Components
 import NavbarDashboard from "../../components/NavbarDashboard";
 import { Space, Table } from "antd";
 import { Button, Modal } from "antd";
+
+// Data
+import getMahasiswaData from "../../data/admin/listMahasiswa";
 
 // Icons
 import { Icon } from "@iconify/react";
@@ -9,83 +14,101 @@ import todoAdd from "@iconify/icons-pajamas/todo-add";
 import editIcon from "@iconify/icons-tabler/edit";
 import trashIcon from "@iconify/icons-ion/trash";
 
-const columns = [
-	{
-		title: "No",
-		dataIndex: "no",
-		key: "no",
-	},
-	{
-		title: "Nama",
-		dataIndex: "nama",
-		key: "nama",
-	},
-	{
-		title: "Mata Pelajaran",
-		dataIndex: "mapel",
-		key: "mapel",
-	},
-	{
-		title: "NIP",
-		dataIndex: "nip",
-		key: "nip",
-	},
-	{
-		title: "Action",
-		key: "action",
-		render: (_, record) => (
-			<Space size="middle">
-				<button className="bg-[#FFC006] p-1 rounded ">
-					<Icon icon={editIcon} className=" w-5 h-5"></Icon>
-				</button>
-				<button className="bg-[#DA3442] p-1 rounded ">
-					<Icon
-						icon={trashIcon}
-						className="text-white w-5 h-5"
-					></Icon>
-				</button>
-			</Space>
-		),
-	},
-];
+const Mahasiwa = () => {
+	// Mahasiswa
+	const [mahasiswaData, setMahasiswaData] = useState([]);
 
-const data = [
-	{
-		no: "1",
-		nama: "Vito Aleandra S. Kom",
-		mapel: "Teknik Komputer",
-		nip: 12108545,
-	},
-	{
-		no: "2",
-		nama: "Maulana Yusuf S.Pd",
-		mapel: "Matematika",
-		nip: 12108878,
-	},
-	{
-		no: "3",
-		nama: "Benediktus Vajra Sagara S. Kom",
-		mapel: "Sejarah",
-		nip: 12108356,
-	},
-];
+	// Fetching Mahasiswa Data ( find All )
+	useEffect(() => {
+		const fetchMahasiwaData = async () => {
+			const MahasiswaData = await getMahasiswaData();
+			setMahasiswaData(MahasiswaData);
+		};
 
-const paginationConfig = {
-	pageSize: 10,
-	showTotal: (total, range) =>
-		`Showing ${range[0]} - ${range[1]} of ${total} list`,
-};
+		fetchMahasiwaData();
+	}, []);
 
-const Dosen = () => {
+	// Modal
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	const showModal = () => {
 		setIsModalOpen(true);
 	};
+
 	const handleOk = () => {
 		setIsModalOpen(false);
 	};
+
 	const handleCancel = () => {
 		setIsModalOpen(false);
+	};
+
+	// Table
+
+	const columns = [
+		{
+			title: "No",
+			dataIndex: "no",
+			key: "no",
+		},
+		{
+			title: "Nama",
+			dataIndex: "nama",
+			key: "nama",
+		},
+		{
+			title: "NIM",
+			dataIndex: "nim",
+			key: "nim",
+		},
+		{
+			title: "Tanggal Lahir",
+			dataIndex: "tanggalLahir",
+			key: "tanggalLahir",
+		},
+		{
+			title: "Tempat Lahir",
+			dataIndex: "tempatLahir",
+			key: "tempatLahir",
+		},
+		{
+			title: "Action",
+			key: "action",
+			render: (_, record) => (
+				<Space size="middle">
+					<button className="bg-[#FFC006] p-1 rounded ">
+						<Icon icon={editIcon} className=" w-5 h-5"></Icon>
+					</button>
+
+					<button className="bg-[#DA3442] p-1 rounded ">
+						<Icon
+							icon={trashIcon}
+							className="text-white w-5 h-5"
+						></Icon>
+					</button>
+				</Space>
+			),
+		},
+	];
+
+	const MahasiswaList = mahasiswaData.map((item, index) => {
+		let data;
+
+		data = {
+			no: `${index + 1}.`,
+			nama: item.mhsName,
+			nim: item.nim,
+			tanggalLahir: item.tanggalLahir,
+			tempatLahir: item.tempatLahir,
+		};
+
+		return data;
+	});
+
+	const paginationConfig = {
+		pageSize: 10,
+		showTotal: (total, range) =>
+			`Showing ${range[0]} - ${range[1]} of ${total} list`,
 	};
 
 	return (
@@ -185,7 +208,7 @@ const Dosen = () => {
 						<Table
 							className="w-full"
 							columns={columns}
-							dataSource={data}
+							dataSource={MahasiswaList}
 							pagination={paginationConfig}
 						/>
 					</div>
@@ -195,4 +218,4 @@ const Dosen = () => {
 	);
 };
 
-export default Dosen;
+export default Mahasiwa;

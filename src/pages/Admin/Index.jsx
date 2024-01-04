@@ -7,9 +7,10 @@ import Time from "../../components/Time";
 import { useSidebar } from "../../context/ContextProvider";
 
 // Data
-import adminData from "../../data/admin/listAdmin";
-import dosenData from "../../data/admin/listDosen";
-import mahasiswaData from "../../data/admin/listMahasiswa";
+import getAdminData from "../../data/admin/listAdmin";
+import getDosenData from "../../data/admin/listDosen";
+import getMahasiswaData from "../../data/admin/listMahasiswa";
+import getBeritaAcara from "../../data/dosen/listAcara";
 
 // Icons
 import graduationCap from "@iconify/icons-fa/graduation-cap";
@@ -21,18 +22,19 @@ const Index = () => {
 	const [adminData, setAdminData] = useState([]);
 	const [dosenData, setDosenData] = useState([]);
 	const [mahasiswaData, setMahasiswaData] = useState([]);
-
-	console.log(adminData);
+	const [eventData, setEventData] = useState([]);
 
 	useEffect(() => {
 		const fetchAllData = async () => {
-			const AdminData = await adminData();
-			const DosenData = await dosenData();
-			const MahasiswaData = await mahasiswaData();
+			const AdminData = await getAdminData();
+			const DosenData = await getDosenData();
+			const MahasiswaData = await getMahasiswaData();
+			const EventData = await getBeritaAcara();
 
 			setAdminData(AdminData);
 			setDosenData(DosenData);
 			setMahasiswaData(MahasiswaData);
+			setEventData(EventData);
 		};
 
 		fetchAllData();
@@ -73,7 +75,7 @@ const Index = () => {
 
 								<div className="text-black md:font-medium android:font-normal flex items-center justify-between gap-2">
 									<span className="md:text-3xl android:text-xl">
-										45
+										{Number(adminData.length)}
 									</span>
 									<span className="md:text-lg android:text-base">
 										Orang
@@ -96,7 +98,7 @@ const Index = () => {
 
 								<div className="text-black md:font-medium android:font-normal flex items-center justify-between gap-2">
 									<span className="md:text-3xl android:text-xl">
-										1.745{" "}
+										{Number(dosenData.length)}
 									</span>
 									<span className="md:text-lg android:text-base">
 										Orang
@@ -120,7 +122,7 @@ const Index = () => {
 
 								<div className="text-black md:font-medium android:font-normal flex items-center justify-between gap-2">
 									<span className="md:text-3xl android:text-xl">
-										20.745{" "}
+										{Number(mahasiswaData.length)}
 									</span>
 
 									<span className="md:text-lg android:text-base">
@@ -134,7 +136,7 @@ const Index = () => {
 					<Time />
 
 					<div className="flex justify-center items-center rounded-xl h-fit max-h-full">
-						<Tables />
+						<Tables dosenDatas={dosenData} />
 					</div>
 
 					<div className="flex flex-col gap-3">
