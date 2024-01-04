@@ -15,9 +15,11 @@ import getBeritaAcara from "../../data/dosen/listAcara";
 // Icons
 import graduationCap from "@iconify/icons-fa/graduation-cap";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
 	const { sidebarOpen } = useSidebar();
+	const navigate = useNavigate();
 
 	const [adminData, setAdminData] = useState([]);
 	const [dosenData, setDosenData] = useState([]);
@@ -38,7 +40,13 @@ const Index = () => {
 		};
 
 		fetchAllData();
-	}, []);
+	});
+
+	useEffect(() => {
+		if (!token) {
+			navigate("/login");
+		}
+	});
 
 	return (
 		<div className="w-full h-full">

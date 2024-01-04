@@ -71,7 +71,7 @@ var routes = [
 
   // Layout Admin
   {
-    path: "/beranda-admin",
+    path: "/beranda",
     name: "Beranda",
     icon: dashboardLine,
     component: <AdminPage />,
@@ -100,7 +100,7 @@ var routes = [
 
   // Layout Dosen
   {
-    path: "/beranda-dosen",
+    path: "/beranda",
     name: "Beranda",
     icon: dashboardLine,
     component: <DosenPage />,
