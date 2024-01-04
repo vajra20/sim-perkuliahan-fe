@@ -1,12 +1,12 @@
 import axios from "axios";
 import { apiUrl } from "../../function/globalFunction";
 
-const getDosenData = async () => {
+const getAdminData = async () => {
 	try {
 		let allData = [];
 
 		while (true) {
-			const response = await axios.get(`${apiUrl()}/getDosen`, {
+			const response = await axios.get(`${apiUrl()}/getAdmin`, {
 				headers: {
 					Accept: "application/json",
 					Authorization: `Bearer ${localStorage.getItem(
@@ -26,22 +26,22 @@ const getDosenData = async () => {
 	}
 };
 
-const dosenData = async () => {
+const adminData = async () => {
 	try {
-		const apiData = await getDosenData();
+		const apiData = await getAdminData();
 
-		const dataDosens = apiData.map((item, index) => ({
+		const dataAdmins = apiData.map((item, index) => ({
 			number: index + 1,
-			name: item.dosen_name,
+			name: item.adminData,
 			nip: item.nip,
 			matkul: item.matkul,
 		}));
 
-		return dataDosens;
+		return dataAdmins;
 	} catch (error) {
-		console.error("Error getting dosen data:", error);
+		console.error("Error getting admin data:", error);
 		return [];
 	}
 };
 
-export default dosenData;
+export default adminData;

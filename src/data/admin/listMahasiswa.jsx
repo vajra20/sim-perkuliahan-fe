@@ -6,7 +6,7 @@ const getMahasiswaData = async () => {
 		let allData = [];
 
 		while (true) {
-			const response = await axios.get(`${apiUrl}/getMahasiswa`, {
+			const response = await axios.get(`${apiUrl()}/getMahasiswa`, {
 				headers: {
 					Accept: "application/json",
 					Authorization: `Bearer ${localStorage.getItem(
