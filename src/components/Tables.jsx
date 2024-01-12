@@ -1,7 +1,7 @@
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Table } from "antd";
 
-const Tables = () => {
+const Tables = ({ dosenDatas }) => {
 	const columns = [
 		{
 			title: "No.",
@@ -10,8 +10,8 @@ const Tables = () => {
 		},
 		{
 			title: "Nama Dosen",
-			dataIndex: "dosen",
-			key: "dosen",
+			dataIndex: "dosen_name",
+			key: "dosen_name",
 			render: (text) => <a>{text}</a>,
 		},
 		{
@@ -21,161 +21,24 @@ const Tables = () => {
 		},
 		{
 			title: "Mata Kuliah",
-			key: "pelajaran",
-			dataIndex: "pelajaran",
+			key: "matkul",
+			dataIndex: "matkul",
 			render: (text) => <a>{text}</a>,
 		},
 	];
 
-	const data = [
-		{
-			key: "1",
-			no: "1",
-			dosen: "Devina Diva S.",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "2",
-			no: "2",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "3",
-			no: "3",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "4",
-			no: "4",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "5",
-			no: "5",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "6",
-			no: "6",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "7",
-			no: "7",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "8",
-			no: "8",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "9",
-			no: "9",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "10",
-			no: "10",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "11",
-			no: "11",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "12",
-			no: "12",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "13",
-			no: "13",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "14",
-			no: "14",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "15",
-			no: "15",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "16",
-			no: "16",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "17",
-			no: "17",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "18",
-			no: "18",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "19",
-			no: "19",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "20",
-			no: "20",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-		{
-			key: "21",
-			no: "21",
-			dosen: "Jim Green",
-			nip: 12023043,
-			pelajaran: "Aljabar Linear",
-		},
-	];
+	const DosenList = dosenDatas.map((item, index) => {
+		let data;
+
+		data = {
+			no: `${index + 1}.`,
+			dosen_name: item.dosenName,
+			nip: item.nip,
+			matkul: item.matkul.namaMatkul,
+		};
+
+		return data;
+	});
 
 	const paginationConfig = {
 		pageSize: 10,
@@ -187,7 +50,7 @@ const Tables = () => {
 		<Table
 			className=" w-full"
 			columns={columns}
-			dataSource={data}
+			dataSource={DosenList}
 			pagination={paginationConfig}
 		/>
 	);
