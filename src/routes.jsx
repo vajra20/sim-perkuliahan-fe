@@ -2,6 +2,7 @@
 import AdminPage from "./pages/Admin/Index";
 import Dosen from "./pages/Admin/Dosen";
 import Mahasiswa from "./pages/Admin/Mahasiswa";
+import ListAcara from "./pages/Admin/ListAcara";
 
 // Pages Mahasiswa
 import MahasiswaPage from "./pages/Mahasiswa/Index";
@@ -93,6 +94,15 @@ var routes = [
     name: "Mahasiswa",
     icon: collegeOutline,
     component: <Mahasiswa />,
+    layout: "/admin",
+    allow: true,
+    role: "Admin",
+  },
+  {
+    path: "/list-acara",
+    name: "List Acara",
+    icon: collegeOutline,
+    component: <ListAcara />,
     layout: "/admin",
     allow: true,
     role: "Admin",
