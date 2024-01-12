@@ -48,7 +48,7 @@ const Admin = (props) => {
       <div className={`${layer}`}></div>
       <Sidebar {...props} routes={routes} />
       <div
-        className={`bg-color-dashboard w-full h-screen overflow-auto transition-all ${
+        className={`bg-color-dashboard w-full h-screen overflow-auto transition-all duration-500 ${
           sidebarOpen
             ? "android:pl-[0px] md:pl-[300px]"
             : "android:!pl-[0px] md:!pl-[200px]"

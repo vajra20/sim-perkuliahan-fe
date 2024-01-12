@@ -12,26 +12,29 @@ const SideMenuItem = ({ icon, label, path, onClick, sidebar }) => {
 		: "";
 
 	return (
-		<div className={`w-full px-5 py-3 bg-white rounded-xl ${IsUrlActive}`}>
-			<NavLink
-				to={path}
-				className={`flex flex-row gap-8 text-color-page items-center w-full ${IsUrlActiveText} ${
-					sidebar ? "" : "flex-col !gap-2 px-2"
-				}`}
-				onClick={onClick}
-			>
-				{icon && <Icon className="w-8 h-8" icon={icon}></Icon>}
+    <NavLink
+      to={path}
+      className={`w-full px-5 py-3 hover:bg-color-page/10 transition-all duration-300 bg-white rounded-xl ${IsUrlActive}`}
+      onClick={onClick}
+    >
+      <div
+        to={path}
+        className={`flex flex-row gap-8 text-color-page items-center w-full transition-all duration-500 ${IsUrlActiveText} ${
+          sidebar ? "" : "flex-col !gap-2 px-2"
+        }`}
+      >
+        {icon && <Icon className="w-8 h-8" icon={icon}></Icon>}
 
-				<span
-					className={`text-lg text-center font-medium ${
-						sidebar ? "" : "android:hidden sm:block"
-					}`}
-				>
-					{label}
-				</span>
-			</NavLink>
-		</div>
-	);
+        <span
+          className={`text-lg text-center font-medium ${
+            sidebar ? "" : "android:hidden sm:block"
+          }`}
+        >
+          {label}
+        </span>
+      </div>
+    </NavLink>
+  );
 };
 
 export default SideMenuItem;
