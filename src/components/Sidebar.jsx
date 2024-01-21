@@ -67,54 +67,48 @@ const Sidebar = () => {
 	};
 
 	return (
-		<div
-			className={`md:px-5 py-4 overflow-hidden absolute w-[300px] h-screen bg-white border-r-2 border-gray-300 transition-all ${widthMenu} z-infinity ${
-				sidebarOpen ? "android:px-2.5" : "android:px-0"
-			}`}
-		>
-			<div className="w-full ">
-				<div
-					className={`flex flex-row gap-5 items-center mb-20 ${
-						sidebarOpen ? "flex-row" : "!flex-col !gap-2.5 !mb-14"
-					}`}
-				>
-					<div
-						className={`${
-							sidebarOpen ? "" : "flex w-full justify-center"
-						}`}
-					>
-						<img
-							className=" w-14 h-14"
-							src="/public/logo.png"
-							alt="logo"
-						/>
-					</div>
-					<div
-						className={`flex flex-col text-left ${
-							sidebarOpen ? "" : "!gap-1 android:hidden sm:flex"
-						}`}
-					>
-						<span
-							className={`text-color-page text-xl font-medium -mb-1.5 text-center whitespace-wrap ${
-								sidebarOpen ? "" : "!text-base !font-bold "
-							}`}
-						>
-							ITB SWARDHARMA
-						</span>
-						<span
-							className={`text-color-page text-xs font-normal italic ${
-								sidebarOpen ? "" : "!text-center"
-							}`}
-						>
-							E-Learning
-						</span>
-					</div>
-				</div>
-			</div>
+    <div
+      className={`md:px-5 py-4 overflow-hidden absolute w-[300px] h-screen bg-white border-r-2 border-gray-300 transition-all duration-500 ${widthMenu} z-infinity ${
+        sidebarOpen ? "android:px-2.5" : "android:px-0"
+      }`}
+    >
+      <div className="w-full ">
+        <div
+          className={`flex flex-row gap-5 items-center mb-20 ${
+            sidebarOpen ? "flex-row" : "!flex-col !gap-2.5 !mb-14"
+          }`}
+        >
+          <div className={`${sidebarOpen ? "" : "flex w-full justify-center"}`}>
+            <img className=" w-14 h-14" src="/public/logo.png" alt="logo" />
+          </div>
+          <div
+            className={`flex flex-col text-left ${
+              sidebarOpen ? "" : "!gap-1 android:hidden sm:flex"
+            }`}
+          >
+            <span
+              className={`text-color-page text-xl font-medium -mb-1.5 text-center whitespace-wrap ${
+                sidebarOpen ? "" : "!text-base !font-bold "
+              }`}
+            >
+              ITB SWARDHARMA
+            </span>
+            <span
+              className={`text-color-page text-xs font-normal italic ${
+                sidebarOpen ? "" : "!text-center"
+              }`}
+            >
+              E-Learning
+            </span>
+          </div>
+        </div>
+      </div>
 
-			<div className="flex flex-col gap-4">{createLinks()}</div>
-		</div>
-	);
+      <div className="flex flex-col gap-4 ">
+        {createLinks()}
+      </div>
+    </div>
+  );
 };
 
 export default Sidebar;

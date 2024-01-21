@@ -52,36 +52,37 @@ const NavbarDashboard = () => {
 	];
 
 	return (
-		<div className="flex flex-row w-full justify-between items-center md:px-7 android:px-3 sm:py-3 android:py-1.5 border-gray-300 border-b-2 android:gap-6">
-			<button onClick={toggleEvent}>
-				<Icon icon={hamburgerLg} />
-			</button>
+    <div className="flex flex-row w-full justify-between items-center md:px-7 android:px-3 sm:py-3 android:py-1.5 border-gray-300 border-b-2 android:gap-6">
+      <button
+        onClick={toggleEvent}
+        className="bg-transparent hover:bg-blue-100 p-2.5 rounded-full transition-colors duration-300"
+      >
+        <Icon icon={hamburgerLg} />
+      </button>
 
-			<LiveDate />
+      <LiveDate />
 
-			<button onClick={(e) => e.preventDefault()}>
-				<Dropdown
-					menu={{
-						items,
-					}}
-				>
-					<div className="flex items-center md:gap-3 android:gap-1">
-						<img
-							src="/public/profile.png"
-							alt=""
-							className="rounded-full android:w-8 android:h-8 object-cover"
-						></img>
+      <button onClick={(e) => e.preventDefault()}>
+        <Dropdown
+          menu={{
+            items,
+          }}
+        >
+          <div className="flex items-center md:gap-3 android:gap-1">
+            <img
+              src="/public/profile.png"
+              alt=""
+              className="rounded-full android:w-8 android:h-8 object-cover"
+            ></img>
 
-						<a className="android:hidden md:block">
-							<span className="md:text-base lg:text-lg">
-								{username}
-							</span>
-						</a>
-					</div>
-				</Dropdown>
-			</button>
-		</div>
-	);
+            <a className="android:hidden md:block">
+              <span className="md:text-base lg:text-lg">{username}</span>
+            </a>
+          </div>
+        </Dropdown>
+      </button>
+    </div>
+  );
 };
 
 export default NavbarDashboard;
