@@ -1,9 +1,9 @@
 import axios from "axios";
 import { apiUrl } from "../../function/globalFunction";
 
-const getDosenData = async () => {
+const getMatkulData = async () => {
 	try {
-		const response = await axios.get(`${apiUrl()}/getDosen`, {
+		const response = await axios.get(`${apiUrl()}/getMatkul`, {
 			headers: {
 				Accept: "application/json",
 				Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -12,7 +12,7 @@ const getDosenData = async () => {
 			},
 		});
 
-		const data = response.data.dosens;
+		const data = response.data;
 		return data;
 	} catch (error) {
 		console.error("Error fetching data:", error);
@@ -20,4 +20,4 @@ const getDosenData = async () => {
 	}
 };
 
-export default getDosenData;
+export default getMatkulData;

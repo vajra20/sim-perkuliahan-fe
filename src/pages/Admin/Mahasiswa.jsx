@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import NavbarDashboard from "../../components/NavbarDashboard";
-import { Space, Table } from "antd";
+import Tables from "../../components/Tables";
+
+// External Components
+import { Space } from "antd";
 import { Button, Modal } from "antd";
 
 // Data
@@ -205,11 +208,11 @@ const Mahasiwa = () => {
 					</div>
 
 					<div className="w-full md:px-10 android:px-5 py-8">
-						<Table
+						<Tables
 							className="w-full"
 							columns={columns}
 							dataSource={MahasiswaList}
-							pagination={paginationConfig}
+							paginationConfig={paginationConfig}
 						/>
 					</div>
 				</div>
