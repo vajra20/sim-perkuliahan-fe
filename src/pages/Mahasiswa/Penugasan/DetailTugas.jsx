@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarDashboard from "../../../components/NavbarDashboard";
 import Icons from "../../../components/Icons";
 
 // Icons
@@ -12,7 +11,6 @@ const DetailTugas = () => {
   return (
     <div>
       <div className="w-full h-full ">
-        <NavbarDashboard />
         <div className="md:px-7 sm:py-6 android:p-3">
           <div className="flex flex-col justify-start sm:gap-4 android:gap-2">
             <span className=" sm:text-5xl android:text-4xl text-black font-medium w-full">

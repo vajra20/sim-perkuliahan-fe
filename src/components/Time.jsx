@@ -39,32 +39,32 @@ const Time = () => {
 	}, []);
 
 	return (
-		<div className="w-full">
-			<div className="flex justify-center items-center h-full w-full bg-blue-dashboard rounded-xl border border-dashboard-line md:p-10 android:py-5">
-				<div className="flex flex-row items-center gap-8">
-					<div className="flex flex-col justify-start md:items-start android:items-center lg:items-center xl:items-start md:gap-0 sm:gap-2 android:gap-0.5">
-						<img
-							src="/public/sun.png"
-							alt=""
-							className="sm:block android:hidden w-24 h-24 md:hidden lg:block xl:hidden"
-						/>
-						<span className="sm:text-5xl android:text-4xl text-[#314B8D] sm:font-bold android:font-extrabold text-center">
-							{currentTime}
-						</span>
-						<span className="text-center text-dark-gray sm:font-medium android:font-bold sm:text-3xl android:text-xl ">
-							{wordDate()}
-						</span>
-					</div>
+    <div className="w-full">
+      <div className="flex justify-center items-center h-full w-full bg-blue-dashboard rounded-xl border border-dashboard-line md:p-10 android:py-5">
+        <div className="flex flex-row items-center gap-8">
+          <div className="flex flex-col justify-start md:items-start android:items-center lg:items-center xl:items-start md:gap-0 sm:gap-2 android:gap-0.5">
+            <img
+              src="/public/sun.png"
+              alt=""
+              className="sm:block android:hidden w-24 h-24 md:hidden lg:block xl:hidden"
+            />
+            <span className="sm:text-5xl android:text-4xl text-[#314B8D] sm:font-bold android:font-extrabold text-center">
+              {currentTime}
+            </span>
+            <span className="text-center text-dark-gray sm:font-medium android:font-bold sm:text-2xl android:text-xl ">
+              {wordDate()}
+            </span>
+          </div>
 
-					<img
-						src="/public/sun.png"
-						alt=""
-						className="android:hidden w-24 h-24 md:block lg:hidden xl:block"
-					/>
-				</div>
-			</div>
-		</div>
-	);
+          <img
+            src="/public/sun.png"
+            alt=""
+            className="android:hidden w-24 h-24 md:block lg:hidden xl:block"
+          />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Time;

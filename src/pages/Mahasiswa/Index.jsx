@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarDashboard from "../../components/NavbarDashboard";
 import Time from "../../components/Time";
 
 // Icons
@@ -9,7 +8,6 @@ import saveSolid from "@iconify/icons-la/save-solid";
 const Index = () => {
 	return (
 		<div className="w-full h-full">
-			<NavbarDashboard />
 
 			<div className="md:px-7 lg:py-6 android:px-3">
 				<div className="lg:grid md:flex md:flex-col lg:gap-0 xl:gap-10 grid-cols-dashboard mb-2">

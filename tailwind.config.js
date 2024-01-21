@@ -22,6 +22,7 @@ export default {
         custom_2: "1 1 280px",
       },
       colors: {
+        "hover-page": "#0c06ac",
         "color-page": "#00535B",
         "light-blue": "#8CDDE2",
         "color-dashboard": "#EFF4FE",

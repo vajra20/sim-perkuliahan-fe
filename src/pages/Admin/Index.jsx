@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 // Components
-import NavbarDashboard from "../../components/NavbarDashboard";
 import Tables from "../../components/Tables";
 import Time from "../../components/Time";
 import { useSidebar } from "../../context/ContextProvider";
@@ -50,8 +49,6 @@ const Index = () => {
 
   return (
     <div className="w-full h-full">
-      <NavbarDashboard />
-
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="grid android:gap-5 lg:gap-10 lg:grid-cols-dashboard android:grid-cols-1 mb-16">
           <div className="bg-blue-dashboard px-5 py-4 rounded-xl border-dashboard-line border">

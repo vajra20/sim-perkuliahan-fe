@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Table } from "antd";
-import NavbarDashboard from "../../components/NavbarDashboard";
 import arrowRight2 from "@iconify/icons-iconamoon/arrow-right-2";
 import { Icon } from "@iconify/react";
 
@@ -46,7 +45,6 @@ for (let i = 1; i < 20; i++) {
 const Absensi = () => {
   return (
     <div className="w-full h-full">
-      <NavbarDashboard />
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="bg-color-page md:px-8 android:px-4 md:py-4 android:py-2 md:rounded-3xl android:rounded-xl">
           <div className="md:mb-3 android:mb-1.5">

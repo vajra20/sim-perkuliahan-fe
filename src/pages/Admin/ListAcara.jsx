@@ -1,10 +1,8 @@
 import React from "react";
-import NavbarDashboard from "../../components/NavbarDashboard";
 
 const ListAcara = () => {
   return (
     <div className="w-full h-full">
-      <NavbarDashboard />
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="bg-white border rounded-xl shadow">
           <div className="w-full border-b-2 border-event-color md:px-10 android:px-5 py-3 flex android:justify-center justify-start items-center">

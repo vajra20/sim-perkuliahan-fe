@@ -125,6 +125,11 @@ const Login = () => {
                     name="username"
                     placeholder="Silahkan isi Username"
                     onChange={(e) => formHandler("username", e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleLogin();
+                      }
+                    }}
                   ></input>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +165,11 @@ const Login = () => {
                     placeholder="Password"
                     type={handleTogglePassword ? "text" : "password"}
                     onChange={(e) => formHandler("password", e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleLogin();
+                      }
+                    }}
                   ></input>
 
                   <div>
@@ -188,9 +198,6 @@ const Login = () => {
                       />
                     </svg>
                   </div>
-                </div>
-                <div className=" italic font-normal text-xs text-white tracking-wide">
-                  <span>Forgot Password ?</span>
                 </div>
               </div>
             </div>

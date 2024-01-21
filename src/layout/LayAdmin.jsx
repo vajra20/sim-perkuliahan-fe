@@ -3,9 +3,11 @@ import { useLocation, Route, Routes, Navigate } from "react-router-dom";
 import routes from "../routes";
 import Sidebar from "../components/Sidebar";
 import { useSidebar } from "../context/ContextProvider";
+import NavbarDashboard from "../components/NavbarDashboard";
 
 const Admin = (props) => {
-  const { sidebarOpen, screenSize, setScreenSize } = useSidebar();
+  const { setSidebarOpen, sidebarOpen, screenSize, setScreenSize } =
+    useSidebar();
   const [layer, setLayer] = useState("");
 
   const roles = localStorage.getItem("role");
@@ -43,9 +45,15 @@ const Admin = (props) => {
       ));
   };
 
+  const handleLayer = () => {
+    if (sidebarOpen === true && screenSize <= 768) {
+      setSidebarOpen(false);
+    }
+  };
+
   return (
     <div>
-      <div className={`${layer}`}></div>
+      <div className={`${layer}`} onClick={handleLayer}></div>
       <Sidebar {...props} routes={routes} />
       <div
         className={`bg-color-dashboard w-full h-screen overflow-auto transition-all duration-500 ${
@@ -55,6 +63,7 @@ const Admin = (props) => {
         }`}
         ref={mainContent}
       >
+        <NavbarDashboard />
         <Routes>{getRoutes(routes, `/${roles}`)}</Routes>
       </div>
     </div>
