@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { apiUrl } from "../../function/globalFunction";
 
 // Components
-import NavbarDashboard from "../../components/NavbarDashboard";
 
 // External Components
 import axios from "axios";
@@ -21,7 +20,6 @@ const CreateEvent = () => {
 
 	return (
 		<div className="w-full h-full">
-			<NavbarDashboard />
 
 			<div className="md:px-7 lg:py-6 android:p-3">
 				<div className="bg-white border rounded-xl shadow">
