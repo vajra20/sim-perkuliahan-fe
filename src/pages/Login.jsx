@@ -8,88 +8,97 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	// State Form
-	const [form, setForm] = useState({
-		username: "",
-		password: "",
-	});
+  // State Form
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
 
-	const [isLoading, setIsLoading] = useState(false);
-	const [handleTogglePassword, setHandleTogglePassword] = useState(false);
-	const togglePasswordVisiblity = () => {
-		setHandleTogglePassword(handleTogglePassword ? false : true);
-	};
+  const [isLoading, setIsLoading] = useState(false);
+  const [handleTogglePassword, setHandleTogglePassword] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setHandleTogglePassword(handleTogglePassword ? false : true);
+  };
 
-	// Form Handler
-	const formHandler = (name, value) => {
-		setForm({
-			...form,
-			[name]: value,
-		});
-	};
+  // Form Handler
+  const formHandler = (name, value) => {
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
 
-	// Handle Submit
-	const handleLogin = () => {
-		setIsLoading(true);
+  // Handle Submit
+  const handleLogin = () => {
+    setIsLoading(true);
 
-		const { username, password } = form;
+    const { username, password } = form;
 
-		axios
-			.post(
-				`${apiUrl()}/login`,
-				{
-					username,
-					password,
-				},
-				{
-					headers: {
-						Accept: "application/json",
-						"Access-Control-Allow-Origin": "*",
-						"ngrok-skip-browser-warning": "true",
-					},
-				}
-			)
-			.then((res) => {
-				if (res.data.statusCode == 200) {
-					localStorage.setItem("user_id", res.data.userId);
-					localStorage.setItem("username", res.data.username);
-					localStorage.setItem("role", res.data.role);
-					localStorage.setItem("accessToken", res.data.token);
-					Swal.fire({
-						title: "Login Success",
-						icon: "success",
-						timer: 1500,
-						showConfirmButton: false,
-					});
-					setIsLoading(false);
-					if (res.data.role){
-						navigate("/admin/beranda");
-					} else {
-						navigate("/mahasiswa/beranda");
-					}
-				} else {
-					navigate("/login");
-					Swal.fire({
-						title: "Login Failed",
-						icon: "error",
-					});
-					setIsLoading(true);
-				}
-			})
-			.catch((err) => {
-				setIsLoading(false);
-				Swal.fire({
-					title: "Login Failed",
-					text: err.response.data.message,
-					icon: "error",
-				});
-				console.error(err);
-			});
-	};
+    axios
+      .post(
+        `${apiUrl()}/login`,
+        {
+          username,
+          password,
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      )
+      .then((res) => {
+        if (res.data.statusCode == 200) {
+          const isAdmin = res.data.role === "Admin";
+          const isMahasiswa = res.data.role === "Mahasiswa";
+          const isDosen = res.data.role === "Dosen";
 
-	return (
+          localStorage.setItem("user_id", res.data.userId);
+          localStorage.setItem("username", res.data.username);
+          localStorage.setItem("role", res.data.role);
+          localStorage.setItem("accessToken", res.data.token);
+
+          if (isAdmin) {
+            navigate("/admin/beranda");
+          } else if (isMahasiswa) {
+            navigate("/mahasiswa/beranda");
+          } else if (isDosen) {
+            navigate("/dosen/beranda");
+          }
+
+          Swal.fire({
+            title: "Login Success",
+            icon: "success",
+            timer: 1500,
+            showConfirmButton: false,
+          });
+
+          setIsLoading(false);
+        } else {
+          navigate("/login");
+          Swal.fire({
+            title: "Login Failed",
+            icon: "error",
+          });
+          setIsLoading(true);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        Swal.fire({
+          title: "Login Failed",
+          text: err.response.data.message,
+          icon: "error",
+        });
+        console.error(err);
+      });
+  };
+
+  return (
     <div>
       <div className="flex android:flex-col md:flex-row w-full max-w-full h-screen">
         <div className="bg-[#1B294D] px-20 py-6 w-full md:max-w-xl flex flex-col android:max-w-full android:h-full ">
