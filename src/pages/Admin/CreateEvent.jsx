@@ -144,7 +144,7 @@ const CreateEvent = () => {
 		formData.append("end_date", eventData.end_date);
 
 		if (uploadDocument?.length) {
-			formData.append("event_file", uploadDocument[0]);
+			formData.append("file", uploadDocument[0]);
 		}
 
 		await axios
@@ -200,7 +200,6 @@ const CreateEvent = () => {
 
 	return (
 		<div className="w-full h-full">
-
 			<div className="md:px-7 lg:py-6 android:p-3">
 				<div className="bg-white border rounded-xl shadow">
 					<div className="w-full border-b-2 border-event-color md:px-10 android:px-5 py-3 flex android:justify-center justify-start items-center">
