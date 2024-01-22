@@ -144,7 +144,7 @@ const CreateEvent = () => {
     formData.append("end_date", eventData.end_date);
 
     if (uploadDocument?.length) {
-      formData.append("event_file", uploadDocument[0]);
+      formData.append("file", uploadDocument[0]);
     }
 
     await axios
