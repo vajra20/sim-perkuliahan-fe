@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { apiUrl } from "../../function/globalFunction";
 
 // Components
-import NavbarDashboard from "../../components/NavbarDashboard";
 import ModalForm from "../../components/ModalForm";
 import Tables from "../../components/Tables";
 
@@ -363,7 +362,6 @@ const Dosen = () => {
 
 	return (
 		<div className="w-full h-full">
-			<NavbarDashboard />
 
 			<div className="md:px-7 lg:py-6 android:p-3">
 				<div className="bg-white border rounded-xl shadow ">

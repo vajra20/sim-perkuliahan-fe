@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import NavbarDashboard from "../../components/NavbarDashboard";
 import { Button, Modal } from "antd";
 import SignatureCanvas from "react-signature-canvas";
 import { useSidebar } from "../../context/ContextProvider";
@@ -31,7 +30,6 @@ const BeritaAcara = () => {
 
   return (
     <div className="w-full h-full">
-      <NavbarDashboard />
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button

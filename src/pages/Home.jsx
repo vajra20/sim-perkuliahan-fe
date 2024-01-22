@@ -34,12 +34,10 @@ const Home = () => {
               berdaya saing tinggi dan berjiwa teknopreneurship.
             </span>
             <button
-              className="px-8 py-1 rounded-3xl bg-color-page hover:bg-blue-600 transition-all w-fit flex"
+              className="px-8 md:py-2.5 sm:py-1 rounded-full bg-color-page hover:bg-hover-page transition-all duration-300 w-fit flex text-white hover:text-white"
               onClick={handleToLogin}
             >
-              <span className="text-white font-medium text-lg">
-                Get Started
-              </span>
+              <span className=" font-medium text-lg">Get Started</span>
             </button>
           </div>
           <img
@@ -49,7 +47,7 @@ const Home = () => {
           ></img>
         </div>
 
-        <div className="flex flex-col sm:my-28 android:mb-32 android:mt-28">
+        <div className="flex flex-col sm:my-28 android:mb-32 sm:mb-28 android:mt-28">
           <div
             className="flex justify-center flex-col items-center mb-7"
             data-aos="fade-down"
@@ -66,22 +64,22 @@ const Home = () => {
           <div className="flex justify-center w-full" data-aos="fade-down">
             <div className="bg-[#D5ECED] flex justify-center w-max md:w-full h-fit rounded-lg px-3 md:py-1 android:py-3 ">
               <div className="android:flex-wrap android:flex gap-3 lg:flex-wrap lg:flex w-full md:grid md:grid-cols-2">
-                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2 transition-all ">
+                <div className=" cursor-default text-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2 transition-colors duration-300">
                   <Icons icon={peopleIcon} backgroundColor="#8CDDE2" />
                   <span className="text-2xl font-medium">Absensi</span>
                 </div>
-                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className="  cursor-default text-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2 transition-colors duration-300">
                   <Icons icon={documentOutline} backgroundColor="#8CDDE2" />
                   <span className=" text-2xl font-medium">Jadwal</span>
                 </div>
-                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className=" cursor-default text-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2 transition-colors duration-300">
                   <Icons
                     icon={taskListSquare16Regular}
                     backgroundColor="#8CDDE2"
                   />
                   <span className=" text-2xl font-medium">Penilaian</span>
                 </div>
-                <div className=" cursor-default text-color-page hover:text-white hover:bg-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2">
+                <div className=" cursor-default text-color-page bg-white flex android:justify-start sm:justify-center gap-x-7 items-center rounded-lg pl-6 pr-16 lg:pr-6 py-3 android:w-full md:flex-custom_2 transition-colors duration-300">
                   <Icons icon={rulerPenLinear} backgroundColor="#8CDDE2" />
                   <span className=" text-2xl font-medium">Penugasan</span>
                 </div>
@@ -92,7 +90,7 @@ const Home = () => {
 
         <div
           data-aos="fade-down"
-          className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 xl:mb-44 android:mb-32"
+          className="grid lg:grid-cols-2 base:gap-5 lg:gap-20 android:grid-cols-1 xl:mb-40 android:mb-32"
         >
           <div className="flex lg:justify-end android:justify-center android:mb-8 lg:mb-0 items-center">
             <div className="relative max-w-fit h-fit">
@@ -195,8 +193,7 @@ const Home = () => {
           </h1>
           <div
             className="bg-[#99D1D569] sm:p-8 android:p-4 sm:rounded-2xl android:rounded-xl"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
+            data-aos="fade-down"
           >
             <div className="flex lg:flex-nowrap android:flex-wrap gap-8">
               <div className="bg-white p-8 flex flex-col justify-center rounded-xl">

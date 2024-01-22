@@ -1,58 +1,83 @@
 import LiveDate from "../components/LiveDate";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useSidebar } from "../context/ContextProvider";
 
+// Icons
 import { Icon } from "@iconify/react";
 import logoutIcon from "@iconify/icons-mdi/logout";
 import profileFill from "@iconify/icons-iconamoon/profile-fill";
 import hamburgerLg from "@iconify/icons-ci/hamburger-lg";
 
 const NavbarDashboard = () => {
-	const { toggleEvent } = useSidebar();
+  const [fix, setFix] = useState(false);
+  const { toggleEvent } = useSidebar();
+  const navigate = useNavigate();
 
-	const navigate = useNavigate();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setFix(true);
+      } else {
+        setFix(false);
+      }
+    };
+				handleScroll()
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [setFix, fix]);
 
-	const handleLogoutClick = () => {
-		localStorage.clear();
-		navigate("/");
-	};
+  const gaje = fix;
+  console.log(gaje);
 
-	const username = localStorage.getItem("username");
-	const roles = localStorage.getItem("role");
+  const handleLogoutClick = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
-	const items = [
-		{
-			key: "1",
-			label: (
-				<div className="flex gap-1 items-center text-gray-sub android:block sm:hidden">
-					<Icon icon={profileFill} className="w-5 h-5"></Icon>
-					<span style={{ pointerEvents: "none" }}>{username}</span>
-				</div>
-			),
-		},
-		{
-			key: "2",
-			label: <span>{roles}</span>,
-		},
-		{
-			key: "3",
-			danger: true,
-			label: (
-				<span
-					className="flex flex-row items-center gap-1.5"
-					onClick={handleLogoutClick}
-				>
-					Logout
-					<Icon icon={logoutIcon} onClick={handleLogoutClick} />
-				</span>
-			),
-		},
-	];
+  const username = localStorage.getItem("username");
+  const roles = localStorage.getItem("role");
 
-	return (
-    <div className="flex flex-row w-full justify-between items-center md:px-7 android:px-3 sm:py-3 android:py-1.5 border-gray-300 border-b-2 android:gap-6">
+  const items = [
+    {
+      key: "1",
+      label: (
+        <div className="flex gap-1 items-center text-gray-sub android:block sm:hidden">
+          <Icon icon={profileFill} className="w-5 h-5"></Icon>
+          <span style={{ pointerEvents: "none" }}>{username}</span>
+        </div>
+      ),
+    },
+    {
+      key: "2",
+      label: <span>{roles}</span>,
+    },
+    {
+      key: "3",
+      danger: true,
+      label: (
+        <span
+          className="flex flex-row items-center gap-1.5"
+          onClick={handleLogoutClick}
+        >
+          Logout
+          <Icon icon={logoutIcon} onClick={handleLogoutClick} />
+        </span>
+      ),
+    },
+  ];
+
+  return (
+    <div
+      className={`flex flex-row w-full justify-between items-center md:px-7 android:px-3 sm:py-3 android:py-1.5 border-gray-300 border-b-2 android:gap-6 ${
+        fix
+          ? "sticky top-0 transition-all duration-500 bg-transparent backdrop-blur-sm z-infinity backdrop-brightness-90 rounded-3xl"
+          : "relative"
+      }`}
+    >
       <button
         onClick={toggleEvent}
         className="bg-transparent hover:bg-blue-100 p-2.5 rounded-full transition-colors duration-300"

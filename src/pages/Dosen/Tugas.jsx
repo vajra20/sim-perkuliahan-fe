@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NavbarDashboard from "../../components/NavbarDashboard";
 import Icons from "../../components/Icons";
 import { Button, Modal } from "antd";
 import dayjs from "dayjs";
@@ -43,7 +42,6 @@ const Tugas = () => {
 
   return (
     <div className="w-full h-full">
-      <NavbarDashboard />
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button

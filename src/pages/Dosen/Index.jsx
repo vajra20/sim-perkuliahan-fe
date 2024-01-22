@@ -1,6 +1,4 @@
 import React from "react";
-import NavbarDashboard from "../../components/NavbarDashboard";
-
 
 // Icons
 import usersIcon from "@iconify/icons-ci/users";
@@ -9,7 +7,6 @@ import { Icon } from "@iconify/react";
 const Index = () => {
   return (
     <div className="w-full h-full">
-      <NavbarDashboard />
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-wrap gap-6">
           <div className="flex flex-col flex-custom max-w-sm">

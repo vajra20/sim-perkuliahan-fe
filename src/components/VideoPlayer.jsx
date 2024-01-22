@@ -34,7 +34,7 @@ class VideoPlayer extends Component {
           Your browser does not support the video tag.
         </video>
 
-        <div className="absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 z-20">
+        <div className="absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="85"

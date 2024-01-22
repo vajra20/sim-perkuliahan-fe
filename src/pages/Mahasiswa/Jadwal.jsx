@@ -1,5 +1,4 @@
 import React from "react";
-import NavbarDashboard from "../../components/NavbarDashboard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -12,7 +11,6 @@ import fileTypeExcel from "@iconify/icons-vscode-icons/file-type-excel";
 const Jadwal = () => {
   return (
     <div className="w-full h-full ">
-      <NavbarDashboard />
       <div className="md:px-7 android:px-3 sm:py-6 android:py-3">
         <Swiper
           spaceBetween={30}
