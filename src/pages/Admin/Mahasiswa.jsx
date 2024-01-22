@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 
+// Global Function
+import { apiUrl, formatDate } from "../../function/globalFunction";
+
 // Components
+import NavbarDashboard from "../../components/NavbarDashboard";
+import ModalForm from "../../components/ModalForm";
 import Tables from "../../components/Tables";
 
 // External Components
+import axios from "axios";
+import Swal from "sweetalert2";
 import { Space } from "antd";
-import { Button, Modal } from "antd";
 
 // Data
 import getMahasiswaData from "../../data/admin/listMahasiswa";
@@ -17,38 +23,97 @@ import editIcon from "@iconify/icons-tabler/edit";
 import trashIcon from "@iconify/icons-ion/trash";
 
 const Mahasiwa = () => {
+  // Modal
+  const [isLoading, setIsLoading] = useState(false);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    id: null,
+    mhsName: "",
+    nim: "",
+    tempatLahir: "",
+    tanggalLahir: "",
+    alamat: "",
+  });
+
   // Mahasiswa
   const [mahasiswaData, setMahasiswaData] = useState([]);
 
   // Fetching Mahasiswa Data ( find All )
   useEffect(() => {
-    const fetchMahasiwaData = async () => {
+    const fetchAllData = async () => {
       const MahasiswaData = await getMahasiswaData();
       setMahasiswaData(MahasiswaData);
     };
 
-    fetchMahasiwaData();
+    fetchAllData();
   }, []);
 
-  // Modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
-  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
+  // Fetching Api Data ( find One )
+  const getMahasiswaValue = async (id) => {
+    try {
+      const response = await axios.get(`${apiUrl()}/getMahasiswaById/${id}`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          "Access-Control-Allow-Origin": "*",
+          "ngrok-skip-browser-warning": "true",
+        },
+      });
 
-  const showModal = () => {
-    setIsModalOpen(true);
+      const data = response.data;
+
+      if (data) {
+        setFormData((prev) => ({
+          ...prev,
+          id: data?.id ?? null,
+          mhsName: data?.mhsName ?? "",
+          nim: data?.nim ?? "",
+          tempatLahir: data?.tempatLahir ?? "",
+          tanggalLahir: data?.tanggalLahir ?? "",
+          alamat: data?.alamat ?? "",
+        }));
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
+  // Modal Config
+  const modalConfig = {
+    title: isUpdate ? "Update Data Mahasiswa" : "Buat Akun Mahasiswa",
+    fields: [
+      { label: "Nama", type: "text", name: "mhsName" },
+      { label: "NIM", type: "text", name: "nim" },
+      { label: "Tempat Lahir", type: "text", name: "tempatLahir" },
+      { label: "Tanggal Lahir", type: "date", name: "tanggalLahir" },
+      { label: "Alamat", type: "text", name: "alamat" },
+    ],
   };
 
-  const handleCancel = () => {
-    setIsModalOpen(false);
+  // Modal Change Handler
+  const handleChange = (fieldName, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleCreate = () => {
+    setIsUpdate(false);
+    setModalOpen(true);
+
+    setFormData({
+      id: null,
+      mhsName: "",
+      nim: "",
+      tempatLahir: "",
+      tanggalLahir: "",
+      alamat: "",
+    });
   };
 
   // Table
-
   const columns = [
     {
       title: "No",
@@ -57,8 +122,8 @@ const Mahasiwa = () => {
     },
     {
       title: "Nama",
-      dataIndex: "nama",
-      key: "nama",
+      dataIndex: "mhsName",
+      key: "mhsName",
     },
     {
       title: "NIM",
@@ -78,114 +143,82 @@ const Mahasiwa = () => {
     {
       title: "Action",
       key: "action",
-      render: (_, record) => (
-        <Space size="middle">
-          <button
-            className="bg-[#FFC006] p-1 rounded "
-            onClick={() => setIsModalEditOpen(true)}
-          >
-            <Icon icon={editIcon} className=" w-5 h-5"></Icon>
-          </button>
-          <Modal
-            title="Edit Akun"
-            centered
-            open={isModalEditOpen}
-            onOk={() => setIsModalEditOpen(false)}
-            onCancel={() => setIsModalEditOpen(false)}
-            footer={[
-              <Button
-                key="ok"
-                className="bg-color-page py-2.5 px-6 h-fit text-white font-medium text-base shadow-none border-none"
-                onClick={() => setIsModalEditOpen(false)}
-              >
-                <div className="flex items-center gap-0">
-                  <span className="text-sm">Simpan</span>
-                </div>
-              </Button>,
-            ]}
-          >
-            <div className="flex flex-col gap-2 mt-5 mb-2">
-              <div className="grid grid-cols-3 items-center">
-                <span className="text-black font-normal sm:text-lg android:text-base">
-                  Nama
-                </span>
-                <div className="flex items-center gap-4 col-span-2">
-                  <span className="text-black font-normal sm:text-lg android:text-base">
-                    :{" "}
-                  </span>
-                  <input
-                    type="text"
-                    name="nama"
-                    className="border-2 rounded-md p-1.5 w-full"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-3 items-center">
-                <span className="text-black font-normal sm:text-lg android:text-base">
-                  NIP
-                </span>
-                <div className="flex items-center gap-4 col-span-2">
-                  <span className="text-black font-normal sm:text-lg android:text-base">
-                    :{" "}
-                  </span>
-                  <input
-                    type="text"
-                    name="nip"
-                    className="border-2 rounded-md p-1.5 w-full"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-3 items-center">
-                <span className="text-black font-normal sm:text-lg android:text-base">
-                  Mata pelajaran
-                </span>
-                <div className="flex items-center gap-4 col-span-2">
-                  <span className="text-black font-normal sm:text-lg android:text-base">
-                    :{" "}
-                  </span>
-                  <input
-                    type="text"
-                    name="mapel"
-                    className="border-2 rounded-md p-1.5 w-full"
-                  />
-                </div>
-              </div>
-            </div>
-          </Modal>
+      render: (record) => {
+        const id = record.mahasiswa_id;
 
-          <button
-            className="bg-[#DA3442] p-1 rounded "
-            onClick={() => setIsModalDeleteOpen(true)}
-          >
-            <Icon icon={trashIcon} className="text-white w-5 h-5"></Icon>
-          </button>
-          <Modal
-            title="Hapus Akun"
-            centered
-            open={isModalDeleteOpen}
-            onOk={() => setIsModalDeleteOpen(false)}
-            onCancel={() => setIsModalDeleteOpen(false)}
-            footer={[
-              <Button
-                key="ok"
-                className="bg-[#DA3442] py-2.5 px-6 h-fit text-white font-medium text-base shadow-none border-none"
-                onClick={() => setIsModalDeleteOpen(false)}
-              >
-                <div className="flex items-center gap-0">
-                  <span className="text-sm">Hapus</span>
-                </div>
-              </Button>,
-            ]}
-          >
-            <div className="italic text-center">
-              <span className="text-base ">
-                Apakah anda yakin ingin menghapus akun <br />
-                <b>Vito Aleandra S. Kom</b>?
-              </span>
-            </div>
-          </Modal>
-        </Space>
-      ),
+        const handleEdit = async () => {
+          if (id) {
+            await getMahasiswaValue(id);
+          }
+
+          setModalOpen(true);
+          setIsUpdate(true);
+        };
+
+        const handleDelete = () => {
+          Swal.fire({
+            title: `Apakah anda yakin akan menghapus data Mahasiswa ini ?`,
+            icon: "warning",
+            showConfirmButton: true,
+            showDenyButton: true,
+            confirmButtonText: "Ya",
+            denyButtonText: "Cancel",
+          })
+            .then((willDelete) => {
+              if (willDelete.value) {
+                axios
+                  .delete(`${apiUrl()}/deleteMahasiswa/${id}`, {
+                    headers: {
+                      Accept: "application/json",
+                      Authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                      )}`,
+                      "Access-Control-Allow-Origin": "*",
+                      "ngrok-skip-browser-warning": "true",
+                    },
+                  })
+                  .then((response) => {
+                    Swal.fire({
+                      title: "Success",
+                      text: response.data.message,
+                      icon: "success",
+                    }).then(() => {
+                      window.location.reload();
+                    });
+                  })
+                  .catch((error) => {
+                    Swal.fire({
+                      title: "Error",
+                      text: error.response.data.message,
+                      icon: "error",
+                    });
+                  });
+              }
+            })
+            .catch((error) => {
+              Swal.fire({
+                title: "Error",
+                text: error.response.data.message,
+                icon: "error",
+              });
+            });
+        };
+
+        return (
+          <Space size="middle">
+            <button className="bg-[#FFC006] p-1 rounded" onClick={handleEdit}>
+              <Icon icon={editIcon} className=" w-5 h-5"></Icon>
+            </button>
+
+            <button
+              className="bg-[#DA3442] p-1 rounded "
+              onClick={handleDelete}
+            >
+              <Icon icon={trashIcon} className="text-white w-5 h-5"></Icon>
+            </button>
+          </Space>
+        );
+      },
     },
   ];
 
@@ -194,10 +227,12 @@ const Mahasiwa = () => {
 
     data = {
       no: `${index + 1}.`,
-      nama: item.mhsName,
-      nim: item.nim,
-      tanggalLahir: item.tanggalLahir,
-      tempatLahir: item.tempatLahir,
+      mahasiswa_id: item?.id ?? null,
+      mhsName: item?.mhsName ?? "",
+      nim: item?.nim ?? "",
+      tanggalLahir: formatDate(new Date(item?.tanggalLahir ?? "")),
+      tempatLahir: item?.tempatLahir ?? "",
+      alamat: item?.alamat ?? "",
     };
 
     return data;
@@ -207,6 +242,114 @@ const Mahasiwa = () => {
     pageSize: 10,
     showTotal: (total, range) =>
       `Showing ${range[0]} - ${range[1]} of ${total} list`,
+  };
+
+  // Form Validation
+  const FormValidation = () => {
+    let valid = true;
+
+    if (!formData.mhsName) {
+      Swal.fire({
+        title: "Warning",
+        text: "Mahasiswa Name cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!formData.nim) {
+      Swal.fire({
+        title: "Warning",
+        text: "NIM cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!formData.tanggalLahir) {
+      Swal.fire({
+        title: "Warning",
+        text: "Birth Date cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!formData.tempatLahir) {
+      Swal.fire({
+        title: "Warning",
+        text: "Place of Birth cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!formData.alamat) {
+      Swal.fire({
+        title: "Warning",
+        text: "Address cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    }
+
+    return valid;
+  };
+
+  // Handle Submit
+  const handleSubmit = async () => {
+    const url = !isUpdate
+      ? `${apiUrl()}/createMahasiswa`
+      : `${apiUrl()}/updateMahasiswa/${formData.id}`;
+
+    setIsLoading(true);
+
+    if (!FormValidation()) {
+      setIsLoading(false);
+      return false;
+    }
+
+    await axios
+      .request({
+        method: isUpdate ? "patch" : "post",
+        url,
+        data: formData,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          "Access-Control-Allow-Origin": "*",
+          "ngrok-skip-browser-warning": "true",
+        },
+      })
+      .then((response) => {
+        if (
+          response.data.statusCode === 200 ||
+          response.data.statusCode === 201
+        ) {
+          Swal.fire({
+            title: "Success",
+            text: `${
+              isUpdate
+                ? "Success Update Mahasiswa Data"
+                : "Success Create Mahasiswa Data"
+            }`,
+            icon: "success",
+            showConfirmButton: false,
+            timer: 2000,
+          }).then(() => {
+            setIsLoading(false);
+            window.location.reload();
+          });
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: response.data.message,
+            icon: "error",
+          });
+          setIsLoading(false);
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Error",
+          text: error.response.data.message,
+          icon: "error",
+        });
+
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -224,13 +367,14 @@ const Mahasiwa = () => {
               Akun Mahasiswa
             </span>
 
-            <button onClick={showModal}>
+            <button onClick={handleCreate}>
               <div className="flex flex-row items-center">
                 <div className="md:px-6 android:px-4 shadow rounded-l border border-event-color android:h-7 md:h-9 flex items-center">
                   <span className="md:text-lg android:text-sm text-color-page font-medium">
                     Add
                   </span>
                 </div>
+
                 <div className="bg-color-page text-white flex items-center rounded-r p-2 shadow">
                   <Icon
                     icon={todoAdd}
@@ -239,73 +383,18 @@ const Mahasiwa = () => {
                 </div>
               </div>
             </button>
-
-            <Modal
-              title="Buat Akun"
-              centered
-              open={isModalOpen}
-              onOk={handleOk}
-              onCancel={handleCancel}
-              footer={[
-                <Button
-                  type="primary"
-                  key="ok"
-                  className="px-10 text-white bg-color-page text-lg flex items-center font-medium py-1.5"
-                  onClick={handleOk}
-                >
-                  Save
-                </Button>,
-              ]}
-            >
-              <div className="flex flex-col gap-2 mt-5 mb-2">
-                <div className="grid grid-cols-3 items-center">
-                  <span className="text-black font-normal sm:text-lg android:text-base">
-                    Nama
-                  </span>
-                  <div className="flex items-center gap-4 col-span-2">
-                    <span className="text-black font-normal sm:text-lg android:text-base">
-                      :{" "}
-                    </span>
-                    <input
-                      type="text"
-                      name="nama"
-                      className="border-2 rounded-md p-1.5 w-full"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-3 items-center">
-                  <span className="text-black font-normal sm:text-lg android:text-base">
-                    NIP
-                  </span>
-                  <div className="flex items-center gap-4 col-span-2">
-                    <span className="text-black font-normal sm:text-lg android:text-base">
-                      :{" "}
-                    </span>
-                    <input
-                      type="text"
-                      name="nip"
-                      className="border-2 rounded-md p-1.5 w-full"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-3 items-center">
-                  <span className="text-black font-normal sm:text-lg android:text-base">
-                    Mata pelajaran
-                  </span>
-                  <div className="flex items-center gap-4 col-span-2">
-                    <span className="text-black font-normal sm:text-lg android:text-base">
-                      :{" "}
-                    </span>
-                    <input
-                      type="text"
-                      name="mapel"
-                      className="border-2 rounded-md p-1.5 w-full"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Modal>
           </div>
+
+          <ModalForm
+            showModals={modalOpen}
+            onClose={() => setModalOpen(false)}
+            modalConfig={modalConfig}
+            formDataValue={formData}
+            isUpdate={isUpdate}
+            onChange={handleChange}
+            buttonLabel={isLoading ? "Saving.." : "Save"}
+            onSubmit={() => handleSubmit()}
+          />
 
           <div className="w-full md:px-10 android:px-5 py-8">
             <Tables

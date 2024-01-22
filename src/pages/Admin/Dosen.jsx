@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 // Global Function
 import { apiUrl } from "../../function/globalFunction";
@@ -336,7 +335,7 @@ const Dosen = () => {
 						}`,
 						icon: "success",
 						showConfirmButton: false,
-						timer: 4000,
+						timer: 2000,
 					}).then(() => {
 						setIsLoading(false);
 						window.location.reload();
