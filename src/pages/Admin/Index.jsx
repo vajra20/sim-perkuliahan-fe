@@ -99,7 +99,12 @@ const Index = () => {
   return (
     <div className="w-full h-full">
       <div className="md:px-7 lg:py-6 android:p-3">
-        <div className="grid android:gap-5 lg:gap-10 lg:grid-cols-dashboard android:grid-cols-1 mb-16">
+        <div
+          className="grid android:gap-5 lg:gap-10 lg:grid-cols-dashboard android:grid-cols-1 mb-16"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-duration="550"
+        >
           <div className="bg-blue-dashboard px-5 py-4 rounded-xl border-dashboard-line border">
             <h1 className=" font-medium text-black mb-8 android:hidden lg:block">
               Dashboard
@@ -207,7 +212,7 @@ const Index = () => {
                           "Nama event belum ditentukan oleh panitia"}
                       </span>
                     </div>
-                    <div className="bg-event-color sm:rounded-full android:rounded-lg sm:px-1.5 android:px-3 sm:py-0.5 android:py-1 h-fit text-center">
+                    <div className="android:w-full sm:w-fit md:w-1/2 bg-event-color sm:rounded-2xl android:rounded-lg sm:px-2.5 android:px-3 sm:py-0.5 android:py-1 h-fit text-center">
                       <span className=" sm:text-base android:text-sm text-black font-normal ">
                         {item?.status ?? "Draft"}
                       </span>

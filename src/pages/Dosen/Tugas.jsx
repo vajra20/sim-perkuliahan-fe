@@ -41,7 +41,13 @@ const Tugas = () => {
   };
 
   return (
-    <div className="w-full h-full">
+    <div
+      className="w-full h-full"
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-duration="0"
+      data-aos-offset="0"
+    >
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button
@@ -89,7 +95,7 @@ const Tugas = () => {
               <textarea
                 type="text"
                 name="nama"
-                className="rounded-md py-4 px-6 border-b-2 border-gray-sub min-h-[180px] items-start w-full text-base bg-[#F1F3F4] "
+                className="rounded-md py-4 px-6 border-b-2 border-gray-sub min-h-[180px] max-h-[350px] items-start w-full text-base bg-[#F1F3F4] "
                 placeholder="Petunjuk (Opsional)"
               />
               <Space direction="vertical" size={12}>

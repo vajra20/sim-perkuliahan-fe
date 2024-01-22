@@ -29,7 +29,13 @@ const BeritaAcara = () => {
   };
 
   return (
-    <div className="w-full h-full">
+    <div
+      className="w-full h-full"
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-duration="0"
+      data-aos-offset="0"
+    >
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button

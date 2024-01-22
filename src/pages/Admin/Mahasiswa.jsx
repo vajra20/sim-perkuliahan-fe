@@ -210,7 +210,13 @@ const Mahasiwa = () => {
   };
 
   return (
-    <div className="w-full h-full">
+    <div
+      className="w-full h-full"
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-duration="0"
+      data-aos-offset="0"
+    >
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="bg-white border rounded-xl shadow ">
           <div className=" w-full border-b-2 border-event-color md:px-10 android:px-5 py-3 flex justify-between items-center">

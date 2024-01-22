@@ -15,24 +15,6 @@ const NavbarDashboard = () => {
   const { toggleEvent } = useSidebar();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setFix(true);
-      } else {
-        setFix(false);
-      }
-    };
-				handleScroll()
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [setFix, fix]);
-
-  const gaje = fix;
-  console.log(gaje);
-
   const handleLogoutClick = () => {
     localStorage.clear();
     navigate("/");
@@ -40,6 +22,27 @@ const NavbarDashboard = () => {
 
   const username = localStorage.getItem("username");
   const roles = localStorage.getItem("role");
+
+  const handleScroll = () => {
+    if (window.scrollY > 61) {
+      setFix(true);
+    } else {
+      setFix(false);
+    }
+
+    const gaje = window.scrollY;
+    console.log("handleScroll is called!", gaje);
+  };
+
+  // Tambahkan event listener ketika komponen dipasang (mounted)
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // Hapus event listener ketika komponen dicopot (will unmount)
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const items = [
     {

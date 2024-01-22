@@ -109,7 +109,6 @@ const Sidebar = () => {
 
         <div className="flex flex-col gap-4 ">{createLinks()}</div>
       </div>
-
       {screenSize <= 768 && (
         <div className="w-full flex justify-center">
           <button

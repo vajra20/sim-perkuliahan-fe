@@ -44,7 +44,13 @@ for (let i = 1; i < 20; i++) {
 
 const Absensi = () => {
   return (
-    <div className="w-full h-full">
+    <div
+      className="w-full h-full"
+      data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-duration="0"
+      data-aos-offset="0"
+    >
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="bg-color-page md:px-8 android:px-4 md:py-4 android:py-2 md:rounded-3xl android:rounded-xl">
           <div className="md:mb-3 android:mb-1.5">

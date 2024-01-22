@@ -7,7 +7,13 @@ import { Icon } from "@iconify/react";
 const Index = () => {
   return (
     <div className="w-full h-full">
-      <div className="md:px-7 lg:py-6 android:p-3">
+      <div
+        className="md:px-7 lg:py-6 android:p-3"
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-duration="0"
+        data-aos-offset="0"
+      >
         <div className="flex flex-wrap gap-6">
           <div className="flex flex-col flex-custom max-w-sm">
             <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
