@@ -1,9 +1,9 @@
 import axios from "axios";
 import { apiUrl } from "../../function/globalFunction";
 
-const getPenugasanData = async () => {
+const getTugasByMatkul = async (id) => {
 	try {
-		const response = await axios.get(`${apiUrl()}/getTugas`, {
+		const response = await axios.get(`${apiUrl()}/getTugasByMatkul/${id}`, {
 			headers: {
 				Accept: "application/json",
 				Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -20,4 +20,4 @@ const getPenugasanData = async () => {
 	}
 };
 
-export default getPenugasanData;
+export default getTugasByMatkul;

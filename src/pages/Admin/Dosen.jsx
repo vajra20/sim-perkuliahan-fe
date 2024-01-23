@@ -198,6 +198,8 @@ const Dosen = () => {
 											title: "Success",
 											text: response.data.message,
 											icon: "success",
+											showConfirmButton: false,
+											timer: 1500,
 										}).then(() => {
 											window.location.reload();
 										});
@@ -322,10 +324,7 @@ const Dosen = () => {
 				},
 			})
 			.then((response) => {
-				if (
-					response.data.statusCode === 200 ||
-					response.data.statusCode === 201
-				) {
+				if (response.status === 200 || response.status === 201) {
 					Swal.fire({
 						title: "Success",
 						text: `${
@@ -343,7 +342,7 @@ const Dosen = () => {
 				} else {
 					Swal.fire({
 						title: "Error",
-						text: response.data.message,
+						text: response.data.error,
 						icon: "error",
 					});
 					setIsLoading(false);
@@ -352,7 +351,7 @@ const Dosen = () => {
 			.catch((error) => {
 				Swal.fire({
 					title: "Error",
-					text: error.response.data.message,
+					text: error.response.data.error,
 					icon: "error",
 				});
 
@@ -361,62 +360,62 @@ const Dosen = () => {
 	};
 
 	return (
-    <div
-      className="w-full h-full"
-      data-aos="fade-zoom-in"
-      data-aos-easing="ease-in-back"
-      data-aos-duration="0"
-      data-aos-offset="0"
-    >
-      <div className="md:px-7 lg:py-6 android:p-3">
-        <div className="bg-white border rounded-xl shadow ">
-          <div className=" w-full border-b-2 border-event-color md:px-10 android:px-5 py-3 flex justify-between items-center">
-            <span className="text-color-page text-2xl font-medium">
-              Akun Dosen
-            </span>
+		<div
+			className="w-full h-full"
+			data-aos="fade-zoom-in"
+			data-aos-easing="ease-in-back"
+			data-aos-duration="0"
+			data-aos-offset="0"
+		>
+			<div className="md:px-7 lg:py-6 android:p-3">
+				<div className="bg-white border rounded-xl shadow ">
+					<div className=" w-full border-b-2 border-event-color md:px-10 android:px-5 py-3 flex justify-between items-center">
+						<span className="text-color-page text-2xl font-medium">
+							Akun Dosen
+						</span>
 
-            <button onClick={handleCreate}>
-              <div className="flex flex-row items-center">
-                <div className="md:px-6 android:px-4 shadow rounded-l border border-event-color android:h-7 md:h-9 flex items-center">
-                  <span className="md:text-lg android:text-sm text-color-page font-medium">
-                    Add
-                  </span>
-                </div>
+						<button onClick={handleCreate}>
+							<div className="flex flex-row items-center">
+								<div className="md:px-6 android:px-4 shadow rounded-l border border-event-color android:h-7 md:h-9 flex items-center">
+									<span className="md:text-lg android:text-sm text-color-page font-medium">
+										Add
+									</span>
+								</div>
 
-                <div className="bg-color-page text-white flex items-center rounded-r p-2 shadow">
-                  <Icon
-                    icon={todoAdd}
-                    className="md:w-5 md:h-5 android:w-3 android:h-3"
-                  ></Icon>
-                </div>
-              </div>
-            </button>
-          </div>
+								<div className="bg-color-page text-white flex items-center rounded-r p-2 shadow">
+									<Icon
+										icon={todoAdd}
+										className="md:w-5 md:h-5 android:w-3 android:h-3"
+									></Icon>
+								</div>
+							</div>
+						</button>
+					</div>
 
-          <ModalForm
-            showModals={modalOpen}
-            onClose={() => setModalOpen(false)}
-            modalConfig={modalConfig}
-            formDataValue={formData}
-            isUpdate={isUpdate}
-            selectedOption={isUpdate ? selectedMatkul : null}
-            onChange={handleChange}
-            buttonLabel={isLoading ? "Saving.." : "Save"}
-            onSubmit={() => handleSubmit()}
-          />
+					<ModalForm
+						showModals={modalOpen}
+						onClose={() => setModalOpen(false)}
+						modalConfig={modalConfig}
+						formDataValue={formData}
+						isUpdate={isUpdate}
+						selectedOption={isUpdate ? selectedMatkul : null}
+						onChange={handleChange}
+						buttonLabel={isLoading ? "Saving.." : "Save"}
+						onSubmit={() => handleSubmit()}
+					/>
 
-          <div className="w-full md:px-10 android:px-5 py-8">
-            <Tables
-              className="w-full"
-              columns={columns}
-              dataSource={DosenList}
-              paginationConfig={paginationConfig}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+					<div className="w-full md:px-10 android:px-5 py-8">
+						<Tables
+							className="w-full"
+							columns={columns}
+							dataSource={DosenList}
+							paginationConfig={paginationConfig}
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Dosen;

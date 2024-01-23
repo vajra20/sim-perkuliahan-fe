@@ -1,7 +1,7 @@
 import axios from "axios";
 import { apiUrl } from "../../function/globalFunction";
 
-const getMatkulData = async () => {
+const getAllMatkulData = async () => {
 	try {
 		const response = await axios.get(`${apiUrl()}/getMatkul`, {
 			headers: {
@@ -20,4 +20,4 @@ const getMatkulData = async () => {
 	}
 };
 
-export default getMatkulData;
+export default getAllMatkulData;

@@ -119,12 +119,12 @@ var routes = [
 		role: "Dosen",
 	},
 	{
-		path: "/tugas",
+		path: "/tugas/:id",
 		name: "Tugas",
 		icon: scheduleIcon,
 		component: <Tugas />,
 		layout: "/dosen",
-		allow: true,
+		allow: false,
 		role: "Dosen",
 	},
 	{
