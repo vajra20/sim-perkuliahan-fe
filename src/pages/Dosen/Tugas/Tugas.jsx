@@ -552,24 +552,24 @@ const Tugas = () => {
                           Diposting 12.24
                         </span>
                         <div className="det-pdf flex android:flex-row android:flex-wrap lg:flex-nowrap android:gap-3 sm:gap-6 justify-between items-center">
-                          <div className="flex flex-row shadow rounded-xl android:flex-initial lg:flex-auto sm:w-full android:w-fit lg:max-w-[50%] android:max-w-full">
-                            <div className="bg-white sm:px-6 android:px-3 sm:py-3 android:py-1.5 border-r-event-color border-r rounded-l-xl android:w-full sm:w-fit lg:w-full sm:min-w-[20%] android:min-w-[20%] sm:max-w-[30%] android:h-auto android:max-w-[25%] lg:max-h-24 ">
+                          <div className="flex flex-row shadow rounded-xl android:flex-initial lg:flex-auto sm:w-full android:w-fit android:text-sm lg:max-w-[40%]">
+                            <div className="bg-white sm:px-6 android:px-3 sm:py-3 android:py-1.5 border-r-event-color border-r rounded-l-xl android:w-full sm:w-fit sm:min-w-[20%] android:min-w-[20%] sm:max-w-[30%] android:h-auto android:max-w-[25%] lg:max-h-24 ">
                               <img
                                 src="/public/pdf.png"
                                 className="w-full h-full m-0 object-contain"
                               ></img>
                             </div>
-                            <div className="flex flex-col gap-0 rounded-r-xl justify-center w-full bg-white sm:px-3 android:px-3">
-                              <span className="text-black sm:text-lg lg:text-base android:text-sm w-full flex justify-start gap-10">
+                            <div className="flex flex-col gap-0 rounded-r-xl justify-center w-full bg-white sm:px-3 android:px-3 ">
+                              <span className="text-black sm:text-lg lg:text-base android:max-w-full ">
                                 Latihan Soal Kalkulus 1
                               </span>
-                              <span className="text-black opacity-50 sm:text-sm android:text-sm font-light ">
+                              <span className="text-black opacity-50 sm:text-sm android:text-sm font-light w-fit">
                                 PDF
                               </span>
                             </div>
                           </div>
 
-                          <div className="flex flex-row gap-3 android:w-full android flex-1 sm:flex-auto lg:max-w-[40%]">
+                          <div className="flex flex-row gap-3 android:w-full android flex-1 sm:flex-auto lg:max-w-[30%]">
                             <div className=" w-full border border-[#61CE70] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24 ">
                               <span className="sm:text-5xl lg:text-5xl android:text-3xl flex justify-center  w-full text-[#61CE70] font-semibold">
                                 5
