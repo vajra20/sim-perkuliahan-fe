@@ -32,7 +32,7 @@ const Time = () => {
     const date = new Date();
     const currentTime = date.getHours();
 
-    if (currentTime > 5) {
+    if (currentTime < 5) {
       return <img src="/public/moon.png" />;
     } else {
       return <img src="/public/sun.png" />;

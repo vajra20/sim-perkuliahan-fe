@@ -39,10 +39,10 @@ const BeritaAcara = () => {
       <div className="md:px-7 lg:py-6 android:p-3">
         <div className="flex flex-col gap-5">
           <button
-            className="bg-color-page rounded-full px-5 sm:py-3 android:py-1.5 text-white w-fit"
+            className="bg-color-page rounded-full px-5 sm:py-3 android:py-1.5 text-white w-fit hover:bg-[#4096ff] transition-all duration-300"
             onClick={() => setIsModalOpen(true)}
           >
-            <div className="flex flex-row md:gap-10 android:gap-3 items-center">
+            <div className="flex flex-row md:gap-6 android:gap-3 items-center">
               <span className="android:text-base md:text-lg font-medium">
                 Buat
               </span>
@@ -61,7 +61,7 @@ const BeritaAcara = () => {
             footer={[
               <Button
                 key="ok"
-                className="bg-color-page py-2.5 pl-10 pr-6 h-fit text-white font-medium text-base shadow-none border-none"
+                className="bg-color-page py-2.5 pl-7 pr-3 h-fit text-white font-medium text-base shadow-md hover:bg-[#4096ff] transition-all duration-300 hover:!text-white"
                 onClick={() => setIsModalOpen(false)}
               >
                 <div className="flex items-center gap-0">
@@ -75,32 +75,32 @@ const BeritaAcara = () => {
               <input
                 type="text"
                 name="nama"
-                className="rounded-md py-4 px-6 border-b-2 border-gray-sub  w-full text-base bg-[#F1F3F4] "
+                className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 "
                 placeholder="Judul"
               />
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="date"
                   name="tanggal"
-                  className="rounded-md py-4 px-6 border-b-2 border-gray-sub  w-full text-base bg-[#F1F3F4] "
+                  className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 "
                   placeholder="Tanggal"
                 />
                 <input
                   type="time"
                   name="jam"
-                  className="rounded-md py-4 px-6 border-b-2 border-gray-sub  w-full text-base bg-[#F1F3F4] "
+                  className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 "
                   placeholder="Jam"
                 />
               </div>
               <textarea
                 type="text"
                 name="nama"
-                className="rounded-md py-4 px-6 border-b-2 border-gray-sub min-h-[200px] items-start w-full text-base bg-[#F1F3F4] "
+                className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 min-h-[200px]"
                 placeholder="Deskripsi"
               />
             </div>
           </Modal>
-          <div className="bg-white md:rounded-3xl android:rounded-xl shadow border border-black/40 shadow-black/25 ">
+          <div className="bg-white md:rounded-3xl android:rounded-xl shadow border shadow-black/25 ">
             <div
               className={`flex items-center android:flex-col ${
                 sidebarOpen ? "md:flex-col lgs:flex-row" : "md:flex-row"
@@ -159,14 +159,14 @@ const BeritaAcara = () => {
                   footer={[
                     <Button
                       key="reset"
-                      className="bg-white py-2.5 pl-10 pr-10 h-fit text-color-page hover:!text-white hover:!border-black font-medium text-base shadow-none border-2 !border-color-page hover:bg-color-page "
+                      className="bg-white py-2.5 pl-10 pr-10 h-fit text-color-page hover:!text-white hover:!border-black font-medium text-base shadow-none border-2 !border-color-page hover:bg-color-page transition-all duration-300"
                       onClick={clear}
                     >
                       <span className="text-lg ">Reset</span>
                     </Button>,
                     <Button
                       key="ok"
-                      className="bg-color-page py-2.5 pl-10 pr-6 h-fit text-white font-medium text-base shadow-none border-none "
+                      className="bg-color-page py-2.5 pl-7 pr-3 h-fit text-white font-medium text-base hover:bg-[#4096ff] transition-all duration-300 hover:!text-white"
                       onClick={handleOk}
                     >
                       <div className="flex items-center gap-0">

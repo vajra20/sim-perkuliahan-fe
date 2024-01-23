@@ -83,39 +83,39 @@ export default function ModalForm({
 	}, [isUpdate, fields, formDataValue]);
 
 	return (
-		<Modal
-			title={title}
-			centered
-			open={isModalOpen}
-			onCancel={handleClose}
-			footer={[
-				<Button
-					type="primary"
-					key="ok"
-					className="px-10 text-white bg-color-page text-lg flex items-center font-medium py-1.5"
-					onClick={handleSubmit}
-				>
-					{buttonLabel}
-				</Button>,
-			]}
-		>
-			<div className="flex flex-col gap-2 mt-5 mb-2">
-				{fields.map((field, index) => (
-					<div key={index} className="grid grid-cols-3 items-center">
-						<span className="text-black font-normal sm:text-lg android:text-base">
-							{field.label}
-						</span>
+    <Modal
+      title={title}
+      centered
+      open={isModalOpen}
+      onCancel={handleClose}
+      footer={[
+        <Button
+          type="primary"
+          key="ok"
+          className="px-10 text-white bg-color-page text-lg flex items-center font-medium py-5"
+          onClick={handleSubmit}
+        >
+          {buttonLabel}
+        </Button>,
+      ]}
+    >
+      <div className="flex flex-col gap-2 mt-5 mb-2">
+        {fields.map((field, index) => (
+          <div key={index} className="grid grid-cols-3 items-center">
+            <span className="text-black font-normal sm:text-lg android:text-base">
+              {field.label}
+            </span>
 
-						<div className="flex items-center gap-4 col-span-2">
-							<span className="text-black font-normal sm:text-lg android:text-base">
-								:{" "}
-							</span>
+            <div className="flex items-center gap-4 col-span-2">
+              <span className="text-black font-normal sm:text-lg android:text-base">
+                :{" "}
+              </span>
 
-							{renderInput(field)}
-						</div>
-					</div>
-				))}
-			</div>
-		</Modal>
-	);
+              {renderInput(field)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Modal>
+  );
 }

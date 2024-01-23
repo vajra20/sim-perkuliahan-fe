@@ -17,6 +17,7 @@ const { RangePicker } = DatePicker;
 import { Icon } from "@iconify/react";
 import fileImage from "@iconify/icons-mdi/file-image";
 import trashIcon from "@iconify/icons-ion/trash";
+import cameraBold from "@iconify/icons-solar/camera-bold";
 
 const CreateEvent = () => {
 	const navigate = useNavigate();

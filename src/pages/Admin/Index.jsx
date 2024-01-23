@@ -28,6 +28,21 @@ const Index = () => {
 	const [dosenData, setDosenData] = useState([]);
 	const [mahasiswaData, setMahasiswaData] = useState([]);
 	const [eventData, setEventData] = useState([]);
+	const [search, setSearch] = useState("");
+
+	const handleSearchChange = (e) => {
+		setSearch(e.target.value);
+	};
+
+	const filteredEventData = eventData.filter((item) => {
+		const eventName = item?.eventName ? item.eventName.toLowerCase() : "";
+		const places = item?.places ? item.places.toLowerCase() : "";
+
+		return (
+			eventName.includes(search.toLowerCase()) ||
+			places.includes(search.toLowerCase())
+		);
+	});
 
 	useEffect(() => {
 		const fetchAllData = async () => {

@@ -104,6 +104,7 @@ div.ant-spin-container .ant-table {
  padding: 0 35px 20px 35px !important;
  display: flex;
  justify-content: flex-end;
+align-items: center;
 }
 #upload-file {
  color: red;
@@ -146,4 +147,150 @@ div.ant-spin-container .ant-table {
   justify-content: center !important;
 
 }
+}
+.accordion {
+  max-width: fit-content;
+  min-width: 98%;
+  background: #FFF;
+  margin: 1rem 4rem 0 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.accordion .accordion-content {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* .accordion-content.is-open{ 
+	margin-top: -10px;
+}  */
+.accordion-content header {
+  display: flex;
+  padding: 0 15px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s linear;
+}
+
+.accordion-content-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.accordion-content-description {
+  height: 0;
+  font-size: 13px;
+  color: #000000;
+  background-color: #F6F6F6;
+  font-weight: 400;
+  padding: 0 15px;
+  margin-bottom: -5px;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* //CARD DETAIL TUGAS AS DOSEN  */
+.card {
+  --border-radius: 0.75rem;
+  --primary-color: #7257fa;
+  --secondary-color: #3c3852;
+  width: 100%;
+  font-family: "Arial";
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: #f1f1f3;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+  position: relative;
+}
+
+.card>*+* {
+  margin-top: 1.1em;
+}
+
+.card .card__content {
+  color: var(--secondary-color);
+  font-size: 0.86rem;
+}
+
+.card .card__title {
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card .card__date {
+  color: #6e6b80;
+  font-size: 0.8rem;
+}
+
+
+.horizontal-card {
+  background: #F6F6F6;
+  position: relative;
+  margin: 1em 0em 0em 0em;
+}
+
+.det-pdf {
+  width: 100%;
+  display: flex;
+}
+
+.horizontal-card-image {
+  height: 120px;
+  min-width: 140px;
+  float: left;
+  background: white;
+  border-radius: 20px 0px 0px 20px;
+  border-style: solid;
+  border-color: darkgray;
+  border-width: 0px 1px 0px 0px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.img {
+  width: 60%;
+  max-height: 90%;
+  margin: 10px 30px 10px 30px;
+}
+
+.horizontal-card-name {
+  height: 120px;
+  min-width: 270px;
+  background: white;
+  margin-right: 1em;
+  border-radius: 0px 20px 20px 0px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.horizontal-card-details {
+  width: 100%;
+  padding: 1em;
+}
+
+.amount {
+  padding-left: 10%;
+  display: flex;
+}
+
+.submit {
+  height: 120px;
+  width: 140px;
+  background: transparent;
+  border-radius: 20px;
+  border: 1px solid #61CE70;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
+  margin-right: 15px;
+}
+
+.assigned {
+  height: 120px;
+  width: 140px;
+  background: transparent;
+  border-radius: 20px;
+  border: 1px solid #EC613E;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
 }
