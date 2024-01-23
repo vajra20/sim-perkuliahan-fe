@@ -6,12 +6,12 @@ import {
 	apiUrl,
 	formatTime,
 	formatDateTime,
-} from "../../function/globalFunction";
+} from "../../../function/globalFunction";
 
 // Components
 import axios from "axios";
 import Swal from "sweetalert2";
-import Icons from "../../components/Icons";
+import Icons from "../../../components/Icons";
 
 // External Components
 import { Button, Modal, Image } from "antd";
@@ -19,7 +19,7 @@ import { DatePicker, Space } from "antd";
 import { Link } from "react-router-dom";
 
 // Data
-import getTugasByMatkul from "../../data/dosen/tugasByMatkul";
+import getTugasByMatkul from "../../../data/dosen/tugasByMatkul";
 
 // Icons
 import { Icon } from "@iconify/react";

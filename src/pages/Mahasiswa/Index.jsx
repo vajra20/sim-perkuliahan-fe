@@ -6,7 +6,6 @@ import { apiUrl, formatDateTime } from "../../function/globalFunction";
 
 // External Components
 import Time from "../../components/Time";
-import { useNavigate } from "react-router-dom";
 
 // Icons
 import { Icon } from "@iconify/react";
@@ -15,9 +14,6 @@ import saveSolid from "@iconify/icons-la/save-solid";
 // Data
 import getPenugasanData from "../../data/mahasiswa/penugasan";
 import getEventData from "../../data/admin/listEvent";
-
-// Function
-import { formatDateTime } from "../../function/globalFunction";
 
 const Index = () => {
 	const navigate = useNavigate();
