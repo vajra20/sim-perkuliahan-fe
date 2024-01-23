@@ -17,6 +17,7 @@ const { RangePicker } = DatePicker;
 import { Icon } from "@iconify/react";
 import fileImage from "@iconify/icons-mdi/file-image";
 import trashIcon from "@iconify/icons-ion/trash";
+import cameraBold from "@iconify/icons-solar/camera-bold";
 
 const CreateEvent = () => {
   const navigate = useNavigate();
@@ -216,7 +217,14 @@ const CreateEvent = () => {
                   onClick={handleImageClick}
                 >
                   {!image.blob ? (
-                    <div className="rounded-lg bg-event-color flex h-full items-center justify-center "></div>
+                    <div className="rounded-lg bg-event-color flex h-full items-center justify-center relative cursor-pointer">
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <Icon
+                          icon={cameraBold}
+                          className=" w-24 h-24 text-dark-gray"
+                        />
+                      </div>
+                    </div>
                   ) : null}
 
                   <input
@@ -231,33 +239,35 @@ const CreateEvent = () => {
                       <img
                         src={image.blob}
                         alt={image.fileName}
-                        className="rounded-lg bg-event-color flex h-full items-center justify-center image-preview"
+                        className="rounded-lg bg-event-color flex h-full items-center justify-center image-preview object-cover cursor-pointer"
                       />
 
-                      <div className="w-full items-center flex justify-center  uploaded-row">
-                        <Icon icon={fileImage} color="#858585" size="sm" />
+                      <div className="w-full items-center flex justify-between uploaded-row">
+                        <div className="flex flex-row items-center">
+                          <Icon
+                            icon={fileImage}
+                            color="#858585"
+                            className="w-full h-full min-w-[5px] max-w-[25px]"
+                          />
 
-                        <span className="upload-content pe-5 pl-5">
-                          {image.fileName ? image.fileName : ""}
-                        </span>
+                          <span className="upload-content pe-5 pl-2.5 text-xs cursor-pointer">
+                            {image.fileName ? image.fileName : ""}
+                          </span>
+                        </div>
 
                         <Icon
                           icon={trashIcon}
-                          size="sm"
+                          className="w-full h-full min-w-[5px] max-w-[20px] cursor-pointer"
                           color="#ed2b2a"
-                          style={{
-                            cursor: "pointer",
-                          }}
                           onClick={handleRemoveFile}
                         />
                       </div>
                     </>
                   ) : (
-                    <div
-                      className="w-full items-center flex justify-center input-image-text"
-                      style={{ cursor: "pointer" }}
-                    >
-                      <p>Add File</p>
+                    <div className="w-full items-center flex justify-center input-image-text">
+                      <div className="px-2.5 py-1 rounded-lg hover:text-color-page hover:bg-blue-100 w-fit transition-all duration-500 cursor-pointer">
+                        <p>Add File</p>
+                      </div>
                     </div>
                   )}
                 </form>
@@ -270,8 +280,8 @@ const CreateEvent = () => {
                   <input
                     name="eventName"
                     type="text"
-                    placeholder="Isi Judul Acara"
-                    className="border-2 border-black rounded-lg px-5 py-1.5 shadow"
+                    placeholder=""
+                    className="border-2 rounded-lg px-5 py-2.5 shadow-sm"
                     onChange={(e) => eventChangeHandler(e)}
                   />
                 </div>
@@ -282,8 +292,8 @@ const CreateEvent = () => {
                   <input
                     name="places"
                     type="text"
-                    placeholder="Isi Tempat berlangsungnya Acara"
-                    className="border-2 border-black rounded-lg px-5 py-1.5 shadow"
+                    placeholder=""
+                    className="border-2 rounded-lg px-5 py-2.5 shadow-sm"
                     onChange={(e) => eventChangeHandler(e)}
                   />
                 </div>
@@ -294,7 +304,7 @@ const CreateEvent = () => {
                   </label>
 
                   <RangePicker
-                    className="border-2 border-black rounded-lg px-5 py-1.5 shadow"
+                    className="border-2 rounded-lg px-5 py-2.5"
                     onChange={(values) => {
                       setEventData((prev) => {
                         const cache = { ...prev };
@@ -326,11 +336,11 @@ const CreateEvent = () => {
                   </label>
 
                   <Select
-                    className="w-full"
+                    className="w-full py-2.5 rounded-lg"
                     name="status"
                     isClearable
                     isSearchable
-                    placeholder="Isi Status Acara"
+                    placeholder=""
                     options={statusOptions}
                     onChange={(newValues) => {
                       setEventData((prev) => {
@@ -352,7 +362,7 @@ const CreateEvent = () => {
 
             <div className="w-full flex justify-end ">
               <button
-                className="bg-color-page py-2.5 px-12 h-fit rounded-lg text-white hover:text-blue-600 font-medium text-base shadow-none border-none flex justify-center"
+                className="bg-color-page py-2.5 px-12 h-fit rounded-lg text-white hover:bg-[#4096ff] transition-all duration-200 font-medium text-base shadow-none border-none flex justify-center"
                 onClick={handleSubmit}
               >
                 <span className="text-base">

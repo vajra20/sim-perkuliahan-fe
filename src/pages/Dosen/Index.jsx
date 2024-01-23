@@ -15,7 +15,7 @@ const Index = () => {
         data-aos-offset="0"
       >
         <div className="flex flex-wrap gap-6">
-          <div className="flex flex-col flex-custom max-w-sm">
+          <div className="flex flex-col flex-custom max-w-sm shadow rounded-3xl hover:shadow-md transition-all duration-300">
             <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
               <div className="text-white flex flex-col justify-start z-10">
                 <span className="font-normal text-2xl w-20">Matematika</span>
@@ -37,7 +37,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex flex-col flex-custom max-w-sm">
+          <div className="flex flex-col flex-custom max-w-sm shadow rounded-3xl hover:shadow-md transition-all duration-300">
             <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
               <div className="text-white flex flex-col justify-start z-10">
                 <span className="font-normal text-2xl w-20">Sejarah</span>
@@ -59,7 +59,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex flex-col flex-custom max-w-sm">
+          <div className="flex flex-col flex-custom max-w-sm shadow rounded-3xl hover:shadow-md transition-all duration-300 ">
             <div className="bg-[#26577C] px-4 py-5 rounded-t-3xl flex sm:flex-row android:flex-col w-full justify-between overflow-hidden">
               <div className="text-white flex flex-col justify-start z-10">
                 <span className="font-normal text-2xl w-20">

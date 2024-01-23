@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Route, Routes, Navigate } from "react-router-dom";
+import {
+  useLocation,
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import routes from "../routes";
 import Sidebar from "../components/Sidebar";
 import { useSidebar } from "../context/ContextProvider";
@@ -8,9 +14,15 @@ import NavbarDashboard from "../components/NavbarDashboard";
 const Mahasiswa = (props) => {
   const { setSidebarOpen, sidebarOpen, screenSize, setScreenSize } =
     useSidebar();
+  const navigate = useNavigate();
   const [layer, setLayer] = useState("");
 
   const roles = localStorage.getItem("role");
+  useEffect(() => {
+    if (roles !== "Mahasiswa") {
+      navigate("/login");
+    }
+  }, []);
   const mainContent = React.useRef(null);
   const location = useLocation();
 

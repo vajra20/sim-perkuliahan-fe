@@ -35,6 +35,8 @@ export default {
         "absent-color": "#FEDADA",
         "absent-green-color": "#DBFEDA",
         "blue-button": "#4690E4",
+        "blue-focus": "#1677ff",
+        "light-gray": "#F6F6F6",
       },
       gridTemplateColumns: {
         dashboard: "60% auto",

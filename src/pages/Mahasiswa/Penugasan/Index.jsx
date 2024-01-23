@@ -18,11 +18,11 @@ const penugasan = () => {
         </div>
         <div className="flex sm:my-16 android:my-8 w-full items-center">
           <input
-            className=" rounded-l-3xl pl-6 py-5 border border-[#828282] w-full border-r-0"
+            className=" rounded-l-3xl pl-6 py-4 border border-[#828282] w-full border-r-0 focus:outline-none text-lg"
             placeholder="Cari Topik..."
           ></input>
           <div className="bg-white border border-[#828282] border-l-0 rounded-r-3xl px-6 py-5">
-            <Icon className="w-6 h-6" icon={searchIcon}></Icon>
+            <Icon className="w-5 h-5" icon={searchIcon}></Icon>
           </div>
         </div>
         <div className="flex flex-col gap-10">

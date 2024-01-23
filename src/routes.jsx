@@ -13,6 +13,10 @@ import DetailTugas from "./pages/Mahasiswa/Penugasan/DetailTugas";
 
 // Pages Dosen
 import DosenPage from "./pages/Dosen/Index";
+import Absensi from "./pages/Dosen/Absensi";
+import BeritaAcara from "./pages/Dosen/BeritaAcara";
+import Tugas from "./pages/Dosen/Tugas/Tugas";
+import ListSiswa from "./pages/Dosen/Tugas/ListSiswa";
 
 // Icons
 import scheduleIcon from "@iconify/icons-akar-icons/schedule";
@@ -21,129 +25,133 @@ import dashboardLine from "@iconify/icons-ri/dashboard-line";
 import chalkboardTeacher from "@iconify/icons-la/chalkboard-teacher";
 import collegeOutline from "@iconify/icons-mdi/college-outline";
 import calendarLinear from "@iconify/icons-solar/calendar-linear";
-import Tugas from "./pages/Dosen/Tugas";
-import Absensi from "./pages/Dosen/Absensi";
 import news16Regular from "@iconify/icons-fluent/news-16-regular";
-import BeritaAcara from "./pages/Dosen/BeritaAcara";
 
 var routes = [
-	// Layout Mahasiswa
-	{
-		path: "/beranda",
-		name: "Beranda",
-		icon: dashboardLine,
-		component: <MahasiswaPage />,
-		layout: "/mahasiswa",
-		allow: true,
-		role: "Mahasiswa",
-	},
-	{
-		path: "/jadwal",
-		name: "Jadwal",
-		icon: scheduleIcon,
-		component: <Jadwal />,
-		layout: "/mahasiswa",
-		allow: true,
-		role: "Mahasiswa",
-	},
-	{
-		path: "/penugasan",
-		name: "Penugasan",
-		icon: homeIcon,
-		component: <Penugasan />,
-		layout: "/mahasiswa",
-		allow: true,
-		role: "Mahasiswa",
-	},
-	{
-		path: "/penugasan/list-tugas",
-		name: "List Tugas",
-		component: <ListTugas />,
-		layout: "/mahasiswa",
-		allow: false,
-	},
-	{
-		path: "/penugasan/list-tugas/detail-tugas",
-		name: "Detail Tugas",
-		component: <DetailTugas />,
-		layout: "/mahasiswa",
-		allow: false,
-	},
+  // Layout Mahasiswa
+  {
+    path: "/beranda",
+    name: "Beranda",
+    icon: dashboardLine,
+    component: <MahasiswaPage />,
+    layout: "/mahasiswa",
+    allow: true,
+    role: "Mahasiswa",
+  },
+  {
+    path: "/jadwal",
+    name: "Jadwal",
+    icon: scheduleIcon,
+    component: <Jadwal />,
+    layout: "/mahasiswa",
+    allow: true,
+    role: "Mahasiswa",
+  },
+  {
+    path: "/penugasan",
+    name: "Penugasan",
+    icon: homeIcon,
+    component: <Penugasan />,
+    layout: "/mahasiswa",
+    allow: true,
+    role: "Mahasiswa",
+  },
+  {
+    path: "/penugasan/list-tugas",
+    name: "List Tugas",
+    component: <ListTugas />,
+    layout: "/mahasiswa",
+    allow: false,
+  },
+  {
+    path: "/penugasan/list-tugas/detail-tugas",
+    name: "Detail Tugas",
+    component: <DetailTugas />,
+    layout: "/mahasiswa",
+    allow: false,
+  },
 
-	// Layout Admin
-	{
-		path: "/beranda",
-		name: "Beranda",
-		icon: dashboardLine,
-		component: <AdminPage />,
-		layout: "/admin",
-		allow: true,
-		role: "Admin",
-	},
-	{
-		path: "/dosen",
-		name: "Dosen",
-		icon: chalkboardTeacher,
-		component: <Dosen />,
-		layout: "/admin",
-		allow: true,
-		role: "Admin",
-	},
-	{
-		path: "/mahasiswa",
-		name: "Mahasiswa",
-		icon: collegeOutline,
-		component: <Mahasiswa />,
-		layout: "/admin",
-		allow: true,
-		role: "Admin",
-	},
-	{
-		path: "/create-acara",
-		name: "Buat Acara",
-		icon: collegeOutline,
-		component: <CreateEvent />,
-		layout: "/admin",
-		allow: true,
-		role: "Admin",
-	},
+  // Layout Admin
+  {
+    path: "/beranda",
+    name: "Beranda",
+    icon: dashboardLine,
+    component: <AdminPage />,
+    layout: "/admin",
+    allow: true,
+    role: "Admin",
+  },
+  {
+    path: "/dosen",
+    name: "Dosen",
+    icon: chalkboardTeacher,
+    component: <Dosen />,
+    layout: "/admin",
+    allow: true,
+    role: "Admin",
+  },
+  {
+    path: "/mahasiswa",
+    name: "Mahasiswa",
+    icon: collegeOutline,
+    component: <Mahasiswa />,
+    layout: "/admin",
+    allow: true,
+    role: "Admin",
+  },
+  {
+    path: "/create-acara",
+    name: "Buat Acara",
+    icon: collegeOutline,
+    component: <CreateEvent />,
+    layout: "/admin",
+    allow: true,
+    role: "Admin",
+  },
 
-	// Layout Dosen
-	{
-		path: "/beranda",
-		name: "Beranda",
-		icon: dashboardLine,
-		component: <DosenPage />,
-		layout: "/dosen",
-		allow: true,
-		role: "Dosen",
-	},
-	{
-		path: "/tugas",
-		name: "Tugas",
-		icon: scheduleIcon,
-		component: <Tugas />,
-		layout: "/dosen",
-		allow: true,
-		role: "Dosen",
-	},
-	{
-		path: "/absensi",
-		name: "Absensi",
-		icon: calendarLinear,
-		component: <Absensi />,
-		layout: "/dosen",
-		allow: true,
-		role: "Dosen",
-	},
-	{
-		path: "/berita-acara",
-		name: "Berita Acara",
-		icon: news16Regular,
-		component: <BeritaAcara />,
-		layout: "/dosen",
-		allow: true,
-		role: "Dosen",
-	},
+  // Layout Dosen
+  {
+    path: "/beranda",
+    name: "Beranda",
+    icon: dashboardLine,
+    component: <DosenPage />,
+    layout: "/dosen",
+    allow: true,
+    role: "Dosen",
+  },
+  {
+    path: "/tugas",
+    name: "Tugas",
+    icon: scheduleIcon,
+    component: <Tugas />,
+    layout: "/dosen",
+    allow: true,
+    role: "Dosen",
+  },
+  {
+    path: "/absensi",
+    name: "Absensi",
+    icon: calendarLinear,
+    component: <Absensi />,
+    layout: "/dosen",
+    allow: true,
+    role: "Dosen",
+  },
+  {
+    path: "/berita-acara",
+    name: "Berita Acara",
+    icon: news16Regular,
+    component: <BeritaAcara />,
+    layout: "/dosen",
+    allow: true,
+    role: "Dosen",
+  },
+  {
+    path: "/tugas/siswa-tugas",
+    component: <ListSiswa />,
+    layout: "/dosen",
+    allow: false,
+    role: "Dosen",
+  },
 ];
 export default routes;
