@@ -38,3 +38,69 @@ export function formatDate(date) {
 	const year = date.getFullYear();
 	return `${day}/${month}/${year}`;
 }
+
+// Get File Extension
+export function getFileExtension(fileName) {
+	return `${fileName.split(".").pop()}`;
+}
+
+// Check File Extension
+export function pictureFile(fileName) {
+	const fileExtension = getFileExtension(fileName);
+
+	switch (fileExtension) {
+		case "png":
+			return (
+				<img
+					src="/public/image.png"
+					alt="PNG Icon"
+					className="w-full h-full m-0 object-contain"
+				/>
+			);
+
+		case "pdf":
+			return (
+				<img
+					src="/public/pdf.png"
+					alt="PDF Icon"
+					className="w-full h-full m-0 object-contain"
+				/>
+			);
+
+		case "ppt":
+			return (
+				<img
+					src="/public/ppt.png"
+					alt="PNG Icon"
+					className="w-full h-full m-0 object-contain"
+				/>
+			);
+
+		case "docs":
+			return (
+				<img
+					src="/public/word.png"
+					alt="PNG Icon"
+					className="w-full h-full m-0 object-contain"
+				/>
+			);
+
+		case "xlx":
+			return (
+				<img
+					src="/public/excel.png"
+					alt="PNG Icon"
+					className="w-full h-full m-0 object-contain"
+				/>
+			);
+
+		default:
+			return (
+				<img
+					src="/public/file-not-found.png"
+					alt="PNG Icon"
+					className="w-full h-full m-0 object-contain"
+				/>
+			);
+	}
+}
