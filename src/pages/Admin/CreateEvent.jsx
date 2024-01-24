@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 // Global Function
 import { apiUrl } from "../../function/globalFunction";
 
-// Components
-
 // External Components
 import axios from "axios";
 import Select from "react-select";

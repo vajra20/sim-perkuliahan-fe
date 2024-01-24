@@ -12,7 +12,7 @@ const getBeritaAcara = async () => {
 			},
 		});
 
-		const data = response.data;
+		const data = response.data.acaraBeritas;
 		return data;
 	} catch (error) {
 		console.error("Error fetching data:", error);
