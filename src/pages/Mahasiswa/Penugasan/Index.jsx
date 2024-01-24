@@ -28,7 +28,6 @@ const Index = () => {
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
-  console.log(search);
 
   const filteredEventData = penugasanData.filter((item) => {
     const topik = item.topik ? item.topik.toLowerCase() : "";
@@ -37,10 +36,6 @@ const Index = () => {
       ? item.dosen.dosenName.toLowerCase()
       : "";
 
-    console.log(topik);
-    console.log(deskripsi);
-    console.log(dosen);
-
     return (
       topik.includes(search.toLowerCase()) ||
       dosen.includes(search.toLowerCase()) ||
@@ -48,14 +43,11 @@ const Index = () => {
     );
   });
 
-  console.log(filteredEventData);
-
   useEffect(() => {
     const fetchAllData = async () => {
       const PenugasanData = await getPenugasanData();
       setPenugasanData(PenugasanData.updatedTugass);
 
-      console.log(PenugasanData.updatedTugass);
       AOS.refresh();
     };
 
@@ -105,7 +97,7 @@ const Index = () => {
         {filteredEventData.map((item, index) => (
           <div key={index} id="parent">
             <Link
-              to={"/mahasiswa/penugasan/list-tugas"}
+              to={`/mahasiswa/penugasan/${item.id}`}
               data-aos="fade-down"
               data-aos-anchor="#parent"
               data-aos-offset="0"

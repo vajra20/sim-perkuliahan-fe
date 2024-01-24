@@ -35,216 +35,214 @@ import folderOpenOutline from "@iconify/icons-solar/folder-open-outline";
 import arrowRight2 from "@iconify/icons-iconamoon/arrow-right-2";
 
 const Tugas = () => {
-	const navigate = useNavigate();
-	const params = useParams();
-	const matkulId = params.id;
-	const dosenId = localStorage.getItem("dosen_id");
-	const [isLoading, setIsLoading] = useState(false);
-	const [isAccordion, setIsAccordion] = useState(false);
+  const navigate = useNavigate();
+  const params = useParams();
+  const matkulId = params.id;
+  const dosenId = localStorage.getItem("dosen_id");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAccordion, setIsAccordion] = useState(false);
 
-	// Tugas State
-	const [createTugas, setCreateTugas] = useState({
-		dosenId: Number(dosenId),
-		judul: "",
-		topik: "",
-		deskripsi: "",
-		dueDate: "",
-		link: "",
-	});
+  // Tugas State
+  const [createTugas, setCreateTugas] = useState({
+    dosenId: Number(dosenId),
+    judul: "",
+    topik: "",
+    deskripsi: "",
+    dueDate: "",
+    link: "",
+  });
 
-	const [tugasByMatkulId, setTugasByMatkulId] = useState([]);
+  const [tugasByMatkulId, setTugasByMatkulId] = useState([]);
 
-	// Toggle Accordion
-	const toggleAccordion = (index) => {
-		setIsAccordion((prevIndex) => (prevIndex === index ? null : index));
-	};
+  // Toggle Accordion
+  const toggleAccordion = (index) => {
+    setIsAccordion((prevIndex) => (prevIndex === index ? null : index));
+  };
 
-	// Upload Document
-	const [visible, setVisible] = useState(false);
-	const [uploadDocument, setUploadDocument] = useState([]);
-	const [image, setImage] = useState({
-		blob: "",
-		fileName: "",
-	});
+  // Upload Document
+  const [visible, setVisible] = useState(false);
+  const [uploadDocument, setUploadDocument] = useState([]);
+  const [image, setImage] = useState({
+    blob: "",
+    fileName: "",
+  });
 
-	// Upload Document
-	const handleDocumentChange = (e) => {
-		const files = e.target.files;
+  // Upload Document
+  const handleDocumentChange = (e) => {
+    const files = e.target.files;
 
-		if (files && files[0]) {
-			setUploadDocument(files);
+    if (files && files[0]) {
+      setUploadDocument(files);
 
-			setImage({
-				blob: URL.createObjectURL(files[0]),
-				fileName: files[0].name,
-			});
-		}
-	};
+      setImage({
+        blob: URL.createObjectURL(files[0]),
+        fileName: files[0].name,
+      });
+    }
+  };
 
-	const handleImageClick = () => {
-		const inputField = document.querySelector(".input-field-image");
-		inputField.click();
-	};
+  const handleImageClick = () => {
+    const inputField = document.querySelector(".input-field-image");
+    inputField.click();
+  };
 
-	const handleRemoveFile = () => {
-		setImage({
-			blob: "",
-			fileName: "",
-		});
+  const handleRemoveFile = () => {
+    setImage({
+      blob: "",
+      fileName: "",
+    });
 
-		setUploadDocument([]);
-	};
+    setUploadDocument([]);
+  };
 
-	// Modal
-	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [isModalOpenAttach, setIsModalOpenAttach] = useState(false);
+  // Modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenAttach, setIsModalOpenAttach] = useState(false);
 
-	const showModal2 = () => {
-		setIsModalOpenAttach(true);
-	};
+  const showModal2 = () => {
+    setIsModalOpenAttach(true);
+  };
 
-	const handleOk2 = () => {
-		setIsModalOpenAttach(false);
-	};
+  const handleOk2 = () => {
+    setIsModalOpenAttach(false);
+  };
 
-	const handleCancel2 = () => {
-		setIsModalOpenAttach(false);
-	};
+  const handleCancel2 = () => {
+    setIsModalOpenAttach(false);
+  };
 
-	// URL
-	const isValidURL = (string) => {
-		const urlRegex = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-		return urlRegex.test(string);
-	};
+  // URL
+  const isValidURL = (string) => {
+    const urlRegex = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return urlRegex.test(string);
+  };
 
-	// Render Data
-	useEffect(() => {
-		const fetchAllData = async () => {
-			const MatkulById = await getTugasByMatkul(params.id);
-			setTugasByMatkulId(MatkulById);
-		};
+  // Render Data
+  useEffect(() => {
+    const fetchAllData = async () => {
+      const MatkulById = await getTugasByMatkul(params.id);
+      setTugasByMatkulId(MatkulById);
+    };
 
-		fetchAllData();
-	}, []);
+    fetchAllData();
+  }, []);
 
-	// Change Handler
-	const tugasChangeHandler = (e) => {
-		setCreateTugas({
-			...createTugas,
-			[e.target.name]: e.target.value,
-		});
-	};
+  // Change Handler
+  const tugasChangeHandler = (e) => {
+    setCreateTugas({
+      ...createTugas,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-	// Form Validation
-	const FormValidation = () => {
-		let valid = true;
+  // Form Validation
+  const FormValidation = () => {
+    let valid = true;
 
-		if (!createTugas.judul) {
-			Swal.fire({
-				title: "Warning",
-				text: "Judul cannot be empty",
-				icon: "warning",
-			});
-			valid = false;
-		} else if (!createTugas.topik) {
-			Swal.fire({
-				title: "Warning",
-				text: "Topik cannot be empty",
-				icon: "warning",
-			});
-			valid = false;
-		} else if (!createTugas.deskripsi) {
-			Swal.fire({
-				title: "Warning",
-				text: "Petunjuk cannot be empty",
-				icon: "warning",
-			});
-			valid = false;
-		} else if (!createTugas.dueDate) {
-			Swal.fire({
-				title: "Warning",
-				text: "Deadline cannot be empty",
-				icon: "warning",
-			});
-			valid = false;
-		}
+    if (!createTugas.judul) {
+      Swal.fire({
+        title: "Warning",
+        text: "Judul cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!createTugas.topik) {
+      Swal.fire({
+        title: "Warning",
+        text: "Topik cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!createTugas.deskripsi) {
+      Swal.fire({
+        title: "Warning",
+        text: "Petunjuk cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    } else if (!createTugas.dueDate) {
+      Swal.fire({
+        title: "Warning",
+        text: "Deadline cannot be empty",
+        icon: "warning",
+      });
+      valid = false;
+    }
 
-		return valid;
-	};
+    return valid;
+  };
 
-	// Handle Submit
-	const handleSubmit = async () => {
-		setIsLoading(true);
+  // Handle Submit
+  const handleSubmit = async () => {
+    setIsLoading(true);
 
-		if (!FormValidation()) {
-			setIsLoading(false);
-			return false;
-		}
+    if (!FormValidation()) {
+      setIsLoading(false);
+      return false;
+    }
 
-		const formData = new FormData();
+    const formData = new FormData();
 
-		formData.append("dosenId", createTugas.dosenId);
-		formData.append("judul", createTugas.judul);
-		formData.append("topik", createTugas.topik);
-		formData.append("deskripsi", createTugas.deskripsi);
-		formData.append("dueDate", createTugas.dueDate);
+    formData.append("dosenId", createTugas.dosenId);
+    formData.append("judul", createTugas.judul);
+    formData.append("topik", createTugas.topik);
+    formData.append("deskripsi", createTugas.deskripsi);
+    formData.append("dueDate", createTugas.dueDate);
 
-		if (createTugas.link) {
-			formData.append("link", createTugas.link);
-		}
+    if (createTugas.link) {
+      formData.append("link", createTugas.link);
+    }
 
-		if (uploadDocument?.length) {
-			formData.append("file", uploadDocument[0]);
-		}
+    if (uploadDocument?.length) {
+      formData.append("file", uploadDocument[0]);
+    }
 
-		await axios
-			.post(`${apiUrl()}/createTugas/${matkulId}`, formData, {
-				headers: {
-					Accept: "application/json",
-					Authorization: `Bearer ${localStorage.getItem(
-						"accessToken"
-					)}`,
-					"Access-Control-Allow-Origin": "*",
-					"ngrok-skip-browser-warning": "true",
-				},
-			})
-			.then((response) => {
-				if (
-					response.data.statusCode === 200 ||
-					response.data.statusCode === 201
-				) {
-					Swal.fire({
-						title: "Success",
-						text: "Success Create Tugas	",
-						icon: "success",
-						showConfirmButton: false,
-						timer: 2000,
-					}).then(() => {
-						setIsLoading(false);
-					});
-				} else {
-					Swal.fire({
-						title: "Error",
-						text: response.error,
-						icon: "error",
-					});
-					setIsLoading(false);
-				}
+    await axios
+      .post(`${apiUrl()}/createTugas/${matkulId}`, formData, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          "Access-Control-Allow-Origin": "*",
+          "ngrok-skip-browser-warning": "true",
+        },
+      })
+      .then((response) => {
+        if (
+          response.data.statusCode === 200 ||
+          response.data.statusCode === 201
+        ) {
+          Swal.fire({
+            title: "Success",
+            text: "Success Create Tugas	",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 2000,
+          }).then(() => {
+            setIsLoading(false);
+          });
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: response.error,
+            icon: "error",
+          });
+          setIsLoading(false);
+        }
 
-				window.location.reload();
-			})
-			.catch((error) => {
-				Swal.fire({
-					title: "Error",
-					text: error.response.error,
-					icon: "error",
-				});
+        window.location.reload();
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Error",
+          text: error.response.error,
+          icon: "error",
+        });
 
-				setIsLoading(false);
-			});
-	};
+        setIsLoading(false);
+      });
+  };
 
-	return (
+  return (
     <div
       className="w-full h-full"
       data-aos="fade-zoom-in"
