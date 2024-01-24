@@ -3,9 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 
 // Global Function
 import {
-  apiUrl,
-  formatTime,
-  formatDateTime,
+	apiUrl,
+	formatTime,
+	formatDateTime,
+	getFileExtension,
+	pictureFile,
 } from "../../../function/globalFunction";
 
 // Components
@@ -33,211 +35,216 @@ import folderOpenOutline from "@iconify/icons-solar/folder-open-outline";
 import arrowRight2 from "@iconify/icons-iconamoon/arrow-right-2";
 
 const Tugas = () => {
-  const navigate = useNavigate();
-  const params = useParams();
-  const matkulId = params.id;
-  const dosenId = localStorage.getItem("dosen_id");
-  const [isLoading, setIsLoading] = useState(false);
+	const navigate = useNavigate();
+	const params = useParams();
+	const matkulId = params.id;
+	const dosenId = localStorage.getItem("dosen_id");
+	const [isLoading, setIsLoading] = useState(false);
+	const [isAccordion, setIsAccordion] = useState(false);
 
-  // Tugas State
-  const [createTugas, setCreateTugas] = useState({
-    dosenId: Number(dosenId),
-    judul: "",
-    topik: "",
-    deskripsi: "",
-    dueDate: "",
-    link: "",
-  });
+	// Tugas State
+	const [createTugas, setCreateTugas] = useState({
+		dosenId: Number(dosenId),
+		judul: "",
+		topik: "",
+		deskripsi: "",
+		dueDate: "",
+		link: "",
+	});
 
-  const [tugasByMatkulId, setTugasByMatkulId] = useState([]);
-  const [isAccordion, setIsAccordion] = useState([]);
+	const [tugasByMatkulId, setTugasByMatkulId] = useState([]);
 
-  // Toggle Accordion
-  const toggleAccordion = (index) => {
-    setIsAccordion((prevIndex) => (prevIndex === index ? null : index));
-  };
+	// Toggle Accordion
+	const toggleAccordion = (index) => {
+		setIsAccordion((prevIndex) => (prevIndex === index ? null : index));
+	};
 
-  // Upload Document
-  const [visible, setVisible] = useState(false);
-  const [uploadDocument, setUploadDocument] = useState([]);
-  const [image, setImage] = useState({
-    blob: "",
-    fileName: "",
-  });
+	// Upload Document
+	const [visible, setVisible] = useState(false);
+	const [uploadDocument, setUploadDocument] = useState([]);
+	const [image, setImage] = useState({
+		blob: "",
+		fileName: "",
+	});
 
-  // Upload Document
-  const handleDocumentChange = (e) => {
-    const files = e.target.files;
+	// Upload Document
+	const handleDocumentChange = (e) => {
+		const files = e.target.files;
 
-    if (files && files[0]) {
-      setUploadDocument(files);
+		if (files && files[0]) {
+			setUploadDocument(files);
 
-      setImage({
-        blob: URL.createObjectURL(files[0]),
-        fileName: files[0].name,
-      });
-    }
-  };
+			setImage({
+				blob: URL.createObjectURL(files[0]),
+				fileName: files[0].name,
+			});
+		}
+	};
 
-  const handleImageClick = () => {
-    const inputField = document.querySelector(".input-field-image");
-    inputField.click();
-  };
+	const handleImageClick = () => {
+		const inputField = document.querySelector(".input-field-image");
+		inputField.click();
+	};
 
-  const handleRemoveFile = () => {
-    setImage({
-      blob: "",
-      fileName: "",
-    });
+	const handleRemoveFile = () => {
+		setImage({
+			blob: "",
+			fileName: "",
+		});
 
-    setUploadDocument([]);
-  };
+		setUploadDocument([]);
+	};
 
-  // Modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpenAttach, setIsModalOpenAttach] = useState(false);
+	// Modal
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpenAttach, setIsModalOpenAttach] = useState(false);
 
-  const showModal2 = () => {
-    setIsModalOpenAttach(true);
-  };
+	const showModal2 = () => {
+		setIsModalOpenAttach(true);
+	};
 
-  const handleOk2 = () => {
-    setIsModalOpenAttach(false);
-  };
+	const handleOk2 = () => {
+		setIsModalOpenAttach(false);
+	};
 
-  const handleCancel2 = () => {
-    setIsModalOpenAttach(false);
-  };
+	const handleCancel2 = () => {
+		setIsModalOpenAttach(false);
+	};
 
-  // URL
-  const isValidURL = (string) => {
-    const urlRegex = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-    return urlRegex.test(string);
-  };
+	// URL
+	const isValidURL = (string) => {
+		const urlRegex = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+		return urlRegex.test(string);
+	};
 
-  // Render Data
-  useEffect(() => {
-    const fetchAllData = async () => {
-      const MatkulById = await getTugasByMatkul(params.id);
-      setTugasByMatkulId(MatkulById);
-    };
+	// Render Data
+	useEffect(() => {
+		const fetchAllData = async () => {
+			const MatkulById = await getTugasByMatkul(params.id);
+			setTugasByMatkulId(MatkulById);
+		};
 
-    fetchAllData();
-  }, []);
+		fetchAllData();
+	}, []);
 
-  // Change Handler
-  const tugasChangeHandler = (e) => {
-    setCreateTugas({
-      ...createTugas,
-      [e.target.name]: e.target.value,
-    });
-  };
+	// Change Handler
+	const tugasChangeHandler = (e) => {
+		setCreateTugas({
+			...createTugas,
+			[e.target.name]: e.target.value,
+		});
+	};
 
-  // Form Validation
-  const FormValidation = () => {
-    let valid = true;
+	// Form Validation
+	const FormValidation = () => {
+		let valid = true;
 
-    if (!createTugas.judul) {
-      Swal.fire({
-        title: "Warning",
-        text: "Judul cannot be empty",
-        icon: "warning",
-      });
-      valid = false;
-    } else if (!createTugas.topik) {
-      Swal.fire({
-        title: "Warning",
-        text: "Topik cannot be empty",
-        icon: "warning",
-      });
-      valid = false;
-    } else if (!createTugas.deskripsi) {
-      Swal.fire({
-        title: "Warning",
-        text: "Petunjuk cannot be empty",
-        icon: "warning",
-      });
-      valid = false;
-    } else if (!createTugas.dueDate) {
-      Swal.fire({
-        title: "Warning",
-        text: "Deadline cannot be empty",
-        icon: "warning",
-      });
-      valid = false;
-    }
+		if (!createTugas.judul) {
+			Swal.fire({
+				title: "Warning",
+				text: "Judul cannot be empty",
+				icon: "warning",
+			});
+			valid = false;
+		} else if (!createTugas.topik) {
+			Swal.fire({
+				title: "Warning",
+				text: "Topik cannot be empty",
+				icon: "warning",
+			});
+			valid = false;
+		} else if (!createTugas.deskripsi) {
+			Swal.fire({
+				title: "Warning",
+				text: "Petunjuk cannot be empty",
+				icon: "warning",
+			});
+			valid = false;
+		} else if (!createTugas.dueDate) {
+			Swal.fire({
+				title: "Warning",
+				text: "Deadline cannot be empty",
+				icon: "warning",
+			});
+			valid = false;
+		}
 
-    return valid;
-  };
+		return valid;
+	};
 
-  // Handle Submit
-  const handleSubmit = async () => {
-    setIsLoading(true);
+	// Handle Submit
+	const handleSubmit = async () => {
+		setIsLoading(true);
 
-    if (!FormValidation()) {
-      setIsLoading(false);
-      return false;
-    }
+		if (!FormValidation()) {
+			setIsLoading(false);
+			return false;
+		}
 
-    const formData = new FormData();
+		const formData = new FormData();
 
-    formData.append("dosenId", createTugas.dosenId);
-    formData.append("judul", createTugas.judul);
-    formData.append("topik", createTugas.topik);
-    formData.append("deskripsi", createTugas.deskripsi);
-    formData.append("dueDate", createTugas.dueDate);
+		formData.append("dosenId", createTugas.dosenId);
+		formData.append("judul", createTugas.judul);
+		formData.append("topik", createTugas.topik);
+		formData.append("deskripsi", createTugas.deskripsi);
+		formData.append("dueDate", createTugas.dueDate);
 
-    if (createTugas.link) {
-      formData.append("link", createTugas.link);
-    }
+		if (createTugas.link) {
+			formData.append("link", createTugas.link);
+		}
 
-    if (uploadDocument?.length) {
-      formData.append("file", uploadDocument[0]);
-    }
+		if (uploadDocument?.length) {
+			formData.append("file", uploadDocument[0]);
+		}
 
-    await axios
-      .post(`${apiUrl()}/createTugas/${matkulId}`, formData, {
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          "Access-Control-Allow-Origin": "*",
-          "ngrok-skip-browser-warning": "true",
-        },
-      })
-      .then((response) => {
-        if (response.status === 200 || response.status === 201) {
-          Swal.fire({
-            title: "Success",
-            text: "Success Create Tugas	",
-            icon: "success",
-            showConfirmButton: false,
-            timer: 2000,
-          }).then(() => {
-            setIsLoading(false);
-          });
-        } else {
-          Swal.fire({
-            title: "Error",
-            text: response.error,
-            icon: "error",
-          });
-          setIsLoading(false);
-        }
+		await axios
+			.post(`${apiUrl()}/createTugas/${matkulId}`, formData, {
+				headers: {
+					Accept: "application/json",
+					Authorization: `Bearer ${localStorage.getItem(
+						"accessToken"
+					)}`,
+					"Access-Control-Allow-Origin": "*",
+					"ngrok-skip-browser-warning": "true",
+				},
+			})
+			.then((response) => {
+				if (
+					response.data.statusCode === 200 ||
+					response.data.statusCode === 201
+				) {
+					Swal.fire({
+						title: "Success",
+						text: "Success Create Tugas	",
+						icon: "success",
+						showConfirmButton: false,
+						timer: 2000,
+					}).then(() => {
+						setIsLoading(false);
+					});
+				} else {
+					Swal.fire({
+						title: "Error",
+						text: response.error,
+						icon: "error",
+					});
+					setIsLoading(false);
+				}
 
-        navigate(`/dosen/tugas/${matkulId}`);
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: "Error",
-          text: error.response.error,
-          icon: "error",
-        });
+				window.location.reload();
+			})
+			.catch((error) => {
+				Swal.fire({
+					title: "Error",
+					text: error.response.error,
+					icon: "error",
+				});
 
-        setIsLoading(false);
-      });
-  };
+				setIsLoading(false);
+			});
+	};
 
-  return (
+	return (
     <div
       className="w-full h-full"
       data-aos="fade-zoom-in"
@@ -304,7 +311,7 @@ const Tugas = () => {
                 type="text"
                 name="deskripsi"
                 className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 min-h-[180px] max-h-[350px] items-start"
-                placeholder="Petunjuk (Opsional)"
+                placeholder="Petunjuk"
                 onChange={(e) => tugasChangeHandler(e)}
               />
 
@@ -415,6 +422,7 @@ const Tugas = () => {
                         className="input-field-image hidden"
                         name="file"
                         id="upload-file"
+                        accept=".pdf, .png, .jpg, .jpeg, .docs, .xls, .xlsx"
                         onChange={handleDocumentChange}
                       />
 
@@ -521,7 +529,7 @@ const Tugas = () => {
                       ></Icons>
                     </div>
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col items-start">
                       <span className="text-black md:text-xl android:text-lg font-medium">
                         {item?.judul ?? "Judul Tugas belum Ditentukan"}
                       </span>
@@ -546,50 +554,65 @@ const Tugas = () => {
                     data-aos="fade-down"
                     data-duration="1000"
                   >
-                    <Link to={"/dosen/tugas/siswa-tugas"} className="">
-                      <div className="flex flex-col sm:p-6 android:p-3 sm:gap-5 android:gap-2.5">
-                        <span className="text-black opacity-50 sm:text-sm android:text-xs font-light ">
-                          Diposting 12.24
-                        </span>
-                        <div className="det-pdf flex android:flex-row android:flex-wrap lg:flex-nowrap android:gap-3 sm:gap-6 justify-between items-center">
-                          <div className="flex flex-row shadow rounded-xl android:flex-initial lg:flex-auto sm:w-full android:w-fit android:text-sm lg:max-w-[40%]">
-                            <div className="bg-white sm:px-6 android:px-3 sm:py-3 android:py-1.5 border-r-event-color border-r rounded-l-xl android:w-full sm:w-fit sm:min-w-[20%] android:min-w-[20%] sm:max-w-[30%] android:h-auto android:max-w-[25%] lg:max-h-24 ">
-                              <img
-                                src="/public/pdf.png"
-                                className="w-full h-full m-0 object-contain"
-                              ></img>
-                            </div>
-                            <div className="flex flex-col gap-0 rounded-r-xl justify-center w-full bg-white sm:px-3 android:px-3 ">
-                              <span className="text-black sm:text-lg lg:text-base android:max-w-full ">
-                                Latihan Soal Kalkulus 1
-                              </span>
-                              <span className="text-black opacity-50 sm:text-sm android:text-sm font-light w-fit">
-                                PDF
-                              </span>
-                            </div>
+                    <div className="flex flex-col sm:p-6 android:p-3 sm:gap-5 android:gap-2.5">
+                      <span className="text-black opacity-50 sm:text-sm android:text-xs font-light ">
+                        Diposting {formatTime(new Date(item?.createdAt))}
+                      </span>
+
+                      <div className="det-pdf flex android:flex-row android:flex-wrap lg:flex-nowrap android:gap-3 sm:gap-6 justify-between items-center">
+                        <div className="flex flex-row shadow rounded-xl android:flex-initial lg:flex-auto sm:w-full android:w-fit android:text-sm lg:max-w-[40%]">
+                          <div className="bg-white sm:px-6 android:px-3 sm:py-3 android:py-1.5 border-r-event-color border-r rounded-l-xl android:w-full sm:w-fit sm:min-w-[20%] android:min-w-[20%] sm:max-w-[30%] android:h-auto android:max-w-[25%] lg:max-h-24 ">
+                            {pictureFile(`${item.lampiran}`)}
                           </div>
 
-                          <div className="flex flex-row gap-3 android:w-full android flex-1 sm:flex-auto lg:max-w-[30%]">
-                            <div className=" w-full border border-[#61CE70] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24 ">
+                          <div className="flex flex-col gap-0 rounded-r-xl justify-center w-full bg-white sm:px-3 android:px-3 ">
+                            <div className="text-black sm:text-lg lg:text-base android:max-w-full ">
+                              {item.lampiran !== null
+                                ? `${item.lampiran.replace(/\.[^/.]+$/, "")}`
+                                : "File tidak tersedia"}
+                            </div>
+
+                            <span className="text-black opacity-50 sm:text-sm android:text-sm font-light w-fit uppercase">
+                              {item.lampiran !== null
+                                ? getFileExtension(item.lampiran)
+                                : "File tidak tersedia"}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-row gap-3 android:w-full android flex-1 sm:flex-auto lg:max-w-[30%]">
+                          <div className=" w-full border border-[#61CE70] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24 ">
+                            <Link
+                              to={`/dosen/tugas/siswa-tugas/${item.id}`}
+                              className=""
+                            >
                               <span className="sm:text-5xl lg:text-5xl android:text-3xl flex justify-center  w-full text-[#61CE70] font-semibold">
                                 5
                               </span>
+
                               <span className="sm:text-[16px] android:text-sm flex justify-center gap-10 w-full text-[#61CE70]">
                                 Menyerahkan
                               </span>
-                            </div>
-                            <div className=" w-full border border-[#EC613E] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24">
+                            </Link>
+                          </div>
+
+                          <div className=" w-full border border-[#EC613E] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24">
+                            <Link
+                              to={`/dosen/tugas/siswa-tugas/${item.id}`}
+                              className=""
+                            >
                               <span className="sm:text-5xl lg:text-5xl android:text-3xl flex justify-center  w-full text-[#EC613E] font-semibold">
                                 30
                               </span>
+
                               <span className="sm:text-[16px] lg:text-[18px] android:text-sm flex justify-center gap-10 w-full text-[#EC613E]">
                                 Ditugaskan
                               </span>
-                            </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 )}
               </div>

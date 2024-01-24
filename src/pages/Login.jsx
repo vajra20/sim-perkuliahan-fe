@@ -52,7 +52,7 @@ const Login = () => {
 				}
 			)
 			.then((res) => {
-				if (res.data.statusCode == 200) {
+				if (res.data.statusCode === 200) {
 					const isAdmin = res.data.role === "Admin";
 					const isMahasiswa = res.data.role === "Mahasiswa";
 					const isDosen = res.data.role === "Dosen";
@@ -84,23 +84,23 @@ const Login = () => {
 
 					setIsLoading(false);
 				} else {
-					navigate("/login");
 					Swal.fire({
 						title: "Login Failed",
-						text: res.error,
 						icon: "error",
 					});
-					setIsLoading(true);
+
+					setIsLoading(false);
+					navigate("/login");
 				}
 			})
 			.catch((err) => {
 				setIsLoading(false);
+
 				Swal.fire({
 					title: "Login Failed",
-					text: err.response.message,
+					text: err.response.data.error,
 					icon: "error",
 				});
-				console.error(err);
 			});
 	};
 
