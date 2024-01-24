@@ -125,7 +125,14 @@ var routes = [
 		icon: scheduleIcon,
 		component: <Tugas />,
 		layout: "/dosen",
-		allow: true,
+		allow: false,
+		role: "Dosen",
+	},
+	{
+		path: "/tugas/siswa-tugas/:id",
+		component: <ListSiswa />,
+		layout: "/dosen",
+		allow: false,
 		role: "Dosen",
 	},
 	{
@@ -144,13 +151,6 @@ var routes = [
 		component: <BeritaAcara />,
 		layout: "/dosen",
 		allow: true,
-		role: "Dosen",
-	},
-	{
-		path: "/tugas/siswa-tugas",
-		component: <ListSiswa />,
-		layout: "/dosen",
-		allow: false,
 		role: "Dosen",
 	},
 ];
