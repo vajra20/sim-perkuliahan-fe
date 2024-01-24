@@ -38,7 +38,6 @@ const Tugas = () => {
   const matkulId = params.id;
   const dosenId = localStorage.getItem("dosen_id");
   const [isLoading, setIsLoading] = useState(false);
-  const [isAccordion, setIsAccordion] = useState(false);
 
   // Tugas State
   const [createTugas, setCreateTugas] = useState({
@@ -51,6 +50,7 @@ const Tugas = () => {
   });
 
   const [tugasByMatkulId, setTugasByMatkulId] = useState([]);
+  const [isAccordion, setIsAccordion] = useState([]);
 
   // Toggle Accordion
   const toggleAccordion = (index) => {

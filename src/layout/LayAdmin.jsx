@@ -18,7 +18,6 @@ const Admin = (props) => {
   const [layer, setLayer] = useState("");
 
   const roles = localStorage.getItem("role");
-  const isLogin = localStorage.getItem("isLogin");
   useEffect(() => {
     if (roles !== "Admin") {
       navigate("/login");
