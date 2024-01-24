@@ -314,7 +314,7 @@ const Tugas = () => {
 								type="text"
 								name="deskripsi"
 								className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 min-h-[180px] max-h-[350px] items-start"
-								placeholder="Petunjuk (Opsional)"
+								placeholder="Petunjuk"
 								onChange={(e) => tugasChangeHandler(e)}
 							/>
 
