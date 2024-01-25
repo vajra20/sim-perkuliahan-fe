@@ -11,13 +11,20 @@ import { formatDateTime } from "../../function/globalFunction";
 
 // Data
 import getEventData from "../../data/admin/listEvent";
+import getMahasiswaById from "../../data/mahasiswa/mahasiswaById";
+
+// External Components
+import { Button, Modal } from "antd";
 
 const Index = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
+  const mahasiswaId = localStorage.getItem("mahasiswaId");
 
   const [search, setSearch] = useState("");
   const [eventData, setEventData] = useState([]);
+  const [mahasiswaById, setMahasiswaById] = useState([]);
+  const [eventDetail, seteventDetail] = useState({});
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -35,13 +42,19 @@ const Index = () => {
 
   useEffect(() => {
     const fetchAllData = async () => {
-      const EventData = await getEventData();
+      try {
+        const EventData = await getEventData();
+        const MahasiswaData = await getMahasiswaById(mahasiswaId);
 
-      setEventData(EventData);
+        setEventData(EventData);
+        setMahasiswaById(MahasiswaData);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchAllData();
-  }, [token]);
+  }, [mahasiswaId]);
 
   useEffect(() => {
     if (!token) {
@@ -49,16 +62,40 @@ const Index = () => {
     }
   }, [token]);
 
+  const username = localStorage.getItem("username");
+
+  console.log("mahasiswaById", mahasiswaById.nim);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = (data) => {
+    setIsModalOpen(true);
+    seteventDetail(data);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  console.log('eventDetail', eventDetail);
+
   return (
     <div className="w-full h-full">
       <div className="md:px-7 lg:py-6 android:px-3">
         <div className="lg:grid md:flex md:flex-col lg:gap-0 xl:gap-10 grid-cols-dashboard mb-2">
           <div className="md:px-0 lg:pl-0 lg:pr-10 android:px-0">
-            <div className="flex justify-start my-6">
-              <span className="lg:text-3xl font-normal sm:text-2xl android:text-center android:text-2xl text-black">
-                Halo! Selamat datang di
-                <span className="font-bold text-black"> Beranda</span>.
-              </span>
+            <div className="flex android:justify-center md:justify-start my-6 white">
+              <div className="flex flex-col ">
+                <span className="lg:text-2xl font-normal sm:text-2xl xl:text-start android:text-center android:text-2xl text-black md:text-start">
+                  Halo! Selamat datang,
+                  <br className="md:hidden android:block " />
+                  <span className="font-bold text-black"> {username}</span>.
+                </span>
+                <div className="flex android:flex-row lg:flex-col gap-0 items-center android:justify-center md:justify-start android:text-center md:text-start android:items-center md:items-start android:text-sm lg:text-base">
+                  <span>NIP {mahasiswaById.nim} </span>
+                </div>
+              </div>
             </div>
 
             <div className="w-full flex justify-center sm:gap-10 android:gap-5 sm:mb-0 android:mb-10 android:flex-row">
@@ -127,6 +164,7 @@ const Index = () => {
                   <div
                     className="bg-white rounded-lg text-black p-3 hover:shadow-md hover:shadow-gray-400 transition-shadow cursor-pointer"
                     key={`${item} - ${index}`}
+                    onClick={() => showModal(item)}
                   >
                     <div className="flex flex-row gap-3 sm:mb-3 android:mb-0 items-center">
                       <div className="bg-event-color w-12 h-12 rounded-md sm:block android:hidden lg:hidden xl:block"></div>
@@ -160,6 +198,16 @@ const Index = () => {
                     </div>
                   </div>
                 ))}
+                <Modal
+                  title="Basic Modal"
+                  open={isModalOpen}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                >
+                  <p>{eventDetail.eventName}</p>
+                  <p>Some contents...</p>
+                  <p>Some contents...</p>
+                </Modal>
               </div>
             </div>
           </div>

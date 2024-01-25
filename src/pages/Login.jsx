@@ -61,6 +61,7 @@ const Login = () => {
 					localStorage.setItem("username", res.data.username);
 					localStorage.setItem("role", res.data.role);
 					localStorage.setItem("accessToken", res.data.token);
+					localStorage.setItem("mahasiswaId", res.data.mahasiswaId);
 
 					if (isAdmin) {
 						navigate("/admin/beranda");

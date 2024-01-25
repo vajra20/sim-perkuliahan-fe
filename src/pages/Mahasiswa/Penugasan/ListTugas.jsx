@@ -15,18 +15,20 @@ const ListTugas = () => {
   const params = useParams();
   const topikId = params.id;
 
+  console.log("params", params.topik);
+
   console.log("tugas", tugasByTopikId);
   console.log("tugasId", topikId);
 
   // Render Data
   useEffect(() => {
     const fetchAllData = async () => {
-      const TugasByTopik = await getTugasByTopik(params.id);
+      const TugasByTopik = await getTugasByTopik(params.topik);
       setTugasByTopikId(TugasByTopik);
     };
 
     fetchAllData();
-  }, []);
+  }, [params.topik]);
 
   return (
     <div
@@ -68,10 +70,10 @@ const ListTugas = () => {
                   />
                   <div className="flex android:flex-col lg:flex-row md:items-center android:items-start justify-between w-full">
                     <span className="sm:text-4xl android:text-3xl text-black font-medium">
-                      Software
+                      {tugasByTopikId[0]?.topik}
                     </span>
                     <span className=" font-medium sm:text-base android:text-xs text-dark-gray">
-                      Dr. H. Adinda M . Prilia, M. Kom.
+                      {tugasByTopikId[0]?.dosen.dosenName}
                     </span>
                   </div>
                 </div>
@@ -79,95 +81,38 @@ const ListTugas = () => {
             </div>
           </Link>
 
-          <div className="flex flex-wrap gap-8">
-            <Link
-              to={"/mahasiswa/penugasan/list-tugas/detail-tugas"}
-              className="flex flex-col flex-custom max-w-[23rem]"
-            >
-              <div className="bg-[#00535B57] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
-                <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal w-40">
-                    Membuat Web Static
-                  </span>
-                  <span className="font-medium">0/100</span>
+          <Link
+            to={"/mahasiswa/penugasan/list-tugas/detail-tugas"}
+            className="flex flex-wrap gap-8"
+          >
+            {tugasByTopikId.map((item, index) => {
+              return (
+                <div
+                  className="flex flex-col flex-custom max-w-[23rem]"
+                  key={index}
+                >
+                  <div className="bg-[#00535B57] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
+                    <div className="flex flex-col text-white gap-2">
+                      <span className=" text-2xl font-medium leading-normal w-40">
+                        {item?.judul}
+                      </span>
+                      <span className="font-medium">0/100</span>
+                    </div>
+                    <img
+                      src="/public/classroom1.png"
+                      alt=""
+                      className="w-40 h-40 object-contain"
+                    />
+                  </div>
+                  <div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
+                    <button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black">
+                      New
+                    </button>
+                  </div>
                 </div>
-                <img
-                  src="/public/classroom1.png"
-                  alt=""
-                  className="w-40 h-40 object-contain"
-                />
-              </div>
-              <div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
-                <button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black">
-                  New
-                </button>
-              </div>
-            </Link>
-
-            <div className="flex flex-col flex-custom max-w-[23rem]">
-              <div className="bg-[#46C28782] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
-                <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal w-40">
-                    Task 2
-                  </span>
-                  <span className="font-medium">0/100</span>
-                </div>
-                <img
-                  src="/public/classroom2.png"
-                  alt=""
-                  className="w-40 h-40 object-contain"
-                />
-              </div>
-              <div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
-                <button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black text-red">
-                  Not Completed
-                </button>
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-custom max-w-[23rem]">
-              <div className="bg-[#4696C28A] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
-                <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal w-40">
-                    Task 3
-                  </span>
-                  <span className="font-medium">0/100</span>
-                </div>
-                <img
-                  src="/public/classroom3.png"
-                  alt=""
-                  className="w-40 h-40 object-contain"
-                />
-              </div>
-              <div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
-                <button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black">
-                  New
-                </button>
-              </div>
-            </div>
-
-            <div className="flex flex-col flex-custom max-w-[23rem]">
-              <div className="bg-[#8446C24F] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
-                <div className="flex flex-col text-white gap-2">
-                  <span className=" text-2xl font-medium leading-normal w-40">
-                    Task 4
-                  </span>
-                  <span className="font-medium">0/100</span>
-                </div>
-                <img
-                  src="/public/classroom4.png"
-                  alt=""
-                  className="w-40 h-40 object-contain"
-                />
-              </div>
-
-              <div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
-                <button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black">
-                  New
-                </button>
-              </div>
-            </div>
-          </div>
+              );
+            })}
+          </Link>
         </div>
       </div>
     </div>
