@@ -294,3 +294,8 @@ align-items: center;
   border: 1px solid #EC613E;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25);
 }
+.text-tugas {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { apiUrl } from "../../function/globalFunction";
 
-const getMatkulByTopik = async (topik) => {
+const getTugasByTopik = async (topik) => {
   try {
     const response = await axios.get(
       `${apiUrl()}/getTugasByTopik?topik=${topik}`,
@@ -23,4 +23,4 @@ const getMatkulByTopik = async (topik) => {
   }
 };
 
-export default getMatkulByTopik;
+export default getTugasByTopik;
