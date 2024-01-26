@@ -57,7 +57,7 @@ var routes = [
     role: "Mahasiswa",
   },
   {
-    path: "/penugasan/list-tugas/:id",
+    path: "/penugasan/:topik",
     name: "List Tugas",
     component: <ListTugas />,
     layout: "/mahasiswa",

@@ -9,8 +9,6 @@ import { apiUrl } from "../../../function/globalFunction";
 // Components
 import Sidebar from "../../../components/Sidebar";
 
-// External Components
-
 // Icon
 import { Icon } from "@iconify/react";
 import searchIcon from "@iconify/icons-mdi/search";
@@ -22,14 +20,14 @@ const Index = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
 
-  const [penugasanData, setPenugasanData] = useState([]);
+  const [topikData, setTopikData] = useState([]);
   const [search, setSearch] = useState("");
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
-  const filteredEventData = penugasanData.filter((item) => {
+  const filteredEventData = topikData.filter((item) => {
     const topik = item.topik ? item.topik.toLowerCase() : "";
     const deskripsi = item.deskripsi ? item.deskripsi.toLowerCase() : "";
     const dosen = item.dosen.dosenName
@@ -45,8 +43,8 @@ const Index = () => {
 
   useEffect(() => {
     const fetchAllData = async () => {
-      const PenugasanData = await getPenugasanData();
-      setPenugasanData(PenugasanData.updatedTugass);
+      const TopikData = await getPenugasanData();
+      setTopikData(TopikData.updatedTugass);
 
       AOS.refresh();
     };
@@ -97,7 +95,7 @@ const Index = () => {
         {filteredEventData.map((item, index) => (
           <div key={index} id="parent">
             <Link
-              to={`/mahasiswa/penugasan/${item.id}`}
+              to={`/mahasiswa/penugasan/${item.topik}`}
               data-aos="fade-down"
               data-aos-anchor="#parent"
               data-aos-offset="0"
