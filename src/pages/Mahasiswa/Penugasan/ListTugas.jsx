@@ -10,72 +10,72 @@ import searchIcon from "@iconify/icons-mdi/search";
 import getTugasByTopik from "../../../data/mahasiswa/tugasByTopik";
 
 const ListTugas = () => {
-  const [tugasByTopikId, setTugasByTopikId] = useState([]);
+	const [tugasByTopikId, setTugasByTopikId] = useState([]);
 
   const params = useParams();
 
   console.log("params", params.topik);
 
-  // Render Data
-  useEffect(() => {
-    const fetchAllData = async () => {
-      const TugasByTopik = await getTugasByTopik(params.topik);
-      setTugasByTopikId(TugasByTopik);
-    };
+	// Render Data
+	useEffect(() => {
+		const fetchAllData = async () => {
+			const TugasByTopik = await getTugasByTopik(params.topik);
+			setTugasByTopikId(TugasByTopik);
+		};
 
-    fetchAllData();
-  }, [params.topik]);
+		fetchAllData();
+	}, [params.topik]);
 
-  return (
-    <div
-      className="w-full h-full "
-      data-aos="fade-zoom-in"
-      data-aos-easing="ease-in-back"
-      data-aos-duration="0"
-      data-aos-offset="0"
-    >
-      <div className="md:px-7 sm:py-6 android:p-3">
-        <div className="flex flex-col justify-start sm:gap-4 android:gap-2">
-          <span className="  sm:text-5xl android:text-4xl text-black font-medium w-full">
-            Penugasan
-          </span>
-          <span className=" sm:text-xl android:text-lg text-color-page font-medium">
-            Dasar Sistem Informasi
-          </span>
-        </div>
+	return (
+		<div
+			className="w-full h-full "
+			data-aos="fade-zoom-in"
+			data-aos-easing="ease-in-back"
+			data-aos-duration="0"
+			data-aos-offset="0"
+		>
+			<div className="md:px-7 sm:py-6 android:p-3">
+				<div className="flex flex-col justify-start sm:gap-4 android:gap-2">
+					<span className="  sm:text-5xl android:text-4xl text-black font-medium w-full">
+						Penugasan
+					</span>
+					<span className=" sm:text-xl android:text-lg text-color-page font-medium">
+						Dasar Sistem Informasi
+					</span>
+				</div>
 
-        <div className="flex sm:my-16 android:my-8 w-full items-center">
-          <input
-            className=" rounded-l-3xl pl-6 py-5 border border-[#828282] w-full border-r-0"
-            placeholder="Cari Topik..."
-          ></input>
-          <div className="bg-white border border-[#828282] border-l-0 rounded-r-3xl px-6 py-5">
-            <Icon className="w-6 h-6" icon={searchIcon}></Icon>
-          </div>
-        </div>
+				<div className="flex sm:my-16 android:my-8 w-full items-center">
+					<input
+						className=" rounded-l-3xl pl-6 py-5 border border-[#828282] w-full border-r-0"
+						placeholder="Cari Topik..."
+					></input>
+					<div className="bg-white border border-[#828282] border-l-0 rounded-r-3xl px-6 py-5">
+						<Icon className="w-6 h-6" icon={searchIcon}></Icon>
+					</div>
+				</div>
 
-        <div>
-          <Link to={"/mahasiswa/penugasan"}>
-            <div className="bg-[#3E9DC71A] rounded-3xl border border-dark-gray shadow-2xl sm:mb-16 android:mb-8">
-              <div className="flex py-4 android:px-5 sm:px-10 ">
-                <div className="flex gap-3 items-center w-full justify-start">
-                  <img
-                    src="/public/task.png"
-                    alt=""
-                    className=" w-32 h-20 object-cover sm:block android:hidden"
-                  />
-                  <div className="flex android:flex-col lg:flex-row md:items-center android:items-start justify-between w-full">
-                    <span className="sm:text-4xl android:text-3xl text-black font-medium">
-                      {tugasByTopikId[0]?.topik}
-                    </span>
-                    <span className=" font-medium sm:text-base android:text-xs text-dark-gray">
-                      {tugasByTopikId[0]?.dosen.dosenName}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
+				<div>
+					<Link to={"/mahasiswa/penugasan"}>
+						<div className="bg-[#3E9DC71A] rounded-3xl border border-dark-gray shadow-2xl sm:mb-16 android:mb-8">
+							<div className="flex py-4 android:px-5 sm:px-10 ">
+								<div className="flex gap-3 items-center w-full justify-start">
+									<img
+										src="/public/task.png"
+										alt=""
+										className=" w-32 h-20 object-cover sm:block android:hidden"
+									/>
+									<div className="flex android:flex-col lg:flex-row md:items-center android:items-start justify-between w-full">
+										<span className="sm:text-4xl android:text-3xl text-black font-medium">
+											{tugasByTopikId[0]?.topik}
+										</span>
+										<span className=" font-medium sm:text-base android:text-xs text-dark-gray">
+											{tugasByTopikId[0]?.dosen.dosenName}
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</Link>
 
           <div className="flex flex-wrap gap-8">
             {tugasByTopikId.map((item, index) => {
