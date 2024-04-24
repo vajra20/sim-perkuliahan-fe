@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 // Icons
 import { Icon } from "@iconify/react";
 import saveSolid from "@iconify/icons-la/save-solid";
+import locationIcon from "@iconify/icons-mdi/location";
 
 // Function
 import { formatDateTime } from "../../function/globalFunction";
@@ -25,6 +26,46 @@ const Index = () => {
   const [eventData, setEventData] = useState([]);
   const [mahasiswaById, setMahasiswaById] = useState([]);
   const [eventDetail, seteventDetail] = useState({});
+
+  // Time
+  const [tanggalMulai, setTanggalMulai] = useState("");
+  const [waktuMulai, setWaktuMulai] = useState("");
+  const [bulanMulai, setBulanMulai] = useState("");
+  const [tahunMulai, setTahunMulai] = useState("");
+
+  const [tanggalSelesai, setTanggalSelesai] = useState("");
+  const [waktuSelesai, setWaktuSelesai] = useState("");
+
+  const formatDateDetail = () => {
+    if (eventDetail && eventDetail.start_date) {
+      const startDateTime = new Date(eventDetail.start_date);
+      const endDateTime = new Date(eventDetail.end_date);
+
+      const startTanggal = startDateTime.getDate();
+      const startBulan = startDateTime.getMonth() + 1;
+      const startTahun = startDateTime.getFullYear();
+
+      console.log("startBulan", startBulan);
+      console.log("startTahun", startTahun);
+
+      const startWaktu = startDateTime.getDate();
+
+      const endTanggal = endDateTime.getDate();
+      const endWaktu = endDateTime.toLocaleTimeString();
+
+      setTanggalMulai(startTanggal);
+      setBulanMulai(startTanggal);
+      setTahunMulai(startTanggal);
+      setWaktuMulai(startWaktu);
+
+      setTanggalSelesai(`${endTanggal} ${startBulan} ${startTahun}`); // Ganti startBulan ke endBulan jika ingin menampilkan bulan dari endDateTime
+      setWaktuSelesai(endWaktu);
+    }
+  };
+
+  useEffect(() => {
+    formatDateDetail();
+  }, [eventDetail]);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -71,14 +112,11 @@ const Index = () => {
     setIsModalOpen(true);
     seteventDetail(data);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
 
-  console.log('eventDetail', eventDetail);
+  console.log("eventDetail", eventDetail);
 
   return (
     <div className="w-full h-full">
@@ -199,14 +237,79 @@ const Index = () => {
                   </div>
                 ))}
                 <Modal
-                  title="Basic Modal"
+                  title="Modal List Event"
                   open={isModalOpen}
-                  onOk={handleOk}
                   onCancel={handleCancel}
+                  footer={null}
+                  centered
+                  width={720}
                 >
-                  <p>{eventDetail.eventName}</p>
-                  <p>Some contents...</p>
-                  <p>Some contents...</p>
+                  <div className="bg-white pt-6 pb-8">
+                    <div className="flex flex-row gap-5">
+                      <div className=" w-60 h-60 bg-[#D9D9D9]"></div>
+                      <div className="flex flex-col justify-start gap-1 w-full">
+                        <span className="text-2xl font-medium text-black">
+                          {eventDetail.eventName}
+                        </span>
+                        <div className="flex flex-col gap-6">
+                          <div className="flex flex-row gap-2 items-center">
+                            <Icon
+                              icon={locationIcon}
+                              className="w-6 h-6"
+                            ></Icon>
+                            <span className="text-lg font-medium">
+                              {eventDetail.places}
+                            </span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4 items-start">
+                            <div className="flex flex-col justify-center items-center w-full">
+                              <div className="flex flex-col shadow-md rounded-xl">
+                                <div className="bg-[#61CE70] text-center text-white rounded-t-xl py-0.5 px-10">
+                                  <span>Start Date</span>
+                                </div>
+                                <div className="bg-white flex justify-center items-center h-28 rounded-b-xl">
+                                  <div className="flex flex-col items-center gap-4">
+                                    <span className="text-4xl font-medium text-black">
+                                      13
+                                    </span>
+                                    <span className="texl-xl font-medium text-black text-center">
+                                      Oktober 2024
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <span>07.00</span>
+                            </div>
+
+                            <div className="flex flex-col justify-center items-center w-full">
+                              <div className="flex flex-col shadow-md rounded-xl">
+                                <div className="bg-red text-center text-white rounded-t-xl py-0.5 px-10">
+                                  <span>End Date</span>
+                                </div>
+                                <div className="bg-white flex justify-center items-center h-28 rounded-b-xl">
+                                  <div className="flex flex-col items-center gap-4">
+                                    <span className="text-4xl font-medium text-black">
+                                      13
+                                    </span>
+                                    <span className="texl-xl font-medium text-black text-center">
+                                      Oktober 2023
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <span>17.00</span>
+                            </div>
+
+                            <div className="bg-event-color px-5 py-10 rounded-xl h-32 flex justify-center items-center shadow-md">
+                              <span className="text-black font-medium text-lg text-center">
+                                On Progress
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </Modal>
               </div>
             </div>

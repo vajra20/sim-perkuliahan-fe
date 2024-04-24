@@ -10,6 +10,7 @@ import Jadwal from "./pages/Mahasiswa/Jadwal";
 import Penugasan from "./pages/Mahasiswa/Penugasan/Index";
 import ListTugas from "./pages/Mahasiswa/Penugasan/ListTugas";
 import DetailTugas from "./pages/Mahasiswa/Penugasan/DetailTugas";
+import TopikTugas from "./pages/Mahasiswa/Penugasan/TopikTugas";
 
 // Pages Dosen
 import DosenPage from "./pages/Dosen/Index";
@@ -57,14 +58,23 @@ var routes = [
     role: "Mahasiswa",
   },
   {
-    path: "/penugasan/:topik",
+    path: "/penugasan/:id",
+    name: "Penugasan",
+    icon: homeIcon,
+    component: <TopikTugas />,
+    layout: "/mahasiswa",
+    allow: false,
+    role: "Mahasiswa",
+  },
+  {
+    path: "/penugasan/:id/:topik",
     name: "List Tugas",
     component: <ListTugas />,
     layout: "/mahasiswa",
     allow: false,
   },
   {
-    path: "/penugasan/list-tugas/detail-tugas",
+    path: "/penugasan/:id/:topik/:id",
     name: "Detail Tugas",
     component: <DetailTugas />,
     layout: "/mahasiswa",

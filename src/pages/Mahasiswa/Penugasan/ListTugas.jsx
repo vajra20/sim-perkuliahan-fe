@@ -12,13 +12,9 @@ import getTugasByTopik from "../../../data/mahasiswa/tugasByTopik";
 const ListTugas = () => {
 	const [tugasByTopikId, setTugasByTopikId] = useState([]);
 
-	const params = useParams();
-	const topikId = params.id;
+  const params = useParams();
 
-	console.log("params", params.topik);
-
-	console.log("tugas", tugasByTopikId);
-	console.log("tugasId", topikId);
+  console.log("params", params.topik);
 
 	// Render Data
 	useEffect(() => {
@@ -81,44 +77,41 @@ const ListTugas = () => {
 						</div>
 					</Link>
 
-					<Link
-						to={"/mahasiswa/penugasan/list-tugas/detail-tugas"}
-						className="flex flex-wrap gap-8"
-					>
-						{tugasByTopikId.map((item, index) => {
-							return (
-								<div
-									className="flex flex-col flex-custom max-w-[23rem]"
-									key={index}
-								>
-									<div className="bg-[#00535B57] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
-										<div className="flex flex-col text-white gap-2">
-											<span className=" text-2xl font-medium leading-normal w-40">
-												{item?.judul}
-											</span>
-											<span className="font-medium">
-												0/100
-											</span>
-										</div>
-										<img
-											src="/public/classroom1.png"
-											alt=""
-											className="w-40 h-40 object-contain"
-										/>
-									</div>
-									<div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
-										<button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black">
-											New
-										</button>
-									</div>
-								</div>
-							);
-						})}
-					</Link>
-				</div>
-			</div>
-		</div>
-	);
+          <div className="flex flex-wrap gap-8">
+            {tugasByTopikId.map((item, index) => {
+              return (
+                <Link
+                  to={`/mahasiswa/penugasan/${item.id}/${item.topik}/${item.id}`}
+                  key={index}
+                >
+                  <div className="flex flex-col flex-custom max-w-[23rem]">
+                    <div className="bg-[#00535B57] justify-between flex p-6 rounded-t-3xl items-center border border-black border-b-0 h-screen max-h-40 w-full overflow-hidden">
+                      <div className="flex flex-col text-white gap-2">
+                        <span className="text-tugas text-2xl font-medium leading-normal w-40 text-ellipsis overflow-hidden ">
+                          {item?.judul}
+                        </span>
+                        <span className="font-medium">0/100</span>
+                      </div>
+                      <img
+                        src="/public/classroom1.png"
+                        alt=""
+                        className="w-40 h-40 object-contain"
+                      />
+                    </div>
+                    <div className="bg-[#00535B0D] p-6 rounded-b-3xl flex justify-end h-screen max-h-36 items-end  border border-black border-t-0">
+                      <button className="px-8 py-3 w-fit h-fit rounded-full bg-white border border-black">
+                        New
+                      </button>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ListTugas;
