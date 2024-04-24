@@ -1,47 +1,65 @@
 @import url("https://fonts.googleapis.com/css2?family=Lalezar&family=Lato&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 body {
-  margin: 0;
-  padding: 0;
-  line-height: 1.4;
-  box-sizing: border-box;
-  background-color: #fff;
-  scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	line-height: 1.4;
+	box-sizing: border-box;
+	background-color: #fff;
+	scroll-behavior: smooth;
 }
 
-#root{
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
+#root {
+	font-family: "Poppins", sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
 }
 
-h1{
-  font-size: 40px !important;
-  font-style: normal !important;
-  line-height: 1.4 !important;
-  font-family: "Poppins", sans-serif;
+h1 {
+	font-size: 40px !important;
+	font-style: normal !important;
+	line-height: 1.4 !important;
+	font-family: "Poppins", sans-serif;
 }
 
-h2{
-  font-size: 24px !important;
-  font-style: normal !important;
-  line-height: 1.4 !important;
-  font-family: "Poppins", sans-serif;
+h2 {
+	font-size: 24px !important;
+	font-style: normal !important;
+	line-height: 1.4 !important;
+	font-family: "Poppins", sans-serif;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
+	background: rgba(0, 0, 0, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(70, 70, 70);
-  border-radius: 20px;
+	background: rgb(70, 70, 70);
+	border-radius: 20px;
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Button OK antd */
+
+/* button.ant-btn.css-dev-only-do-not-override-1adbn6x.ant-btn-primary.ant-btn-sm {
+	color: #fff !important;
+	background-color: black !important;
+} */
+
+.ant-btn-primary {
+	font-size: 0 !important;
+	color: #fff !important;
+	background-color: black !important;
+}
+
+.ant-btn-primary:after {
+	content: "Submit" !important;
+	font-size: 12px;
+}

@@ -25,6 +25,8 @@ const BeritaAcara = () => {
 	const navigate = useNavigate();
 	const { sidebarOpen } = useSidebar();
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	// Canvas
 	const sigCanvas = useRef();
 	const clear = () => sigCanvas.current.clear();
@@ -53,6 +55,7 @@ const BeritaAcara = () => {
 		jamMasuk: "",
 		jamKeluar: "",
 		descMateri: "",
+		jmlMhsHadir: "",
 	});
 
 	// Change Handler
@@ -111,28 +114,32 @@ const BeritaAcara = () => {
 
 		const formData = new FormData();
 
-		formData.append("dosenId", beritaAcara.dosenId);
 		formData.append("pertemuanKe", beritaAcara.pertemuanKe);
 		formData.append("date", beritaAcara.date);
 		formData.append("jamMasuk", beritaAcara.jamMasuk);
 		formData.append("jamKeluar", beritaAcara.jamKeluar);
 		formData.append("descMateri", beritaAcara.descMateri);
+		formData.append("jmlMhsHadir", beritaAcara.jmlMhsHadir);
 
 		// if (uploadDocument?.length) {
 		// 	formData.append("file", uploadDocument[0]);
 		// }
 
 		await axios
-			.post(`${apiUrl()}/createAcaraBerita`, formData, {
-				headers: {
-					Accept: "application/json",
-					Authorization: `Bearer ${localStorage.getItem(
-						"accessToken"
-					)}`,
-					"Access-Control-Allow-Origin": "*",
-					"ngrok-skip-browser-warning": "true",
-				},
-			})
+			.post(
+				`${apiUrl()}/createAcaraBerita?dosenId=${dosenId}`,
+				formData,
+				{
+					headers: {
+						Accept: "application/json",
+						Authorization: `Bearer ${localStorage.getItem(
+							"accessToken"
+						)}`,
+						"Access-Control-Allow-Origin": "*",
+						"ngrok-skip-browser-warning": "true",
+					},
+				}
+			)
 			.then((response) => {
 				if (response.status === 200 || response.status === 201) {
 					Swal.fire({
@@ -153,7 +160,7 @@ const BeritaAcara = () => {
 					setIsLoading(false);
 				}
 
-				navigate("/admin/beranda");
+				window.location.reload();
 			})
 			.catch((error) => {
 				Swal.fire({
@@ -207,9 +214,10 @@ const BeritaAcara = () => {
 								<div className="flex items-center gap-0">
 									<span
 										className="text-lg"
+										disabled={isLoading}
 										onClick={handleSubmit}
 									>
-										Simpan
+										{isLoading ? "Menyimpan.." : "Simpan"}
 									</span>
 
 									<Icon
@@ -298,6 +306,14 @@ const BeritaAcara = () => {
 									}}
 								/>
 							</div>
+
+							<input
+								placeholder="Jumlah Mahasiswa Hadir"
+								name="jmlMhsHadir"
+								type="number"
+								className="rounded-md py-4 px-6 border-b-2 focus:outline-blue-focus w-full text-base border-2 "
+								onChange={(e) => formChangeHandler(e)}
+							/>
 
 							<textarea
 								type="text"

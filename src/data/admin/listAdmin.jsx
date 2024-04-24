@@ -12,7 +12,7 @@ const getAdminData = async () => {
 			},
 		});
 
-		const data = response.data;
+		const data = response.data.adminsWithoutPassword;
 		return data;
 	} catch (error) {
 		console.error("Error fetching data:", error);
