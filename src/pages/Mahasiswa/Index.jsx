@@ -8,7 +8,13 @@ import saveSolid from "@iconify/icons-la/save-solid";
 import locationIcon from "@iconify/icons-mdi/location";
 
 // Function
-import { apiUrl } from "../../function/globalFunction";
+import {
+	apiUrl,
+	formatDate,
+	formatOnlyDate,
+	formatOnlyMonth,
+	formatOnlyTime,
+} from "../../function/globalFunction";
 import { formatDateTime } from "../../function/globalFunction";
 
 // Data
@@ -274,7 +280,7 @@ const Index = () => {
 									>
 										<div className="flex flex-row gap-3 sm:mb-3 android:mb-0 items-center">
 											{item.file ? (
-												<Image
+												<img
 													className="w-12 h-12 rounded-md sm:block android:hidden lg:hidden xl:block"
 													width={100}
 													height="auto"
@@ -283,7 +289,7 @@ const Index = () => {
 													}`}
 												/>
 											) : (
-												<Image
+												<img
 													width={100}
 													className="m-0 object-contain"
 													src="https://ih1.redbubble.net/image.3203944270.2367/st,small,507x507-pad,600x600,f8f8f8.jpg"
@@ -327,6 +333,7 @@ const Index = () => {
 										</div>
 									</div>
 								))}
+
 								<Modal
 									title="Modal List Event"
 									open={isModalOpen}
@@ -337,7 +344,23 @@ const Index = () => {
 								>
 									<div className="bg-white pt-6 pb-8">
 										<div className="flex flex-row gap-5">
-											<div className=" w-60 h-60 bg-[#D9D9D9]"></div>
+											{eventDetail.file ? (
+												<Image
+													className="w-12 h-12 rounded-md sm:block android:hidden lg:hidden xl:block"
+													height={225}
+													src={`${apiUrl()}/api/image/${
+														eventDetail.file
+													}`}
+												/>
+											) : (
+												<Image
+													width={225}
+													height={225}
+													className="m-0 object-contain"
+													src="https://ih1.redbubble.net/image.3203944270.2367/st,small,507x507-pad,600x600,f8f8f8.jpg"
+												/>
+											)}
+
 											<div className="flex flex-col justify-start gap-1 w-full">
 												<span className="text-2xl font-medium text-black">
 													{eventDetail.eventName}
@@ -355,7 +378,7 @@ const Index = () => {
 														</span>
 													</div>
 
-													<div className="grid grid-cols-3 gap-4 items-start">
+													<div className="flex">
 														<div className="flex flex-col justify-center items-center w-full">
 															<div className="flex flex-col shadow-md rounded-xl">
 																<div className="bg-[#61CE70] text-center text-white rounded-t-xl py-0.5 px-10">
@@ -368,16 +391,31 @@ const Index = () => {
 																<div className="bg-white flex justify-center items-center h-28 rounded-b-xl">
 																	<div className="flex flex-col items-center gap-4">
 																		<span className="text-4xl font-medium text-black">
-																			13
+																			{formatOnlyDate(
+																				new Date(
+																					eventDetail.start_date
+																				)
+																			)}
 																		</span>
+
 																		<span className="texl-xl font-medium text-black text-center">
-																			Oktober
-																			2024
+																			{formatOnlyMonth(
+																				new Date(
+																					eventDetail.start_date
+																				)
+																			)}
 																		</span>
 																	</div>
 																</div>
 															</div>
-															<span>07.00</span>
+
+															<span>
+																{formatOnlyTime(
+																	new Date(
+																		eventDetail.end_date
+																	)
+																)}
+															</span>
 														</div>
 
 														<div className="flex flex-col justify-center items-center w-full">
@@ -387,24 +425,34 @@ const Index = () => {
 																		End Date
 																	</span>
 																</div>
+
 																<div className="bg-white flex justify-center items-center h-28 rounded-b-xl">
 																	<div className="flex flex-col items-center gap-4">
 																		<span className="text-4xl font-medium text-black">
-																			13
+																			{formatOnlyDate(
+																				new Date(
+																					eventDetail.end_date
+																				)
+																			)}
 																		</span>
+
 																		<span className="texl-xl font-medium text-black text-center">
-																			Oktober
-																			2023
+																			{formatOnlyMonth(
+																				new Date(
+																					eventDetail.end_date
+																				)
+																			)}
 																		</span>
 																	</div>
 																</div>
 															</div>
-															<span>17.00</span>
-														</div>
 
-														<div className="bg-event-color px-5 py-10 rounded-xl h-32 flex justify-center items-center shadow-md">
-															<span className="text-black font-medium text-lg text-center">
-																On Progress
+															<span>
+																{formatOnlyTime(
+																	new Date(
+																		eventDetail.end_date
+																	)
+																)}
 															</span>
 														</div>
 													</div>

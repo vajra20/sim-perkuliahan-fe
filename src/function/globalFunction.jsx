@@ -3,6 +3,53 @@ export function apiUrl() {
 	return import.meta.env.VITE_REACT_API_URL;
 }
 
+// Date
+export function formatOnlyDate(date) {
+	if (isNaN(date.getTime())) {
+		return "--";
+	}
+
+	const day = date.getDate().toString().padStart(2, "0");
+	return `${day}`;
+}
+
+export function formatOnlyMonth(date) {
+	if (isNaN(date.getTime())) {
+		return "--";
+	}
+
+	const months = [
+		"Januari",
+		"Februari",
+		"Maret",
+		"April",
+		"Mei",
+		"Juni",
+		"Juli",
+		"Agustus",
+		"September",
+		"Oktober",
+		"November",
+		"Desember",
+	];
+
+	const monthIndex = date.getMonth();
+	const month = months[monthIndex];
+
+	const year = date.getFullYear();
+	return `${month} ${year}`;
+}
+
+export function formatOnlyTime(date) {
+	if (isNaN(date.getTime())) {
+		return "--";
+	}
+
+	const hours = date.getHours().toString().padStart(2, "0");
+	const minutes = date.getMinutes().toString().padStart(2, "0");
+	return `${hours}:${minutes}`;
+}
+
 // Specific Date Time
 export function formatDateTime(date) {
 	if (isNaN(date.getTime())) {
