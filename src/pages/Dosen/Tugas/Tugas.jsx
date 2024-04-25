@@ -7,7 +7,6 @@ import {
 	formatTime,
 	formatDateTime,
 	getFileExtension,
-	pictureFile,
 } from "../../../function/globalFunction";
 
 // Components
