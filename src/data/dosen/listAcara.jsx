@@ -3,7 +3,7 @@ import { apiUrl } from "../../function/globalFunction";
 
 const getBeritaAcara = async () => {
 	try {
-		const response = await axios.get(`${apiUrl()}/getAcaraBerita`, {
+		const response = await axios.get(`${apiUrl()}/getAcaraDosen`, {
 			headers: {
 				Accept: "application/json",
 				Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

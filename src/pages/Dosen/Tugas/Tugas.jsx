@@ -596,9 +596,21 @@ const Tugas = () => {
 
 											<div className="det-pdf flex android:flex-row android:flex-wrap lg:flex-nowrap android:gap-3 sm:gap-6 justify-between items-center">
 												<div className="flex flex-row shadow rounded-xl android:flex-initial lg:flex-auto sm:w-full android:w-fit android:text-sm lg:max-w-[40%]">
-													<div className="bg-white sm:px-6 android:px-3 sm:py-3 android:py-1.5 border-r-event-color border-r rounded-l-xl android:w-full sm:w-fit sm:min-w-[20%] android:min-w-[20%] sm:max-w-[30%] android:h-auto android:max-w-[25%] lg:max-h-24 ">
-														{pictureFile(
-															`${item.lampiran}`
+													<div>
+														{item?.lampiran ? (
+															<Image
+																width={100}
+																className="m-0 object-contain"
+																src={`${apiUrl()}/api/image/${
+																	item.lampiran
+																}`}
+															/>
+														) : (
+															<Image
+																width={100}
+																className="m-0 object-contain"
+																src="https://ih1.redbubble.net/image.3203944270.2367/st,small,507x507-pad,600x600,f8f8f8.jpg"
+															/>
 														)}
 													</div>
 
@@ -625,8 +637,8 @@ const Tugas = () => {
 												</div>
 
 												<div className="flex flex-row gap-3 android:w-full android flex-1 sm:flex-auto lg:max-w-[30%]">
-													<div className=" w-full border border-[#61CE70] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24 ">
-														<Link
+													<div className=" w-full border border-light-gray rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24 ">
+														{/* <Link
 															to={`/dosen/tugas/siswa-tugas/${item.id}`}
 															className=""
 														>
@@ -637,7 +649,7 @@ const Tugas = () => {
 															<span className="sm:text-[16px] android:text-sm flex justify-center gap-10 w-full text-[#61CE70]">
 																Menyerahkan
 															</span>
-														</Link>
+														</Link> */}
 													</div>
 
 													<div className=" w-full border border-[#EC613E] rounded-xl sm:p-3 android:p-1.5 flex items-center flex-col justify-center android:h-[70px] sm:h-24 lg:h-24">
@@ -646,7 +658,10 @@ const Tugas = () => {
 															className=""
 														>
 															<span className="sm:text-5xl lg:text-5xl android:text-3xl flex justify-center  w-full text-[#EC613E] font-semibold">
-																30
+																{item
+																	?.assignedMahasiswa
+																	?.length ??
+																	0}
 															</span>
 
 															<span className="sm:text-[16px] lg:text-[18px] android:text-sm flex justify-center gap-10 w-full text-[#EC613E]">

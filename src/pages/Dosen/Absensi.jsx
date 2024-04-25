@@ -7,7 +7,7 @@ import { apiUrl } from "../../function/globalFunction";
 // External Components
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Table, Dropdown, Menu, Radio } from "antd";
+import { Table, Dropdown, Menu, Radio, DatePicker } from "antd";
 
 // Data
 import getMahasiswaData from "../../data/admin/listMahasiswa";
@@ -40,7 +40,7 @@ const Absensi = () => {
 		data = {
 			no: `${index + 1}.`,
 			key: item?.id ?? null,
-			mahasiswa_id: item?.id ?? null,
+			mahasiswaId: item?.id ?? null,
 			mhsName: item?.mhsName ?? "",
 			nim: item?.nim ?? "",
 		};
@@ -75,7 +75,7 @@ const Absensi = () => {
 			title: "Keterangan",
 			align: "center",
 			render: (record) => {
-				const id = record.mahasiswa_id;
+				const id = record.mahasiswaId;
 
 				return (
 					<>
@@ -134,6 +134,7 @@ const Absensi = () => {
 	const [pertemuanKe, setPertemuanKe] = useState("");
 	const [absensiMahasiswa, setAbsensiMahasiswa] = useState({
 		pertemuanKe: null,
+		date: "",
 		absensiData: [],
 	});
 
@@ -146,8 +147,6 @@ const Absensi = () => {
 			})),
 		}));
 	}, [mahasiswaData]);
-
-	console.log(absensiMahasiswa);
 
 	// Change Handler
 	const handleDropdownSelect = (item) => {
@@ -170,10 +169,10 @@ const Absensi = () => {
 	const handleRadioChange = (mahasiswaId, status) => {
 		setAbsensiMahasiswa((prevAbsensi) => {
 			const updatedAbsensiData = prevAbsensi.absensiData.map((item) => {
-				if (item.mahasiswa_id === mahasiswaId) {
+				if (item.mahasiswaId === mahasiswaId) {
 					return {
 						...item,
-						status_id: status,
+						statusId: status,
 					};
 				}
 				return item;
@@ -269,6 +268,36 @@ const Absensi = () => {
 								</div>
 							</a>
 						</Dropdown>
+					</div>
+
+					<div className="md:mb-3 android:mb-1.5">
+						<div className="flex flex-row items-center gap-3">
+							<span className="text-white md:text-md android:text-md font-medium ">
+								Tanggal Absensi
+							</span>
+
+							<DatePicker
+								placeholder="Tanggal acara"
+								format="DD-MM-YYYY"
+								className="rounded-md border-b-2 focus:outline-blue-focus text-base border-2 "
+								onChange={(values) => {
+									setAbsensiMahasiswa((prev) => {
+										const cache = { ...prev };
+
+										if (values) {
+											const dateFormatted =
+												values?.format("YYYY-MM-DD");
+
+											cache.date = dateFormatted ?? "";
+										} else {
+											cache.date = "";
+										}
+
+										return cache;
+									});
+								}}
+							/>
+						</div>
 					</div>
 
 					<div className="bg-[#DCE9FE]">

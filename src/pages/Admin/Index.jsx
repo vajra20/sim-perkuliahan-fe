@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSidebar } from "../../context/ContextProvider";
 import Tables from "../../components/Tables";
 import Time from "../../components/Time";
+import { Image } from "antd";
 
 // Function
 import { apiUrl, formatDateTime } from "../../function/globalFunction";
@@ -230,12 +231,22 @@ const Index = () => {
 									key={`${item} - ${index}`}
 								>
 									<div className="flex flex-row gap-3 sm:mb-3 android:mb-0 items-center">
-										{/* <img
-											src={`${apiUrl()}/${item.file}`}
-											className="w-12 h-12 rounded-md sm:block android:hidden lg:hidden xl:block"
-										></img> */}
-
-										<div className="bg-event-color w-12 h-12 rounded-md sm:block android:hidden lg:hidden xl:block"></div>
+										{item.file ? (
+											<Image
+												className="w-12 h-12 rounded-md sm:block android:hidden lg:hidden xl:block"
+												width={100}
+												height="auto"
+												src={`${apiUrl()}/api/image/${
+													item.file
+												}`}
+											/>
+										) : (
+											<Image
+												width={100}
+												className="m-0 object-contain"
+												src="https://ih1.redbubble.net/image.3203944270.2367/st,small,507x507-pad,600x600,f8f8f8.jpg"
+											/>
+										)}
 
 										<div className="flex justify-between w-full sm:items-center android:items-left gap-2.5 sm:flex-row android:flex-col">
 											<div className="flex flex-col gap-0 justify-between w-4/5">
