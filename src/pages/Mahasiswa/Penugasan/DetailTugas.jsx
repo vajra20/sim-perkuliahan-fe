@@ -221,7 +221,7 @@ const DetailTugas = () => {
 														}
 													/>
 
-													{submitTugas.linkUrl &&
+													{/* {submitTugas.linkUrl &&
 														isValidURL(
 															submitTugas.linkUrl
 														) && (
@@ -243,7 +243,7 @@ const DetailTugas = () => {
 																	}
 																</a>
 															</div>
-														)}
+														)} */}
 												</div>
 											</Modal>
 
