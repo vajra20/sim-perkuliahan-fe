@@ -6,17 +6,21 @@
 Mengamankan akses ke halaman-halaman atau fitur-fitur tertentu yang hanya boleh diakses oleh pengguna yang sudah terdaftar dengan memasukkan informasi identifikasi, seperti username atau email, dan kata sandi (password).
 <br></br>
 
+<hr>
+
 ![Admin Page](images/AdminDosen.png)
 
 <h1>Buat Akun Dosen</h1>
 Fitur yang berfungsi untuk menambahkan atau membuat informasi mengenai dosen ke dalam halaman yang khusus untuk dosen-dosen tersebut.
 <br></br>
+<hr>
 
 ![Admin Page](images/AdminMahasiswa.png)
 
 <h1>Buat Akun Mahasiswa</h1>
 Fitur yang berfungsi untuk menambahkan atau membuat informasi mengenai mahasiswa ke dalam halaman yang khusus untuk mahasiswa-mahasiswa tersebut.
 <br></br>
+<hr>
 
 ![Admin Page](images/AdminAcara.png)
 
