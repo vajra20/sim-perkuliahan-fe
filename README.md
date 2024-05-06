@@ -4,22 +4,18 @@
 
 <h1>Login Page</h1>
 Mengamankan akses ke halaman-halaman atau fitur-fitur tertentu yang hanya boleh diakses oleh pengguna yang sudah terdaftar dengan memasukkan informasi identifikasi, seperti username atau email, dan kata sandi (password).
-<br></br>
-
 <hr>
 
 ![Admin Page](images/AdminDosen.png)
 
 <h1>Buat Akun Dosen</h1>
 Fitur yang berfungsi untuk menambahkan atau membuat informasi mengenai dosen ke dalam halaman yang khusus untuk dosen-dosen tersebut.
-<br></br>
 <hr>
 
 ![Admin Page](images/AdminMahasiswa.png)
 
 <h1>Buat Akun Mahasiswa</h1>
 Fitur yang berfungsi untuk menambahkan atau membuat informasi mengenai mahasiswa ke dalam halaman yang khusus untuk mahasiswa-mahasiswa tersebut.
-<br></br>
 <hr>
 
 ![Admin Page](images/AdminAcara.png)
@@ -35,6 +31,36 @@ Fitur yang berfungsi untuk menambahkan atau membuat suatu acara yang akan dilaks
 
 <h1>Halaman Utama Dosen</h1>
 Menampilkan berbagai mata kuliah untuk dosen dengan memaparkan judul mata kuliah serta tahun ajaran. Di dalamnya juga menyediakan daftar tugas yang sudah dibuat oleh dosen, serta dapat memberikan nilai pada mahasiswa yang sudah mengirim tugasnya.
+
+<hr>
+
+![Dosen Page](images/DosenAbsensi.png)
+
+<h1>Absensi Mahasiswa</h1>
+Fitur yang berfungsi untuk mencatat kehadiran mahasiswa setiap harinya oleh dosen yang bersangkutan. Disediakan juga fitur filter berdasarkan tanggal.
+
+<hr>
+
+![Dosen Page](images/DosenAbsensi.png)
+
+<h1>Absensi Mahasiswa</h1>
+Fitur yang berfungsi untuk mencatat kehadiran mahasiswa setiap harinya oleh dosen yang bersangkutan. Disediakan juga fitur filter berdasarkan tanggal.
+
+<hr>
+
+![Dosen Page](images/DosenBerita.png)
+Fitur yang berfungsi untuk membuat acara untuk mahasiswa yang disediakan oleh dosen sesuai mata kuliah yang bersangkutan.
+
+<br></br>
+
+<hr>
+
+![Dosen Page](images/MahasiswaPenugasan.png)
+Menampikan berbagai mata kuliah yang sudah dibuat oleh Admin dengan disisipkan dosen yang bersangkutan untuk mata kuliah tersebut. Halaman tersebut juga menampilkan daftar tugas yang sudah dibuat oleh admin dan detail terkait tugas yang dibuat sehingga mahasiswa dapat mengerjakan dan mengirim ke dosen.
+
+<br></br>
+
+<hr>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
