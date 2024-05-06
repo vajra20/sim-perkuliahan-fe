@@ -1,6 +1,9 @@
 # React + Vite
 
-![alt text](image.png)
+![Login Page](images/Login.png)
+
+<h1>Login Page</h1>
+Mengamankan akses ke halaman-halaman atau fitur-fitur tertentu yang hanya boleh diakses oleh pengguna yang sudah terdaftar dengan memasukkan informasi identifikasi, seperti username atau email, dan kata sandi (password).
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
