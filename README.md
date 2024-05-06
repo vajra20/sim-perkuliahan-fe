@@ -50,7 +50,7 @@ Fitur yang berfungsi untuk mencatat kehadiran mahasiswa setiap harinya oleh dose
 
 <hr>
 
-<h1>Absensi Mahasiswa</h1>
+<h1>Berita Acara</h1>
 
 ![Dosen Page](images/DosenBerita.png)
 Fitur yang berfungsi untuk membuat acara untuk mahasiswa yang disediakan oleh dosen sesuai mata kuliah yang bersangkutan.
