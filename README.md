@@ -43,7 +43,7 @@ Fitur yang berfungsi untuk mencatat kehadiran mahasiswa setiap harinya oleh dose
 
 ![Dosen Page](images/DosenAbsensi.png)
 
-<h1>Absensi Mahasiswa</h1>
+<h1>Berita Acara</h1>
 Fitur yang berfungsi untuk mencatat kehadiran mahasiswa setiap harinya oleh dosen yang bersangkutan. Disediakan juga fitur filter berdasarkan tanggal.
 
 <hr>
@@ -54,6 +54,8 @@ Fitur yang berfungsi untuk membuat acara untuk mahasiswa yang disediakan oleh do
 <br></br>
 
 <hr>
+
+<h1>Halaman Utama Mahasiswa</h1>
 
 ![Dosen Page](images/MahasiswaPenugasan.png)
 Menampikan berbagai mata kuliah yang sudah dibuat oleh Admin dengan disisipkan dosen yang bersangkutan untuk mata kuliah tersebut. Halaman tersebut juga menampilkan daftar tugas yang sudah dibuat oleh admin dan detail terkait tugas yang dibuat sehingga mahasiswa dapat mengerjakan dan mengirim ke dosen.
