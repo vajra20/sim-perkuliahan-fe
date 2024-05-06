@@ -59,7 +59,7 @@ Fitur yang berfungsi untuk membuat acara untuk mahasiswa yang disediakan oleh do
 
 <hr>
 
-<h1>Halaman Utama Mahasiswa</h1>
+<h1>Penugasan Mahasiswa</h1>
 
 ![Dosen Page](images/MahasiswaPenugasan.png)
 Menampikan berbagai mata kuliah yang sudah dibuat oleh Admin dengan disisipkan dosen yang bersangkutan untuk mata kuliah tersebut. Halaman tersebut juga menampilkan daftar tugas yang sudah dibuat oleh admin dan detail terkait tugas yang dibuat sehingga mahasiswa dapat mengerjakan dan mengirim ke dosen.
